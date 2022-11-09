@@ -1,0 +1,21 @@
+.cv {
+	display: flex;
+	margin: 0 10%;
+
+	&__link {
+		display: flex;
+		text-decoration: none;
+		color: #000;
+		a:visited {
+			color: black;
+		}
+	}
+
+	&__download-icon {
+		height: 50px;
+        width: 50px;
+		padding: 20px;
+		background-image: url('../icons/icons-applicant.png');
+		background-repeat: no-repeat;
+	}
+}

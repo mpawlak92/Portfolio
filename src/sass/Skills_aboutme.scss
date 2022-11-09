@@ -1,0 +1,27 @@
+@import './Variables.scss';
+
+.skills-box {
+	position: relative;
+	width: 80vw;
+	padding: 2rem;
+	padding-top: 1rem;
+	margin: 3rem 10%;
+	// margin-bottom: 30rem;
+	font-size: 1em;
+	background-color: $secendary-color;
+	border-radius: 10px;
+
+	&__list {
+		list-style: none;
+	}
+	&__list li::before {
+		content: '-';
+		width: 1rem;
+		height: 1rem;
+		margin-right: 0.5rem;
+	}
+	h1 {
+		font-size: 2rem;
+		text-align: center;
+	}
+}

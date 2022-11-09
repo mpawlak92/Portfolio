@@ -1,0 +1,60 @@
+@import './Variables.scss';
+
+.contact-info {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80vw;
+	margin: 0 10vw;
+	padding: 2rem;
+	background-color: $secendary-color;
+	font-size: 5rem;
+	border-radius: 10px;
+
+	&__head {
+		flex-grow: 1;
+		margin-bottom: 10px;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	li {
+		display: flex;
+		margin-bottom: 10px;
+		list-style: none;
+	}
+	li:last-child {
+		margin-bottom: 0px;
+	}
+
+	a {
+		display: flex;
+		font-size: 2rem;
+		color: $primary-color;
+		text-decoration: none;
+	}
+	&__linkedin-ico {
+		width: 50px;
+		height: 50px;
+		background-image: url(../icons/icons-linkedin.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	&__tel-ico {
+		width: 50px;
+		height: 50px;
+		background-image: url(../icons/icons-tel.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	&__mail-ico {
+		width: 50px;
+		height: 50px;
+		background-image: url(../icons/icons-mail.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	p {
+		margin: auto 0 auto 10px;
+		font-size: 2rem;
+	}
+}
