@@ -6,9 +6,11 @@
 	width: 80vw;
 	margin: 0 10vw;
 	padding: 2rem;
-	background-color: $secendary-color;
 	font-size: 5rem;
-	border-radius: 10px;
+	background-color: $secendary-color;
+	border: 1px solid $primary-color;
+	border-radius: 8px;
+	box-shadow: 0px 12px 20px -10px;
 
 	&__head {
 		flex-grow: 1;

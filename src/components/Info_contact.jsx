@@ -4,7 +4,7 @@ import '../sass/Info_contact.scss';
 const ContactInfo = () => {
 	return (
 		<div className='contact-info'>
-			<h3 className='contact-info__head'>Dane kontatowe</h3>
+			<h3 className='contact-info__head'>Contact info:</h3>
 			<ul>
 				<li>
 					<div className='contact-info__tel-ico'></div> <p>726-630-790</p>

@@ -6,13 +6,15 @@
 	padding: 2rem;
 	padding-top: 1rem;
 	margin: 3rem 10%;
-	// margin-bottom: 30rem;
 	font-size: 1em;
 	background-color: $secendary-color;
-	border-radius: 10px;
+	border: 1px solid $primary-color;
+	border-radius: 8px;
+	box-shadow: 0px 12px 20px -10px;
 
 	&__list {
 		list-style: none;
+		font-size: 3rem;
 	}
 	&__list li::before {
 		content: '-';
@@ -21,7 +23,8 @@
 		margin-right: 0.5rem;
 	}
 	h1 {
-		font-size: 2rem;
+		font-size: 2.2rem;
 		text-align: center;
+		margin-bottom: 1rem;
 	}
 }
