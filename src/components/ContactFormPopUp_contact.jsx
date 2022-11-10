@@ -2,11 +2,11 @@ import React from 'react';
 
 import '../sass/ContactFormPopUp_contact.scss';
 
-const ContactFormPopUp = ({ message }) => {
+const ContactFormPopUp = ({ message, click }) => {
 	return (
 		<div className='popup'>
-			console.log(message);
-			<h2>{message}</h2>
+			<div className='popup__close' onClick={click}></div>
+			<p className='popup__text'>{message}</p>
 		</div>
 	);
 };

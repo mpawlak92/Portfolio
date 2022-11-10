@@ -9,15 +9,16 @@ let msgError = 0,
 	phoneError = 0,
 	mailError = 0,
 	nameError = 0;
+
 const ContactForm = () => {
 	const [nameInputValue, setNameInputValue] = useState('');
 	const [phoneInputValue, setPhoneInputValue] = useState('');
 	const [mailInputValue, setMailInputValue] = useState('');
 	const [messageInputValue, setMessageInputValue] = useState('');
 	const [isError, setIsError] = useState(true);
+	const [isPopUpActive, setIsPopUpActive] = useState(0);
 
 	const form = useRef();
-
 	const handleSubmitForm = (e) => {
 		e.preventDefault();
 
@@ -31,11 +32,10 @@ const ContactForm = () => {
 			)
 			.then(
 				(result) => {
-					<ContactFormPopUp message='Twój mail został pomyślnie wysłany! Dziekujemy :)' />;
-					console.log('ok');
+					setIsPopUpActive(result.status);
 				},
 				(error) => {
-					<ContactFormPopUp message='Nie udało się wysłac maila' />;
+					setIsPopUpActive(error.status);
 				}
 			);
 
@@ -135,7 +135,6 @@ const ContactForm = () => {
 		handleActiveSubmitBtn();
 	};
 	const handleActiveSubmitBtn = () => {
-		console.log('isworkinfg');
 		if (
 			msgError === 0 &&
 			phoneError === 0 &&
@@ -151,67 +150,83 @@ const ContactForm = () => {
 			setIsError(true);
 		}
 	};
-
+	const handlePopUpClose = () => {
+		setIsPopUpActive(0);
+	};
 	return (
-		<div className='contact-form'>
-			<form ref={form} onSubmit={handleSubmitForm}>
-				<label htmlFor='name'>
-					<span className='contact-form__label'>Name and Surname:</span>
-				</label>
-				<input
-					className='contact-form__input'
-					type='text'
-					id='name'
-					name='name'
-					value={nameInputValue}
-					onChange={handleInput}
+		<>
+			{isPopUpActive === 200 ? (
+				<ContactFormPopUp
+					message='Twoja wiadomość została pomyślnie wysłana! Dziekujemy :)'
+					click={handlePopUpClose}
 				/>
-				<div className='contact-form__error-info'></div>
-				<label htmlFor='phone'>
-					<span className='contact-form__label'>Phone number:</span>
-				</label>
-				<input
-					className='contact-form__input'
-					type='number'
-					id='phone'
-					name='phone'
-					value={phoneInputValue}
-					onChange={handleInput}
+			) : null}
+			{isPopUpActive === 400 ? (
+				<ContactFormPopUp
+					message='Nie udało się wysłac maila'
+					click={handlePopUpClose}
 				/>
-				<div className='contact-form__error-info'></div>
-				<label htmlFor='mail'>
-					<span className='contact-form__label'>E-mail:</span>
-				</label>
-				<input
-					className='contact-form__input'
-					type='mail'
-					id='mail'
-					name='mail'
-					value={mailInputValue}
-					onChange={handleInput}
-				/>
-				<div className='contact-form__error-info'></div>
-				<label htmlFor='message'>
-					<span className='contact-form__label'>Message:</span>
-				</label>
-				<textarea
-					className='contact-form__textarea'
-					id='message'
-					name='message'
-					placeholder='Please write Your message here.'
-					maxLength='500'
-					value={messageInputValue}
-					onChange={handleInput}></textarea>
+			) : null}
+			<div className='contact-form'>
+				<form ref={form} onSubmit={handleSubmitForm}>
+					<label htmlFor='name'>
+						<span className='contact-form__label'>Name and Surname:</span>
+					</label>
+					<input
+						className='contact-form__input'
+						type='text'
+						id='name'
+						name='name'
+						value={nameInputValue}
+						onChange={handleInput}
+					/>
+					<div className='contact-form__error-info'></div>
+					<label htmlFor='phone'>
+						<span className='contact-form__label'>Phone number:</span>
+					</label>
+					<input
+						className='contact-form__input'
+						type='number'
+						id='phone'
+						name='phone'
+						value={phoneInputValue}
+						onChange={handleInput}
+					/>
+					<div className='contact-form__error-info'></div>
+					<label htmlFor='mail'>
+						<span className='contact-form__label'>E-mail:</span>
+					</label>
+					<input
+						className='contact-form__input'
+						type='mail'
+						id='mail'
+						name='mail'
+						value={mailInputValue}
+						onChange={handleInput}
+					/>
+					<div className='contact-form__error-info'></div>
+					<label htmlFor='message'>
+						<span className='contact-form__label'>Message:</span>
+					</label>
+					<textarea
+						className='contact-form__textarea'
+						id='message'
+						name='message'
+						placeholder='Please write Your message here.'
+						maxLength='500'
+						value={messageInputValue}
+						onChange={handleInput}></textarea>
 
-				<div className='contact-form__error-info'></div>
-				<button
-					className='contact-form__submit-btn'
-					type='submit'
-					disabled={isError}>
-					Submit
-				</button>
-			</form>
-		</div>
+					<div className='contact-form__error-info'></div>
+					<button
+						className='contact-form__submit-btn'
+						type='submit'
+						disabled={isError}>
+						Submit
+					</button>
+				</form>
+			</div>
+		</>
 	);
 };
 
