@@ -1,4 +1,5 @@
 @import './Variables.scss';
+@import './Animations.scss';
 
 .menu-bar {
 	position: fixed;
@@ -22,6 +23,10 @@
 		border: 2px solid black;
 		border-radius: 50%;
 		z-index: 6;
+	}
+	&__avatar:hover {
+		animation: 1s 1 normal popup_move_down;
+		animation-fill-mode: forwards;
 	}
 }
 .hamburger {

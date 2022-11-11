@@ -1,11 +1,9 @@
-@import '../sass/Variables.scss';
-@import '../sass/animations.scss';
+@import './Variables.scss';
+@import './Animations.scss';
 .popup {
 	position: absolute;
 	display: flex;
 	flex-flow: row-reverse wrap;
-
-	left: 0;
 	width: 90vw;
 	height: 240px;
 	margin: 0 5vw;

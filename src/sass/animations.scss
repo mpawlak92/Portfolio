@@ -3,6 +3,17 @@
 		top: -30%;
 	}
 	to {
-		top: 30%;
+		top: 60%;
+	}
+}
+
+@keyframes resizing_avatar {
+	from {
+		width: 8rem;
+		height: 8rem;
+	}
+	to {
+		width: 28rem;
+		height: 28rem;
 	}
 }

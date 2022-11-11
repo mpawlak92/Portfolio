@@ -4,7 +4,7 @@ import HamburgerMenuPanel from '../components/Menu/Hamburger_menu_panel';
 import MenuBar from '../components/Menu/Menu_bar';
 
 const Menu = () => {
-	const [menuIsActive, setMenuIsActive] = useState(true);
+	const [menuIsActive, setMenuIsActive] = useState(false);
 
 	const handleBtnClick = () => {
 		setMenuIsActive(!menuIsActive);
