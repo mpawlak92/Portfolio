@@ -25,7 +25,7 @@
 		z-index: 6;
 	}
 	&__avatar:hover {
-		animation: 1s 1 normal popup_move_down;
+		animation: 1s 1 normal resizing_avatar;
 		animation-fill-mode: forwards;
 	}
 }
