@@ -11,7 +11,7 @@ const MenuBar = ({ site, click }) => {
 
 	return (
 		<div className='menu-bar'>
-			<div className='menu-bar__logo'></div>
+			<div className='menu-bar__avatar'></div>
 			<button className={btnStyle} onClick={click}></button>;
 		</div>
 	);
