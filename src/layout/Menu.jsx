@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import HamburgerBtn from '../components/HamburgerMenu/Hamburger_button';
-import HamburgerMenuPanel from '../components/HamburgerMenu/Hamburger_menu_panel';
+import HamburgerMenuPanel from '../components/Menu/Hamburger_menu_panel';
 
+import MenuBar from '../components/Menu/Menu_bar';
 import '../sass/Menu.scss';
 
 const Menu = () => {
@@ -13,7 +13,8 @@ const Menu = () => {
 	};
 	return (
 		<>
-			<HamburgerBtn click={handleBtnClick} />
+			<MenuBar />
+			<button className='hamburger' onClick={handleBtnClick}></button>;
 			<HamburgerMenuPanel click={handleBtnClick} menuIsActive={menuIsActive} />
 		</>
 	);

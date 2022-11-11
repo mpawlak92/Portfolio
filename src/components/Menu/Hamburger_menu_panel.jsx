@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import MenuBar from './Menu_bar_mobile';
+import MenuBar from './Menu_bar';
 
 import '../../sass/Hamburger_menu_panel.scss';
 
