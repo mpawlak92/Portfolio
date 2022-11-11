@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import MenuBar from './Menu_bar_mobile';
-import AboutMe from '../../layout/AboutMe';
-import Contact from '../../layout/Contact';
-import Projects from '../../layout/Projects';
 
 import '../../sass/Hamburger_menu_panel.scss';
 
@@ -37,11 +34,6 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 					</a>
 				</div>
 			</div>
-			<Routes>
-				<Route path='/' element={<AboutMe />}></Route>
-				<Route path='projects' element={<Projects />}></Route>
-				<Route path='/contact' element={<Contact />}></Route>
-			</Routes>
 		</>
 	);
 };
