@@ -1,8 +1,8 @@
 import React from 'react';
 
-import DescriptionAboutMe from '../components/Description_aboutme';
-import Cv from '../components/Cv';
-import Skills from '../components/Skills_aboutme';
+import DescriptionAboutMe from '../components/Aboutme/Description_aboutme';
+import Cv from '../components/Aboutme/Cv';
+import Skills from '../components/Aboutme/Skills_aboutme';
 
 import '../sass/AboutMe.scss';
 

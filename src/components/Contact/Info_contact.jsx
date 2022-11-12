@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../sass/Info_contact.scss';
+import '../../sass/Info_contact.scss';
 const ContactInfo = () => {
 	return (
 		<div className='contact-info'>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../sass/Skills_aboutme.scss';
+import '../../sass/Skills_aboutme.scss';
 const Skills = () => {
 	return (
 		<div className='skills-box'>

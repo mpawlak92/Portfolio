@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../sass/Cv.scss';
+import '../../sass/Cv.scss';
 const Cv = () => {
 	return (
 		<>

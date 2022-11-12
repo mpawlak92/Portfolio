@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../sass/Description_aboutme.scss';
+import '../../sass/Description_aboutme.scss';
 const DescriptionAboutMe = () => {
 	return (
 		<>
@@ -10,7 +10,6 @@ const DescriptionAboutMe = () => {
 				where I would develop acquired skills, and get commercial experience.
 				Meanwhile I am working on projects for my portfolio.
 			</div>
-			
 		</>
 	);
 };

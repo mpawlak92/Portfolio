@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../sass/ContactFormPopUp_contact.scss';
+import '../../sass/ContactFormPopUp_contact.scss';
 
 const ContactFormPopUp = ({ message, click }) => {
 	return (
