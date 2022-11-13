@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ContactForm from '../components/Contact/ContactFormPopUp_contact';
-import ContactInfo from '../components/Contact/Info_contact';
+import ContactForm from '../components/Contact/ContactForm';
+import ContactInfo from '../components/Contact/ContactInfo';
 
 import '../sass/Contact.scss';
 const Contact = () => {

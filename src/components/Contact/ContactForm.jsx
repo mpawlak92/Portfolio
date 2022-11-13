@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 import '../../sass/ContactForm_contact.scss';
-import ContactFormPopUp from './ContactFormPopUp_contact';
+import ContactFormPopUp from './ContactFormPopUp';
 
 //flags for form error
 let msgError = 0,

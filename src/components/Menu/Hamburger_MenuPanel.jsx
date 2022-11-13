@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import MenuBar from './Menu_bar';
+import MenuBar from './Menu_Bar';
 
+import { auboutme } from '../../data/aboutme';
 import '../../sass/Mobile_menu_panel.scss';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	const handleGitLink = () => {
-		window.open('https://github.com/mpawlak92?tab=repositories');
+		window.open(auboutme.github_link);
 		click();
 	};
 	let classToggle = menuIsActive
