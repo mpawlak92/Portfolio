@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { auboutme } from '../../data/aboutme';
+import { aboutme } from '../../data/aboutme';
 import '../../sass/Description_aboutme.scss';
 const DescriptionAboutMe = () => {
 	return (
 		<>
-			<div className='my-descryption'>{auboutme.description}</div>
+			<div className='my-descryption'>{aboutme.description}</div>
 		</>
 	);
 };

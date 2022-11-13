@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { auboutme } from '../../data/aboutme';
+import { aboutme } from '../../data/aboutme';
 import '../../sass/Skills_aboutme.scss';
 const Skills = () => {
 	const skillList = () => {
-		return auboutme.skills.map((skil) => <li key={skil}>{skil}</li>);
+		return aboutme.skills.map((skil) => <li key={skil}>{skil}</li>);
 	};
 
 	return (

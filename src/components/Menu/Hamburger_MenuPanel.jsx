@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import MenuBar from './Menu_Bar';
 
-import { auboutme } from '../../data/aboutme';
+import { aboutme } from '../../data/aboutme';
 import '../../sass/Mobile_menu_panel.scss';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	const handleGitLink = () => {
-		window.open(auboutme.github_link);
+		window.open(aboutme.github_link);
 		click();
 	};
 	let classToggle = menuIsActive

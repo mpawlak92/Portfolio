@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { aboutme } from '../../data/aboutme';
 import '../../sass/Info_contact.scss';
 const ContactInfo = () => {
 	return (
@@ -15,7 +16,7 @@ const ContactInfo = () => {
 				</li>
 				<li>
 					<a
-						href='https://www.linkedin.com/in/mpawlak92/'
+						href={aboutme.github_link}
 						target='_blank'
 						rel='noopener noreferrer'>
 						<div className='contact-info__linkedin-ico'></div>

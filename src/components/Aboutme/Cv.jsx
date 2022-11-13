@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { auboutme } from '../../data/aboutme';
+import { aboutme } from '../../data/aboutme';
 import '../../sass/Cv.scss';
 const Cv = () => {
 	return (
@@ -8,7 +8,7 @@ const Cv = () => {
 			<div className='cv'>
 				<a
 					className='cv__link'
-					href={auboutme.cv_link}
+					href={aboutme.cv_link}
 					target='_blank'
 					rel='noopener noreferrer'>
 					<div className='cv__download-icon'></div>
