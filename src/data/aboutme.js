@@ -16,4 +16,6 @@ export let aboutme = {
 	cv_link:
 		'https://drive.google.com/file/d/1Mn99u5BkpHCvdJaI3LrLFVNVaoZBcbdr/view?usp=share_link',
 	github_link: 'https://github.com/mpawlak92?tab=repositories',
+	email: 'mpawlak.it@gmail.com',
+	phone: '726-630-790',
 };

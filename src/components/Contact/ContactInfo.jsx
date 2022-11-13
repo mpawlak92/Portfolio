@@ -8,11 +8,12 @@ const ContactInfo = () => {
 			<h3 className='contact-info__head'>Contact info:</h3>
 			<ul>
 				<li>
-					<div className='contact-info__tel-ico'></div> <p>726-630-790</p>
+					<div className='contact-info__tel-ico'></div>
+					<p>{aboutme.phone}</p>
 				</li>
 				<li>
 					<div className='contact-info__mail-ico'></div>
-					<p>mpawlak.it@gmail.com</p>
+					<p>{aboutme.email}</p>
 				</li>
 				<li>
 					<a
