@@ -3,8 +3,10 @@
 .contact-info {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	width: 80vw;
-	margin: 0 10vw;
+	max-width: 40rem;
+	margin: 1rem 2rem;
 	padding: 2rem;
 	font-size: 5rem;
 	background-color: $secendary-color;
@@ -13,7 +15,7 @@
 	box-shadow: 0px 12px 20px -10px;
 
 	&__head {
-		flex-grow: 1;
+		width: 100%;
 		margin-bottom: 10px;
 		font-size: 2rem;
 		text-align: center;

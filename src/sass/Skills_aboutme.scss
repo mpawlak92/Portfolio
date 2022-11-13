@@ -2,10 +2,14 @@
 
 .skills-box {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	width: 80vw;
+	max-width: 35rem;
 	padding: 2rem;
 	padding-top: 1rem;
-	margin: 3rem 10%;
+	margin: 2rem 3rem;
 	font-size: 1em;
 	background-color: $secendary-color;
 	border: 1px solid $primary-color;

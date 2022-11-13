@@ -1,3 +1,9 @@
 .contact {
-    font-size: 3rem;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	align-content: space-around;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 3rem;
 }

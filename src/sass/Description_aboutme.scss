@@ -1,7 +1,10 @@
 .my-descryption {
 	position: relative;
+	display: flex;
+	flex-grow: 1;
 	width: 80%;
-	margin: 2rem 10% 3.5rem 10%;
+	max-width: 45rem;
+	margin: 3rem 2rem 4rem 2rem;
 	text-align: justify;
 	font-size: 1.8rem;
 	text-indent: 1.5em;

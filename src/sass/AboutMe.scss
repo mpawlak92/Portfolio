@@ -1,6 +1,10 @@
 .about-me {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	width: 100vw;
+	min-height: calc(100vh - 100px);
+	justify-content: space-around;
+	align-items: center;
 	font-size: 4rem;
 }
