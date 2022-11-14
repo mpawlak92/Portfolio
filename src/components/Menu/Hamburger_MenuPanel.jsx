@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import MenuBar from './Menu_bar';
 
 import { aboutme } from '../../data/aboutme';
-import '../../sass/Mobile_menu_panel.scss';
+import '../../sass/Hamburger_menuPanel.scss';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	const handleGitLink = () => {

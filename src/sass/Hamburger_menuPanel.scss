@@ -14,6 +14,8 @@
 		left: 0vw;
 	}
 	&__menu {
+		display: flex;
+		flex-direction: column;
 		width: 100vw;
 		height: 100vh;
 		margin-top: 70px;
@@ -22,7 +24,6 @@
 		color: rgb(45, 45, 45);
 	}
 	&__link {
-		display: block;
 		font-size: 4rem;
 		margin-bottom: 1rem;
 		padding: 1px;
