@@ -1,31 +1,34 @@
 import React from 'react';
 
+import { projects } from '../../data/projects';
 import '../../sass/Project_card.scss';
 const ProjectCard = () => {
 	return (
 		<div className='project-card'>
 			<div className='project-card__photo'>
 				<div className='project-card__hero-img'></div>
-				<h2 className='project-card__title'>TEST</h2>
+				<h2 className='project-card__title'>{projects[0].name}</h2>
 			</div>
-			<dic className='project-card__btns'>
+			<div className='project-card__btns'>
 				<button className='project-card__btn project-card__demo-btn'>
 					Demo
 				</button>
-				<button className='project-card__btn project-card__git-btn'>Git</button>
-			</dic>
+				<button className='project-card__btn project-card__git-btn'>
+					<a href={projects[0].git_link} target='_blank' rel='noreferrer'>
+						Git
+					</a>
+				</button>
+			</div>
 			<div className='project-card__description'>
 				<h3>Description:</h3>
 				<p className='project-card__description--text'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-					expedita officiis ipsam minus. Tempore repudiandae vitae vel? Quasi,
-					beatae at eos ducimus veniam fugit corrupti cum placeat consequuntur
-					delectus tenetur.
+					{projects[0].description}
 				</p>
 				<h3>Technologys:</h3>
 				<p className='project-card__description--text'>
-					{' '}
-					HTML, CSS, JavaScript, React
+					{projects[0].technologys.map((tech) => {
+						return tech + ', ';
+					})}
 				</p>
 			</div>
 		</div>

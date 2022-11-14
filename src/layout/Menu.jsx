@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import HamburgerMenuPanel from '../components/Menu/Hamburger_MenuPanel';
-import MenuBar from '../components/Menu/Menu_Bar';
+import MenuBar from '../components/Menu/Menu_bar';
 
 const Menu = () => {
 	const [menuIsActive, setMenuIsActive] = useState(false);

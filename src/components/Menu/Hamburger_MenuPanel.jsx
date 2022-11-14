@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import MenuBar from './Menu_Bar';
+import MenuBar from './Menu_bar';
 
 import { aboutme } from '../../data/aboutme';
 import '../../sass/Mobile_menu_panel.scss';
