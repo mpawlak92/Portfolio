@@ -9,7 +9,6 @@ import '../../sass/Hamburger_menuPanel.scss';
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	const handleGitLink = () => {
 		window.open(aboutme.github_link);
-		click();
 	};
 	let classToggle = menuIsActive
 		? 'hamburger-panel hamburger-panel__isactive'
