@@ -34,6 +34,7 @@
 	order: 2;
 	width: 50px;
 	height: 40px;
+	margin-right: 2rem;
 	padding: 5px 0px 0px 10px;
 	background-color: transparent;
 	background-image: url(../icons/icons-menu.svg);
@@ -42,15 +43,13 @@
 	background-position-x: center;
 	border: none;
 }
-.hamburger:hover {
-	cursor: pointer;
-}
 
 .hamburger-close {
 	position: relative;
 	order: 2;
 	width: 50px;
 	height: 40px;
+	margin-right: 2rem;
 	background-color: transparent;
 	background-image: url(../icons/icons-close-hamburger.svg);
 	background-repeat: no-repeat;
@@ -59,4 +58,8 @@
 	border: none;
 	color: #fff;
 	z-index: 6;
+}
+.hamburger:hover,
+.hamburger-close:hover {
+	cursor: pointer;
 }
