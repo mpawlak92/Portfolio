@@ -2,11 +2,21 @@ import React from 'react';
 
 import { projects } from '../../data/projects';
 import '../../sass/Project_card.scss';
+let cssVar = document.querySelector(':root');
 const ProjectCard = () => {
+	console.log(cssVar);
 	const handleGitBtn = () => {
 		window.open(projects[0].git_link);
 	};
+	const cssVariables_get = () => {
+		let variableOne = getComputedStyle(cssVar);
+	};
+	const cssVariables_set = () => {
+		cssVar.style.setProperty('--p1', 'wojs');
+	};
 	const hearoGraphicProjectCard = () => {
+		// cssVariables_get();
+		// cssVariables_set();
 		return <div className='project-card__photo'></div>;
 	};
 	return (

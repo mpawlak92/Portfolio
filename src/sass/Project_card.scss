@@ -29,7 +29,7 @@
 	}
 
 	&__photo::before {
-		content: 'Port';
+		content: var(--p1);
 		position: absolute;
 		display: flex;
 		flex-direction: row-reverse;
@@ -44,7 +44,7 @@
 		transition: width 1s;
 	}
 	&__photo::after {
-		content: 'folio';
+		content: var(--p2);
 		position: absolute;
 		display: flex;
 		justify-content: flex-start;
