@@ -1,27 +1,30 @@
 import React from 'react';
 
-import { projects } from '../../data/projects';
 import '../../sass/Project_card.scss';
-let cssVar = document.querySelector(':root');
-const ProjectCard = () => {
-	console.log(cssVar);
+import '../../sass/Variables.scss';
+
+let titleBefore = document.querySelector('.project-card');
+const ProjectCard = ({ name, description, technologys, git_link }) => {
+	console.log(titleBefore);
 	const handleGitBtn = () => {
-		window.open(projects[0].git_link);
+		window.open(git_link);
 	};
-	const cssVariables_get = () => {
-		let variableOne = getComputedStyle(cssVar);
+	const setProjectTitle = () => {
+		let firsfTitlePartLength = Math.floor(name.length / 2);
+		let firstTitlePart = name.slice(0, firsfTitlePartLength);
+		let secendTitlePart = name.slice(firsfTitlePartLength, name.length);
+		return (
+			<div
+				className='project-card__photo'
+				data-title_1={firstTitlePart}
+				data-title_2={secendTitlePart}></div>
+		);
 	};
-	const cssVariables_set = () => {
-		cssVar.style.setProperty('--p1', 'wojs');
-	};
-	const hearoGraphicProjectCard = () => {
-		// cssVariables_get();
-		// cssVariables_set();
-		return <div className='project-card__photo'></div>;
-	};
+
 	return (
 		<div className='project-card'>
-			{hearoGraphicProjectCard()}
+			{setProjectTitle()}
+
 			<div className='project-card__btns'>
 				<button className='project-card__btn project-card__demo-btn'>
 					Demo
@@ -34,12 +37,10 @@ const ProjectCard = () => {
 			</div>
 			<div className='project-card__description'>
 				<h3>Description:</h3>
-				<p className='project-card__description--text'>
-					{projects[0].description}
-				</p>
+				<p className='project-card__description--text'>{description}</p>
 				<h3>Technologys:</h3>
 				<p className='project-card__description--text'>
-					{projects[0].technologys.map((tech) => {
+					{technologys.map((tech) => {
 						return tech + ', ';
 					})}
 				</p>

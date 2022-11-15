@@ -18,5 +18,10 @@
 		background-color: $secendary-color;
 		border: 1px solid black;
 		border-radius: 8px;
+		transition: scale 0.5s;
+	}
+	&__git:hover {
+		scale: 1.1;
+		cursor: pointer;
 	}
 }

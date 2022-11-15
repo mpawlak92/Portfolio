@@ -6,10 +6,12 @@
 	width: 80vw;
 	max-width: 350px;
 	margin: 0 2rem 3.5rem 2rem;
+	padding: 10px;
 	min-height: 200px;
 	background-color: $secendary-color;
+	border: 1px solid $primary-color;
 	border-radius: 10px;
-	padding: 10px;
+	box-shadow: 0px 12px 20px -10px;
 
 	&__photo {
 		position: relative;
@@ -25,11 +27,12 @@
 		font-size: 3rem;
 		text-transform: uppercase;
 		color: #fff;
+		border: 1px solid $primary-color;
 		z-index: 1;
 	}
 
 	&__photo::before {
-		content: var(--p1);
+		content: attr(data-title_1) ' ';
 		position: absolute;
 		display: flex;
 		flex-direction: row-reverse;
@@ -44,7 +47,7 @@
 		transition: width 1s;
 	}
 	&__photo::after {
-		content: var(--p2);
+		content: attr(data-title_2) ' ';
 		position: absolute;
 		display: flex;
 		justify-content: flex-start;
