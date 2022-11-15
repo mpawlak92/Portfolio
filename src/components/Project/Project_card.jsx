@@ -3,6 +3,9 @@ import React from 'react';
 import { projects } from '../../data/projects';
 import '../../sass/Project_card.scss';
 const ProjectCard = () => {
+	const handleGitBtn = () => {
+		window.open(projects[0].git_link);
+	};
 	return (
 		<div className='project-card'>
 			<div className='project-card__photo'>
@@ -13,10 +16,10 @@ const ProjectCard = () => {
 				<button className='project-card__btn project-card__demo-btn'>
 					Demo
 				</button>
-				<button className='project-card__btn project-card__git-btn'>
-					<a href={projects[0].git_link} target='_blank' rel='noreferrer'>
-						Git
-					</a>
+				<button
+					className='project-card__btn project-card__git-btn'
+					onClick={handleGitBtn}>
+					Git
 				</button>
 			</div>
 			<div className='project-card__description'>
