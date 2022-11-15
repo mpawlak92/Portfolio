@@ -1,0 +1,22 @@
+@import '../sass/Variables.scss';
+
+.projects-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 5rem;
+	background-color: $primary-color;
+	z-index: 10;
+
+	&__git {
+		width: 20rem;
+		height: 4rem;
+		font-size: 3rem;
+		background-color: $secendary-color;
+		border: 1px solid black;
+		border-radius: 8px;
+	}
+}
