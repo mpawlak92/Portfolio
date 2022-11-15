@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import '../../sass/Project_card.scss';
 import '../../sass/Variables.scss';
 
-let titleBefore = document.querySelector('.project-card');
 const ProjectCard = ({ name, description, technologys, git_link }) => {
-	console.log(titleBefore);
+	const projectCardPhotoRef = useRef();
 	const handleGitBtn = () => {
 		window.open(git_link);
 	};
@@ -13,17 +12,26 @@ const ProjectCard = ({ name, description, technologys, git_link }) => {
 		let firsfTitlePartLength = Math.floor(name.length / 2);
 		let firstTitlePart = name.slice(0, firsfTitlePartLength);
 		let secendTitlePart = name.slice(firsfTitlePartLength, name.length);
-		return (
-			<div
-				className='project-card__photo'
-				data-title_1={firstTitlePart}
-				data-title_2={secendTitlePart}></div>
+
+		projectCardPhotoRef.current.setAttribute(
+			'data-title_1',
+			`${firstTitlePart}`
+		);
+		projectCardPhotoRef.current.setAttribute(
+			'data-title_2',
+			`${secendTitlePart}`
 		);
 	};
-
+	useEffect(() => {
+		setProjectTitle();
+	});
 	return (
 		<div className='project-card'>
-			{setProjectTitle()}
+			<div
+				ref={projectCardPhotoRef}
+				className='project-card__photo'
+				data-title_1=''
+				data-title_2=''></div>
 
 			<div className='project-card__btns'>
 				<button className='project-card__btn project-card__demo-btn'>

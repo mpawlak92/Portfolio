@@ -2,7 +2,8 @@ export let projects = [
 	{
 		id: 1,
 		name: 'Portfolio',
-		description: '111111 111111 11 11',
+		description:
+			'Strona przedstawia moje portfolio. Posiada ona trzy podstrony, About me, Projects i Contact. Umożliwia zapoznanie sie z moim Cv, stackiem technologicznym oraz projektami napisanymi przeze mnie. Pozwala równiez na dostepn do githuba zarówno do pojedynczych projektów jak i do wszytkich repozytoriów. Dla zalogowanego użytkownika dostepny jest równiez panel administracyjny z którego pozoimo mozna edytować zawartość elementów na stronie.',
 		technologys: ['HTML', 'CSS', 'JavaScript', 'React'],
 		git_link: 'https://github.com/mpawlak92/Portfolio',
 	},
