@@ -17,3 +17,21 @@
 		height: 28rem;
 	}
 }
+@keyframes resizing_project_photo {
+	from {
+		scale: 1;
+	}
+	to {
+		scale: 1.2;
+		border-radius: 10px;
+	}
+}
+
+@keyframes hidden_project_title {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

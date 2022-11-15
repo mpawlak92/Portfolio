@@ -6,12 +6,12 @@ const ProjectCard = () => {
 	const handleGitBtn = () => {
 		window.open(projects[0].git_link);
 	};
+	const hearoGraphicProjectCard = () => {
+		return <div className='project-card__photo'></div>;
+	};
 	return (
 		<div className='project-card'>
-			<div className='project-card__photo'>
-				<div className='project-card__hero-img'></div>
-				<h2 className='project-card__title'>{projects[0].name}</h2>
-			</div>
+			{hearoGraphicProjectCard()}
 			<div className='project-card__btns'>
 				<button className='project-card__btn project-card__demo-btn'>
 					Demo
