@@ -1,18 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import MenuBar from './Menu_bar';
 
 import { aboutme } from '../../data/aboutme';
 import '../../sass/Hamburger_menuPanel.scss';
+import LoginForm from '../LoginForm/LoginForm';
+import { useState } from 'react';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
+	const [isModalActive, setIsModalActive] = useState(false);
+
+	const handleLoginBtn = () => {
+		click();
+		setIsModalActive(true);
+	};
+	const handleLoginModalClose = () => {
+		setIsModalActive(false);
+	};
 	const handleGitLink = () => {
+		click();
 		window.open(aboutme.github_link);
 	};
 	let classToggle = menuIsActive
 		? 'hamburger-panel hamburger-panel__isactive'
 		: 'hamburger-panel';
+
+	const location = useLocation();
 	return (
 		<>
 			<div className={classToggle}>
@@ -34,21 +48,22 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 					<Link to='/contact' className='hamburger-panel__link' onClick={click}>
 						Contact
 					</Link>
-
-					{/* i am using hear button becouse 'a' mark generate some problems with menu bar component still i dont know what it happend... */}
-					<button
-						className='hamburger-panel__github-link'
+					<Link
+						to={location.pathname}
+						className='hamburger-panel__link'
 						onClick={handleGitLink}>
 						<div className='git-ico'></div> GitHub
-					</button>
-					{/* <a
-							onClick={click}
-							className='hamburger-panel__github-link'
-							href='https://github.com/mpawlak92?tab=repositories'
-							target='_blank'
-							rel='noopener noreferrer'>
-							Git
-						</a> */}
+					</Link>
+					<Link
+						to={location.pathname}
+						className='hamburger-panel__link'
+						onClick={handleLoginBtn}>
+						Login
+						<LoginForm
+							isModalActive={isModalActive}
+							handleOnClose={handleLoginModalClose}
+						/>
+					</Link>
 				</div>
 			</div>
 		</>

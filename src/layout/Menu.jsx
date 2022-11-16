@@ -17,6 +17,7 @@ const Menu = () => {
 				site={'menu'}
 			/>
 			<HamburgerMenuPanel click={handleBtnClick} menuIsActive={menuIsActive} />
+			
 		</>
 	);
 };
