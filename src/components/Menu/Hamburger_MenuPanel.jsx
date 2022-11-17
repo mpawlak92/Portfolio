@@ -59,11 +59,11 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 						className='hamburger-panel__link'
 						onClick={handleLoginBtn}>
 						Login
-						<LoginForm
-							isModalActive={isModalActive}
-							handleOnClose={handleLoginModalClose}
-						/>
 					</Link>
+					<LoginForm
+						isModalActive={isModalActive}
+						handleOnClose={handleLoginModalClose}
+					/>
 				</div>
 			</div>
 		</>

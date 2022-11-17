@@ -43,12 +43,7 @@ const Modal = ({
 
 	const handleOutsideClick = ({ target }) => {
 		const { current } = modalRef;
-		console.log(shoulbBeCloseOnOutsideClick);
-		console.log(current);
-		console.log(target);
 		if (shoulbBeCloseOnOutsideClick && target === current) {
-			console.log(current);
-			console.log(target);
 			//funkcja HTML do zamykania dialogu
 			handleOnClose();
 		}
