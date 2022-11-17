@@ -2,21 +2,21 @@ import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 import '../../sass/ContactForm_contact.scss';
-import ContactFormPopUp from './ContactFormPopUp';
+import ContactFormMsg from './ContactFormMessage';
 
 //flags for form error
 let msgError = 0,
 	phoneError = 0,
 	mailError = 0,
 	nameError = 0;
-
+let popUpMessage = '';
 const ContactForm = () => {
 	const [nameInputValue, setNameInputValue] = useState('');
 	const [phoneInputValue, setPhoneInputValue] = useState('');
 	const [mailInputValue, setMailInputValue] = useState('');
 	const [messageInputValue, setMessageInputValue] = useState('');
 	const [isError, setIsError] = useState(true);
-	const [isPopUpActive, setIsPopUpActive] = useState(0);
+	const [isPopUpActive, setIsPopUpActive] = useState(false);
 
 	const form = useRef();
 	const handleSubmitForm = (e) => {
@@ -32,10 +32,16 @@ const ContactForm = () => {
 			)
 			.then(
 				(result) => {
-					setIsPopUpActive(result.status);
+					if (result.status === 200) {
+						popUpMessage = 'Your message was sended. Thanks :)';
+					}
+					setIsPopUpActive(true);
 				},
 				(error) => {
-					setIsPopUpActive(error.status);
+					if (error.status === 400) {
+						popUpMessage = 'Something goes wrong. Try one more time.';
+					}
+					setIsPopUpActive(true);
 				}
 			);
 
@@ -151,22 +157,16 @@ const ContactForm = () => {
 		}
 	};
 	const handlePopUpClose = () => {
-		setIsPopUpActive(0);
+		setIsPopUpActive(false);
 	};
 	return (
 		<>
-			{isPopUpActive === 200 ? (
-				<ContactFormPopUp
-					message='Twoja wiadomość została pomyślnie wysłana! Dziekujemy :)'
-					click={handlePopUpClose}
-				/>
-			) : null}
-			{isPopUpActive === 400 ? (
-				<ContactFormPopUp
-					message='Nie udało się wysłac maila'
-					click={handlePopUpClose}
-				/>
-			) : null}
+			<ContactFormMsg
+				msg={popUpMessage}
+				handleOnClose={handlePopUpClose}
+				isModalActive={isPopUpActive}
+			/>
+
 			<div className='contact-form'>
 				<form ref={form} onSubmit={handleSubmitForm}>
 					<label htmlFor='name'>

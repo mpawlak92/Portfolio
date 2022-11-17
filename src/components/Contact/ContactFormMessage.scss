@@ -1,0 +1,24 @@
+@import '../../sass/Variables.scss';
+
+.msg {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	color: $secendary-color;
+}
+.msg-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 5rem;
+	height: 5rem;
+	color: $secendary-color;
+	background-image: url(../../icons/icons-close-hamburger.svg);
+	background-size: contain;
+	background-position: 0 0;
+}
