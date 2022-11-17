@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import { ReactDOM } from 'react';
+import ReactDOM from 'react-dom';
 import './Modal.scss';
 
 const Modal = ({
@@ -10,7 +10,6 @@ const Modal = ({
 	isOpen,
 	shoulbBeCloseOnOutsideClick,
 }) => {
-	console.log(children);
 	const modalRef = useRef(null);
 	const previousActiveElement = useRef(null);
 	useEffect(() => {
@@ -41,9 +40,15 @@ const Modal = ({
 			modal.removeEventListener('cancel', handleCancel);
 		};
 	}, [handleOnClose]);
+
 	const handleOutsideClick = ({ target }) => {
 		const { current } = modalRef;
+		console.log(shoulbBeCloseOnOutsideClick);
+		console.log(current);
+		console.log(target);
 		if (shoulbBeCloseOnOutsideClick && target === current) {
+			console.log(current);
+			console.log(target);
 			//funkcja HTML do zamykania dialogu
 			handleOnClose();
 		}

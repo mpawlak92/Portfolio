@@ -6,7 +6,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={true}>
-			{/* <form>
+			<form>
 				<div>
 					<label>User</label>
 					<input tepe='text' />
@@ -15,8 +15,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 					<label>Password</label>
 					<input tepe='password' />
 				</div>
-			</form> */}
-			<p>hdgfhdjk</p>
+			</form>
 		</Modal>
 	);
 };
