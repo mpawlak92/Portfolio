@@ -5,20 +5,23 @@
 	top: 50%;
 	width: 100%;
 	transform: translateY(-50%);
+	padding: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 4rem;
+	font-size: 3rem;
+	text-align: center;
 	color: $secendary-color;
 }
 .msg-close {
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 5rem;
-	height: 5rem;
+	width: 4rem;
+	height: 4rem;
 	color: $secendary-color;
 	background-image: url(../../icons/icons-close-hamburger.svg);
 	background-size: contain;
+	background-repeat: no-repeat;
 	background-position: 0 0;
 }
