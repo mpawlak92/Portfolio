@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import MenuBar from './Menu_bar';
 
 import { aboutme } from '../../data/aboutme';
-import '../../sass/Hamburger_menuPanel.scss';
+import './Hamburger_menuPanel.scss';
 import LoginForm from '../LoginForm/LoginForm';
 import { useState } from 'react';
 
@@ -52,7 +52,7 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 						to={location.pathname}
 						className='hamburger-panel__link'
 						onClick={handleGitLink}>
-						<div className='git-ico'></div> GitHub
+						<span className='git-ico'></span> GitHub
 					</Link>
 					<Link
 						to={location.pathname}

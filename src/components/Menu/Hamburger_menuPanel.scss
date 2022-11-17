@@ -1,0 +1,49 @@
+.hamburger-panel {
+	position: fixed;
+	display: flex;
+	flex-direction: row-reverse;
+	top: 0;
+	left: -100vw;
+	width: 100vw;
+	background-color: #fff;
+	transition: left 0.3s;
+	overflow: hidden;
+	z-index: 6;
+
+	&__isactive {
+		left: 0vw;
+	}
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		height: 100vh;
+		margin-top: 70px;
+		padding: 20px;
+		font-size: 8rem;
+		color: rgb(45, 45, 45);
+	}
+	&__link {
+		font-size: 4rem;
+		margin-bottom: 1rem;
+		padding: 1px;
+		text-decoration: none;
+		color: black;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+	&__github-link {
+		display: flex;
+		width: 100%;
+		font-size: 4rem;
+		border: none;
+		background: none;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+}
+.git-ico {
+	display: inline-block;
+	width: 5rem;
+	height: 5rem;
+	margin: 0 -10px -10px -10px;
+	background-image: url(../../icons//icons-github.svg);
+}
