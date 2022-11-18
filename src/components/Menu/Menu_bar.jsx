@@ -8,6 +8,7 @@ const MenuBar = ({ site, click }) => {
 	let btnStyle;
 	if (site === 'menu') {
 		btnStyle = 'hamburger';
+		
 	} else {
 		btnStyle = 'hamburger-close';
 	}
