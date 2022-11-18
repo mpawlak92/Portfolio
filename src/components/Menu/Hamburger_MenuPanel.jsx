@@ -1,19 +1,29 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../LoginForm/LoginSlice';
 
 import MenuBar from './Menu_bar';
+import LoginForm from '../LoginForm/LoginForm';
 
 import { aboutme } from '../../data/aboutme';
 import './Hamburger_menuPanel.scss';
-import LoginForm from '../LoginForm/LoginForm';
-import { useState } from 'react';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	const [isModalActive, setIsModalActive] = useState(false);
 
+	const isloged = useSelector((state) => state.login.isUserLogeed);
+	const dispatch = useDispatch();
+
 	const handleLoginBtn = () => {
-		click();
-		setIsModalActive(true);
+		if (isloged) {
+			dispatch(logout());
+			click();
+		} else {
+			click();
+			setIsModalActive(true);
+		}
 	};
 	const handleLoginModalClose = () => {
 		setIsModalActive(false);
@@ -22,6 +32,7 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 		click();
 		window.open(aboutme.github_link);
 	};
+
 	let classToggle = menuIsActive
 		? 'hamburger-panel hamburger-panel__isactive'
 		: 'hamburger-panel';
@@ -58,7 +69,7 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 						to={location.pathname}
 						className='hamburger-panel__link'
 						onClick={handleLoginBtn}>
-						Login
+						{isloged ? 'Logout' : 'Login'}
 					</Link>
 					<LoginForm
 						isModalActive={isModalActive}
