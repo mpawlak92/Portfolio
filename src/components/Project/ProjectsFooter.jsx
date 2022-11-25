@@ -1,20 +1,35 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
-import { aboutme } from '../../data/aboutme';
+import request from '../../helpers/request';
 import './ProjectsFooter.scss';
-const ProjectsFooter = () => {
-	const isloged = useSelector((state) => state.login.isUserLogeed);
 
+const ProjectsFooter = ({ isUserLogeed }) => {
 	const handleFooterBtn = () => {
-		window.open(aboutme.github_link);
+		window.open(githubLink);
 	};
+	const [githubLink, setGithubLink] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+
+	const fetchData = async () => {
+		const { data } = await request.get('/aboutme');
+
+		if (data.github_link !== undefined && data.github_link !== null) {
+			setGithubLink(data.github_link);
+			setIsLoading(false);
+		}
+	};
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	return (
 		<div className='projects-footer'>
-			<button className='projects-footer__git' onClick={handleFooterBtn}>
-				GitHub
-			</button>
-			{isloged === true && <button>Dodaj</button>}
+			{!isLoading && (
+				<button className='projects-footer__git' onClick={handleFooterBtn}>
+					GitHub
+				</button>
+			)}
+			{isUserLogeed === true && <button>Dodaj</button>}
 		</div>
 	);
 };

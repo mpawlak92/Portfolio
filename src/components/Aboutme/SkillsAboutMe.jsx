@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { aboutme } from '../../data/aboutme';
 import './SkillsAboutMe.scss';
-const Skills = () => {
+const Skills = ({ data }) => {
 	const isloged = useSelector((state) => state.login.isUserLogeed);
 
 	const skillList = () => {
-		return aboutme.skills.map((skil) => (
+		return data.map((skil) => (
 			<li key={skil}>
 				{skil}
 				{isloged === true && <button>Edytuj</button>}
@@ -27,5 +26,3 @@ const Skills = () => {
 };
 
 export default Skills;
-// import { useSelector } from 'react-redux';
-// 	const isloged = useSelector((state) => state.login.isUserLogeed);

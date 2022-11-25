@@ -1,12 +1,15 @@
 import React, { useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import './Project_card.scss';
 import '../../sass/Variables.scss';
 
-const ProjectCard = ({ name, description, technologys, git_link }) => {
-	const isloged = useSelector((state) => state.login.isUserLogeed);
-
+const ProjectCard = ({
+	name,
+	description,
+	technologys,
+	git_link,
+	isUserLogeed,
+}) => {
 	const projectCardPhotoRef = useRef();
 	const handleGitBtn = () => {
 		window.open(git_link);
@@ -30,8 +33,8 @@ const ProjectCard = ({ name, description, technologys, git_link }) => {
 	});
 	return (
 		<div className='project-card'>
-			{isloged === true && <button>Edutuj</button>}
-			{isloged === true && <button>Usuń</button>}
+			{isUserLogeed === true && <button>Edutuj</button>}
+			{isUserLogeed === true && <button>Usuń</button>}
 			<div
 				ref={projectCardPhotoRef}
 				className='project-card__photo'
