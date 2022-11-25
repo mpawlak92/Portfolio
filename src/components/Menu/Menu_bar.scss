@@ -1,5 +1,5 @@
-@import './Variables.scss';
-@import './Animations.scss';
+@import '../../sass/Variables.scss';
+@import '../../sass/Animations.scss';
 
 .menu-bar {
 	position: fixed;
@@ -17,7 +17,7 @@
 		width: 8rem;
 		height: 8rem;
 		margin-left: 0.5rem;
-		background-image: url(../img/avatar.jpg);
+		background-image: url(../../img/avatar.jpg);
 		background-repeat: no-repeat;
 		background-size: cover;
 		border: 2px solid black;
@@ -37,7 +37,7 @@
 	margin-right: 2rem;
 	padding: 5px 0px 0px 10px;
 	background-color: transparent;
-	background-image: url(../icons/icons-menu.svg);
+	background-image: url(../../icons/icons-menu.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-x: center;
@@ -51,7 +51,7 @@
 	height: 40px;
 	margin-right: 2rem;
 	background-color: transparent;
-	background-image: url(../icons/icons-close-hamburger.svg);
+	background-image: url(../../icons/icons-close-hamburger.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position-x: center;

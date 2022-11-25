@@ -3,7 +3,7 @@ import React from 'react';
 import ProjectsFooter from '../components/Project/ProjectsFooter';
 import ProjectCard from '../components/Project/Project_card';
 import { projects } from '../data/projects';
-import '../sass/Projects.scss';
+import './Projects.scss';
 
 const Projects = () => {
 	return (

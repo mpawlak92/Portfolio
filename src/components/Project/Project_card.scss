@@ -1,5 +1,5 @@
-@import '../sass/Variables.scss';
-@import '../sass/Animations.scss';
+@import '../../sass/Variables.scss';
+@import '../../sass/Animations.scss';
 
 .project-card {
 	flex-flow: row wrap;
@@ -21,7 +21,7 @@
 		width: 100%;
 		height: 200px;
 		margin-bottom: 2rem;
-		background-image: url('../img/project1.png');
+		background-image: url('../../img/project1.png');
 		background-size: contain;
 		background-position: 0 0;
 		font-size: 3rem;

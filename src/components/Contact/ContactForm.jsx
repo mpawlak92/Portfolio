@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-import '../../sass/ContactForm_contact.scss';
+import './ContactForm.scss';
 import ContactFormMsg from './ContactFormMessage';
 
 //flags for form error
