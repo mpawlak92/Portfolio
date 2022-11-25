@@ -4,7 +4,7 @@ import DescriptionAboutMe from '../components/Aboutme/DescriptionAboutMe';
 import Cv from '../components/Aboutme/Cv';
 import Skills from '../components/Aboutme/SkillsAboutMe';
 
-import '../sass/AboutMe.scss';
+import './AboutMe.scss';
 
 const Home = () => {
 	return (
