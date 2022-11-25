@@ -5,9 +5,10 @@
 	top: 0;
 	left: -100vw;
 	width: 100vw;
+	height: 100%;
 	background-color: #fff;
 	transition: left 0.3s;
-	overflow: hidden;
+	overflow: auto;
 	z-index: 6;
 
 	&__isactive {
@@ -17,7 +18,7 @@
 		display: flex;
 		flex-direction: column;
 		width: 100vw;
-		height: 100vh;
+		height: calc(100% - 70px);
 		margin-top: 70px;
 		padding: 20px;
 		font-size: 8rem;
