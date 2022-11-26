@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from './LoginSlice';
 
-import { users } from '../../data/users';
+import request from '../../helpers/request';
+
 import './LoginForm.scss';
 const LoginForm = ({ handleOnClose, isModalActive }) => {
+	const dispatch = useDispatch();
+
+	const [UsersData, setUsersData] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
 	const [userInput, setUserInput] = useState('');
 	const [passwordInput, setPasswordInput] = useState('');
 	const [isLoginError, setIsLoginError] = useState(false);
 
-	const dispatch = useDispatch();
+	const fetchData = async () => {
+		const { data } = await request.get('/users');
+		setUsersData(data);
+		setIsLoading(false);
+	};
+	useEffect(() => {
+		fetchData();
+	}, []);
 
 	const handleUserInput = (e) => {
 		setUserInput(e.target.value);
@@ -23,10 +35,10 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 		setUserInput('');
 		setPasswordInput('');
 	};
+
 	const userDataValidation = (e) => {
 		e.preventDefault();
-		const userCheck = users.filter((user) => user.name === userInput);
-
+		const userCheck = UsersData.filter((user) => user.name === userInput);
 		if (userCheck.length > 0) {
 			if (userCheck[userCheck.length - 1].password === passwordInput) {
 				dispatch(login());
@@ -49,9 +61,10 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			shoulbBeCloseOnOutsideClick={true}>
 			<form className='login-form' onSubmit={userDataValidation}>
 				{isLoginError ? (
-					<div className='login-form__error'>
-						Nieprawidłowy login lub hasło.
-					</div>
+					<div className='login-form__error'>Wrong password or username!</div>
+				) : null}
+				{isLoading ? (
+					<div className='login-form__error'>Is Loading...</div>
 				) : null}
 				<label className='login-form__label' htmlFor='user'>
 					User:
