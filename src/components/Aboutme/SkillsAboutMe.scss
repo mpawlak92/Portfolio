@@ -4,7 +4,6 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1;
 	width: 80vw;
 	max-width: 35rem;
 	padding: 2rem;
@@ -19,6 +18,15 @@
 	&__list {
 		list-style: none;
 		font-size: 3rem;
+		&__btn {
+			aspect-ratio: 6 / 1;
+			margin: 0.5rem;
+			padding: 0.4rem;
+			background-color: $primary-color;
+			color: $secendary-color;
+			border: none;
+			border-radius: 10%;
+		}
 	}
 	&__list li::before {
 		content: '-';
@@ -30,5 +38,30 @@
 		font-size: 2.2rem;
 		text-align: center;
 		margin-bottom: 1rem;
+	}
+
+	&__btn {
+		aspect-ratio: 6 / 1;
+		margin: 0.5rem;
+		padding: 0.3rem;
+		background-color: $primary-color;
+		color: $secendary-color;
+		border: none;
+	}
+	&__btn {
+		aspect-ratio: 6 / 1;
+		margin: 0.5rem;
+		padding: 0.4rem;
+		border-radius: 8px;
+	}
+	&__add-btn {
+		background-color: $primary-color;
+		color: $secendary-color;
+		border: 1px solid black;
+	}
+	&__delete-all-btn {
+		background-color: rgb(225, 53, 53);
+		color: black;
+		border: 1px solid rgb(202, 3, 3);
 	}
 }

@@ -9,8 +9,12 @@ const Skills = ({ data }) => {
 		return data.map((skil) => (
 			<li key={skil}>
 				{skil}
-				{isloged === true && <button>Edytuj</button>}
-				{isloged === true && <button>Usuń</button>}
+				{isloged === true && (
+					<button className='skills-box__list__btn'>Edytuj</button>
+				)}
+				{isloged === true && (
+					<button className='skills-box__list__btn'>Usuń</button>
+				)}
 			</li>
 		));
 	};
@@ -19,8 +23,14 @@ const Skills = ({ data }) => {
 		<div className='skills-box'>
 			<h1>Stack</h1>
 			<ul className='skills-box__list'>{skillList()}</ul>
-			{isloged === true && <button>Dodaj</button>}
-			{isloged === true && <button>Usuń wszystkie</button>}
+			{isloged === true && (
+				<button className='skills-box__btn skills-box__add-btn'>Dodaj</button>
+			)}
+			{isloged === true && (
+				<button className='skills-box__btn skills-box__delete-all-btn'>
+					Usuń wszystkie
+				</button>
+			)}
 		</div>
 	);
 };

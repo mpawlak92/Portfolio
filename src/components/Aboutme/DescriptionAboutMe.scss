@@ -1,13 +1,26 @@
+@import '../../sass/Variables.scss';
 .my-descryption {
 	position: relative;
 	display: flex;
-	flex-grow: 1;
+	flex-wrap: wrap;
+	justify-content: center;
 	width: 80%;
 	max-width: 45rem;
 	margin: 3rem 2rem 4rem 2rem;
-	text-align: left;
+	// text-align: left;
 	font-size: 1.8rem;
 	text-indent: 1.5em;
+
+	&__edit-btn {
+		width: 50%;
+		aspect-ratio: 6 / 1;
+		margin: 2rem 2rem 0.5rem 2rem;
+		padding: 0.3rem;
+		background-color: $primary-color;
+		color: $secendary-color;
+		font-size: 1.6rem;
+		border: none;
+	}
 }
 .my-descryption::first-letter {
 	font-size: 3rem;

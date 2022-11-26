@@ -1,6 +1,8 @@
+@import '../../sass/Variables.scss';
 .cv {
 	display: flex;
-	flex-grow: 1;
+	align-items: center;
+	max-width: 50%;
 	margin: 1rem 2rem;
 
 	&__link {
@@ -18,5 +20,16 @@
 		padding: 20px;
 		background-image: url('../../icons/icons-applicant.png');
 		background-repeat: no-repeat;
+	}
+
+	&__edit-btn {
+		aspect-ratio: 6 / 1;
+		margin: 0.2rem 1rem;
+		padding: 0.8rem;
+		background-color: $primary-color;
+		color: $secendary-color;
+		font-size: 1.6rem;
+		border: none;
+		border-radius: 8px;
 	}
 }

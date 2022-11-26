@@ -33,8 +33,6 @@ const ProjectCard = ({
 	});
 	return (
 		<div className='project-card'>
-			{isUserLogeed === true && <button>Edutuj</button>}
-			{isUserLogeed === true && <button>Usuń</button>}
 			<div
 				ref={projectCardPhotoRef}
 				className='project-card__photo'
@@ -60,6 +58,14 @@ const ProjectCard = ({
 						return tech + ', ';
 					})}
 				</p>
+			</div>
+			<div className='project-card__btns'>
+				{isUserLogeed === true && (
+					<button className='project-card__edit-btn'>Edutuj</button>
+				)}
+				{isUserLogeed === true && (
+					<button className='project-card__delete-btn'>Usuń</button>
+				)}
 			</div>
 		</div>
 	);

@@ -15,22 +15,21 @@ const ContactInfo = ({ phone, mail, linkedin, isUserLogeed }) => {
 							'-' +
 							phone.slice(6, 9)}
 					</p>
-					{isUserLogeed === true && <button>Usuń</button>}
 				</li>
 				<li>
 					<div className='contact-info__mail-ico'></div>
 					<p>{mail}</p>
-					{isUserLogeed === true && <button>Usuń</button>}
 				</li>
 				<li>
 					<a href={linkedin} target='_blank' rel='noopener noreferrer'>
 						<div className='contact-info__linkedin-ico'></div>
 						<p>Linkedin</p>
 					</a>
-					{isUserLogeed === true && <button>Edytuj</button>}
 				</li>
 			</ul>
-			{isUserLogeed === true && <button>Edytuj</button>}
+			{isUserLogeed === true && (
+				<button className='contact-info__edit-btn'>Edytuj</button>
+			)}
 		</div>
 	);
 };

@@ -29,7 +29,9 @@ const ProjectsFooter = ({ isUserLogeed }) => {
 					GitHub
 				</button>
 			)}
-			{isUserLogeed === true && <button>Dodaj</button>}
+			{isUserLogeed === true && (
+				<button className='projects-footer__add-btn'>Dodaj nowy projekt</button>
+			)}
 		</div>
 	);
 };

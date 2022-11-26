@@ -24,4 +24,14 @@
 		scale: 1.1;
 		cursor: pointer;
 	}
+	&__add-btn {
+		aspect-ratio: 3 / 1;
+		margin: 0 1rem;
+		padding: 0.4rem 0.4rem;
+		border-radius: 8px;
+		background-color: rgb(37, 134, 91);
+		color: black;
+		font-size: 1.4rem;
+		border: 1px solid black;
+	}
 }

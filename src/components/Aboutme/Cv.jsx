@@ -13,7 +13,9 @@ const Cv = ({ data, isUserLogeed }) => {
 					<div className='cv__download-icon'></div>
 					Show CV
 				</a>
-				{isUserLogeed === true && <button>Zmień</button>}
+				{isUserLogeed === true && (
+					<button className='cv__edit-btn'>Zmień</button>
+				)}
 			</div>
 		</>
 	);
