@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,18 +6,30 @@ import { logout } from '../LoginForm/LoginSlice';
 
 import MenuBar from './Menu_bar';
 import LoginForm from '../LoginForm/LoginForm';
+import request from '../../helpers/request';
 
-import { aboutme } from '../../data/aboutme';
 import './Hamburger_menuPanel.scss';
 
 const HamburgerMenuPanel = ({ menuIsActive, click }) => {
-	const [isModalActive, setIsModalActive] = useState(false);
-
-	const isloged = useSelector((state) => state.login.isUserLogeed);
+	const isLogged = useSelector((state) => state.login.isUserLogeed);
 	const dispatch = useDispatch();
 
+	const [isModalActive, setIsModalActive] = useState(false);
+	const [githubLink, setGithubLink] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+
+	const fetchData = async () => {
+		const { data } = await request.get('/aboutme');
+		setGithubLink(data.github_link);
+		setIsLoading(false);
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	const handleLoginBtn = () => {
-		if (isloged) {
+		if (isLogged) {
 			dispatch(logout());
 			click();
 		} else {
@@ -30,7 +42,7 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 	};
 	const handleGitLink = () => {
 		click();
-		window.open(aboutme.github_link);
+		window.open(githubLink);
 	};
 
 	let classToggle = menuIsActive
@@ -59,17 +71,19 @@ const HamburgerMenuPanel = ({ menuIsActive, click }) => {
 					<Link to='/contact' className='hamburger-panel__link' onClick={click}>
 						Contact
 					</Link>
-					<Link
-						to={location.pathname}
-						className='hamburger-panel__link'
-						onClick={handleGitLink}>
-						<span className='git-ico'></span> GitHub
-					</Link>
+					{!isLoading && (
+						<Link
+							to={location.pathname}
+							className='hamburger-panel__link'
+							onClick={handleGitLink}>
+							<span className='git-ico'></span> GitHub
+						</Link>
+					)}
 					<Link
 						to={location.pathname}
 						className='hamburger-panel__link'
 						onClick={handleLoginBtn}>
-						{isloged ? 'Logout' : 'Login'}
+						{isLogged ? 'Logout' : 'Login'}
 					</Link>
 					<LoginForm
 						isModalActive={isModalActive}
