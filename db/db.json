@@ -1,49 +1,76 @@
 {
-	"aboutme": {
-		"description": "Last year I spent on learnnpm starting skills required for a job as a junior frontend developer (React). Currently my main goal is to find a job where I would develop acquired skills, and get commercial experience. Meanwhile I am working on projects for my portfolio.",
-		"skills": [
-			"HTML",
-			"CSS/SaSS(Scss)",
-			"BEM",
-			"JavaScript",
-			"React (React Context, Hooks)",
-			"Redux (The basics)",
-			"GULP (The basics)",
-			"SEO (The basics)",
-			"GIT/GitHub",
-			"TypeScript (In progress"
-		],
-		"cv_link": "https://drive.google.com/file/d/1Mn99u5BkpHCvdJaI3LrLFVNVaoZBcbdr/view?usp=share_link",
-		"github_link": "https://github.com/mpawlak92?tab=repositories",
-		"linkedin_link": "https://www.linkedin.com/in/mpawlak92/",
-		"email": "mpawlak.it@gmail.com",
-		"phone": "726630790"
-	},
-	"projects": [
-		{
-			"id": 1,
-			"name": "Portfolio",
-			"description": "Strona przedstawia moje portfolio. Posiada ona trzy podstrony, About me, Projects i Contact. Umożliwia zapoznanie sie z moim Cv, stackiem technologicznym oraz projektami napisanymi przeze mnie. Pozwala równiez na dostepn do githuba zarówno do pojedynczych projektów jak i do wszytkich repozytoriów. Dla zalogowanego użytkownika dostepny jest równiez panel administracyjny z którego pozoimo mozna edytować zawartość elementów na stronie.",
-			"technologys": ["HTML", "CSS", "JavaScript", "React"],
-			"git_link": "https://github.com/mpawlak92/Portfolio"
-		},
-		{
-			"id": 2,
-			"name": "Aga-Music",
-			"description": "22222222 22222222 222222222222222 222222222 222222222222",
-			"technologys": ["HTML", "CSS", "JavaScript"],
-			"git_link": "https://github.com/mpawlak92/AgNieszka-v0.9"
-		},
-		{
-			"id": 3,
-			"name": "Workout-note",
-			"description": "3333333 3333333333 33333333 33333 3333333 333333 333 3333 3",
-			"technologys": ["HTML", "CSS", "JavaScript", "React"],
-			"git_link": "https://github.com/mpawlak92"
-		}
-	],
-	"users": [
-		{ "id": 0, "name": "admin", "password": "qwerty" },
-		{ "id": 1, "name": "user", "password": "123456" }
-	]
+  "aboutme": {
+    "description": "Last year I spent on learnnpm starting skills required for a job as a junior frontend developer (React). Currently my main goal is to find a job where I would develop acquired skills, and get commercial experience. Meanwhile I am working on projects for my portfolio.",
+    "skills": [
+      "HTML",
+      "CSS/SaSS(Scss)",
+      "BEM",
+      "JavaScript",
+      "React (React Context, Hooks)",
+      "Redux (The basics)",
+      "GULP (The basics)",
+      "SEO (The basics)",
+      "GIT/GitHub",
+      "TypeScript (In progress"
+    ],
+    "cv_link": "https://drive.google.com/file/d/1Mn99u5BkpHCvdJaI3LrLFVNVaoZBcbdr/view?usp=share_link",
+    "github_link": "https://github.com/mpawlak92?tab=repositories",
+    "linkedin_link": "https://www.linkedin.com/in/mpawlak92/",
+    "email": "mpawlak.it@gmail.com",
+    "phone": "726630790"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "Portfolio",
+      "description": "Strona przedstawia moje portfolio. Posiada ona trzy podstrony, About me, Projects i Contact. Umożliwia zapoznanie sie z moim Cv, stackiem technologicznym oraz projektami napisanymi przeze mnie. Pozwala równiez na dostepn do githuba zarówno do pojedynczych projektów jak i do wszytkich repozytoriów. Dla zalogowanego użytkownika dostepny jest równiez panel administracyjny z którego pozoimo mozna edytować zawartość elementów na stronie.",
+      "technologys": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ],
+      "git_link": "https://github.com/mpawlak92/Portfolio"
+    },
+    {
+      "id": 2,
+      "name": "Aga-Music",
+      "description": "22222222 22222222 222222222222222 222222222 222222222222",
+      "technologys": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "git_link": "https://github.com/mpawlak92/AgNieszka-v0.9"
+    },
+    {
+      "id": 3,
+      "name": "Workout-note",
+      "description": "3333333 3333333333 33333333 33333 3333333 333333 333 3333 3",
+      "technologys": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ],
+      "git_link": "https://github.com/mpawlak92"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "admin",
+      "password": "qwerty"
+    },
+    {
+      "id": 1,
+      "name": "user",
+      "password": "123456"
+    },
+    {
+      "name": "admin",
+      "password": "qwerty",
+      "id": 2
+    }
+  ]
 }
