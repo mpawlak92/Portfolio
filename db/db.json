@@ -1,6 +1,6 @@
 {
   "aboutme": {
-    "description": "Last year I spent on learnnpm starting skills required for a job as a junior frontend developer (React). Currently my main goal is to find a job where I would develop acquired skills, and get commercial experience. Meanwhile I am working on projects for my portfolio.",
+    "description": "Last year I spent on learnnpm starting skills required for a job as a junior frontend developer (React). Currently my main goal is to find a job where I would develop acquired skills, and get commercial experience. Meanwhile I am working on projects for my portfolio.111",
     "skills": [
       "HTML",
       "CSS/SaSS(Scss)",
@@ -66,11 +66,6 @@
       "id": 1,
       "name": "user",
       "password": "123456"
-    },
-    {
-      "name": "admin",
-      "password": "qwerty",
-      "id": 2
     }
   ]
 }

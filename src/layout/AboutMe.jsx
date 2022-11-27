@@ -15,13 +15,13 @@ const Home = () => {
 	const [aboutmeData, setAboutmeData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const fetchData = async () => {
+	const fetchDataAboutme = async () => {
 		const { data } = await request.get('/aboutme');
 		setAboutmeData(data);
 		setIsLoading(false);
 	};
 	useEffect(() => {
-		fetchData();
+		fetchDataAboutme();
 	}, []);
 
 	if (isLoading) return <Loading />;

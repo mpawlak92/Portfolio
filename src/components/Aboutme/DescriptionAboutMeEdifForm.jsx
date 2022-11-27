@@ -7,9 +7,11 @@ import './DescriptionAboutMeEdifForm.scss';
 const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [descriptionText, setDescriptionText] = useState('');
+	const [aboutMeData, setAboutMeData] = useState(null);
 
 	const fetchData = async () => {
 		const { data } = await request.get('/aboutme');
+		setAboutMeData(data);
 		setDescriptionText(data.description);
 		setIsLoading(false);
 	};
@@ -21,13 +23,19 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 	const handleDescriptionTextarea = (e) => {
 		setDescriptionText(e.target.value);
 	};
-
+	const handleOnsubmit = async (e) => {
+		e.preventDefault();
+		const description = descriptionText;
+		await request.put('/aboutme', { ...aboutMeData, description });
+		handleOnClose(e);
+		//niedokończona funkcja najpierw wszystkie dane do contextu
+	};
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='description-edit-form'>
+			<form className='description-edit-form' onSubmit={handleOnsubmit}>
 				{isLoading ? (
 					<div className='description-edit-form__error'>Is Loading...</div>
 				) : null}
