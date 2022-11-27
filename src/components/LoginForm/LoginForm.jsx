@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
+// import axios from 'axios';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from './LoginSlice';
 
 import request from '../../helpers/request';
@@ -54,6 +55,19 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			inputsClear();
 		}
 	};
+
+	// prawidłowe zapytanie do serwera z autoryzacją np jsonserver auth
+	// const handleOnSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	const userData = {
+	// 		name: userInput,
+	// 		password: passwordInput,
+	// 	};
+	// 	axios.post('http://localhost:8000/users', userData).then((response) => {
+	// 		console.log(response.status);
+	// 		console.log(response.data);
+	// 	});
+	// };
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
