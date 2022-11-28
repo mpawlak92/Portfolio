@@ -25,8 +25,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 	};
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
-		const description = descriptionText;
-		await request.put('/aboutme', { ...aboutMeData, description });
+		await request.patch('/aboutme', { description: descriptionText });
 		handleOnClose(e);
 		//niedokończona funkcja najpierw wszystkie dane do contextu
 	};
@@ -35,7 +34,10 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='description-edit-form' onSubmit={handleOnsubmit}>
+			<form
+				className='description-edit-form'
+				method='submit'
+				onSubmit={handleOnsubmit}>
 				{isLoading ? (
 					<div className='description-edit-form__error'>Is Loading...</div>
 				) : null}
