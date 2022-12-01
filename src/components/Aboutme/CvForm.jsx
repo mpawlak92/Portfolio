@@ -13,7 +13,7 @@ const CvForm = ({ handleOnClose, isModalActive }) => {
 
 	const canSave = Boolean(cvLinkInput);
 
-	const handleDescriptionTextarea = (e) => {
+	const handleLinkInput = (e) => {
 		setCvLinkInput(e.target.value);
 	};
 
@@ -39,7 +39,7 @@ const CvForm = ({ handleOnClose, isModalActive }) => {
 					className='cv-edit-form__input'
 					type='text'
 					value={cvLinkInput}
-					onChange={handleDescriptionTextarea}
+					onChange={handleLinkInput}
 				/>
 				{editError && (
 					<div className='cv-edit-form__error'>
