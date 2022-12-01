@@ -27,6 +27,7 @@ const Home = () => {
 			dispatch(fetchAboutMeData());
 		}
 	}, [fetchStatus, dispatch]);
+	
 	if (fetchStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus === 'succeeded') {
