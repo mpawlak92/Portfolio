@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-
-// import request from '../../helpers/request';
-
 import './DescriptionAboutMeEdifForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
@@ -23,6 +20,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 		e.preventDefault();
 		if (canSave) {
 			dispatch(updateAboutMe(descriptionText));
+			setEditError(false);
 			handleOnClose(e);
 		} else {
 			setEditError(true);
