@@ -27,7 +27,6 @@ const DescriptionAboutMe = ({ data, isUserLogeed }) => {
 			<DescriptionAboutMeEdifForm
 				isModalActive={isModalActive}
 				handleOnClose={handleOnModalClose}
-				data={data}
 			/>
 		</>
 	);
