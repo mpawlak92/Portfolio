@@ -1,21 +1,34 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 
-import request from '../../helpers/request';
+// import request from '../../helpers/request';
 
 import './DescriptionAboutMeEdifForm.scss';
-const DescriptionAboutMeEdifForm = ({ data, handleOnClose, isModalActive }) => {
-	const [descriptionText, setDescriptionText] = useState(data);
+import { useDispatch, useSelector } from 'react-redux';
+import { updateAboutMe, aboutmeData } from './AboutMeSlice';
+const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
+	const dispatch = useDispatch();
+
+	const data = useSelector(aboutmeData);
+	const [descriptionText, setDescriptionText] = useState(data.description);
+	const [editError, setEditError] = useState(false);
+
+	const canSave = Boolean(descriptionText);
 
 	const handleDescriptionTextarea = (e) => {
 		setDescriptionText(e.target.value);
 	};
+
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
-		await request.patch('/aboutme', { description: descriptionText });
-		handleOnClose(e);
-		//niedokończona funkcja najpierw wszystkie dane do contextu
+		if (canSave) {
+			dispatch(updateAboutMe(descriptionText));
+			handleOnClose(e);
+		} else {
+			setEditError(true);
+		}
 	};
+
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
@@ -34,7 +47,9 @@ const DescriptionAboutMeEdifForm = ({ data, handleOnClose, isModalActive }) => {
 					value={descriptionText}
 					onChange={handleDescriptionTextarea}
 				/>
-
+				<div className='description-edit-form__error'>
+					{editError && <p>Pole nie moze być puste!</p>}
+				</div>
 				<div className='description-edit-form__btns'>
 					<button
 						className='description-edit-form__btns__save-btn'

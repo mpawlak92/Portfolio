@@ -12,7 +12,13 @@ export const fetchAboutMeData = createAsyncThunk(
 	'aboutme/fetchAboutMeData',
 	async () => {
 		const response = await request.get('/aboutme');
-		console.log(response);
+		return response.data;
+	}
+);
+export const updateAboutMe = createAsyncThunk(
+	'aboutme/updateAboutMe',
+	async (data) => {
+		const response = await request.patch('/aboutme', { description: data });
 		return response.data;
 	}
 );
@@ -23,19 +29,20 @@ const AboutMeSlice = createSlice({
 	extraReducers(builder) {
 		builder
 			.addCase(fetchAboutMeData.pending, (state, action) => {
-				console.log('wchodze do loading');
 				state.status = 'loading';
 			})
 			.addCase(fetchAboutMeData.fulfilled, (state, action) => {
-				console.log('wchodze do fulfield');
 				state.status = 'succeeded';
 				state.aboutmeData = action.payload;
 			})
 			.addCase(fetchAboutMeData.rejected, (state, action) => {
-				console.log('wchodze do reject');
 				state.status = 'failed';
 				console.log(action.error.message);
 				state.error = action.error.message;
+			})
+			.addCase(updateAboutMe.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.aboutmeData = action.payload;
 			});
 	},
 });
