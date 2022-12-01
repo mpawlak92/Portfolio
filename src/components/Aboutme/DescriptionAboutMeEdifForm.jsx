@@ -19,7 +19,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
 		if (canSave) {
-			dispatch(updateAboutMe(descriptionText));
+			dispatch(updateAboutMe({ description: descriptionText }));
 			setEditError(false);
 			handleOnClose(e);
 		} else {
@@ -45,9 +45,11 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 					value={descriptionText}
 					onChange={handleDescriptionTextarea}
 				/>
-				<div className='description-edit-form__error'>
-					{editError && <p>Pole nie moze być puste!</p>}
-				</div>
+				{editError && (
+					<div className='description-edit-form__error'>
+						<p>Pole nie moze być puste!</p>
+					</div>
+				)}
 				<div className='description-edit-form__btns'>
 					<button
 						className='description-edit-form__btns__save-btn'
