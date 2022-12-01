@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Cv.scss';
+import CvForm from './CvForm';
 const Cv = ({ data, isUserLogeed }) => {
+	const [isModalActive, setIsModalActive] = useState(false);
+
+	const handleEditBtn = () => {
+		setIsModalActive(true);
+	};
+	const handleOnModalClose = (e) => {
+		e.preventDefault();
+		setIsModalActive(false);
+	};
 	return (
 		<>
 			<div className='cv'>
@@ -14,8 +24,14 @@ const Cv = ({ data, isUserLogeed }) => {
 					Show CV
 				</a>
 				{isUserLogeed === true && (
-					<button className='cv__edit-btn'>Zmień</button>
+					<button className='cv__edit-btn' onClick={handleEditBtn}>
+						Zmień
+					</button>
 				)}
+				<CvForm
+					isModalActive={isModalActive}
+					handleOnClose={handleOnModalClose}
+				/>
 			</div>
 		</>
 	);

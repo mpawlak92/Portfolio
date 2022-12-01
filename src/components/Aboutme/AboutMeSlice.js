@@ -18,7 +18,7 @@ export const fetchAboutMeData = createAsyncThunk(
 export const updateAboutMe = createAsyncThunk(
 	'aboutme/updateAboutMe',
 	async (data) => {
-		const response = await request.patch('/aboutme', { description: data });
+		const response = await request.patch('/aboutme', data);
 		return response.data;
 	}
 );
