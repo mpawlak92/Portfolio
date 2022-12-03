@@ -1,17 +1,15 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
-import './SkilDeleteWarning.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateAboutMe, aboutmeData } from './AboutMeSlice';
+import './SkilDeleteAllWarning.scss';
+import { useDispatch} from 'react-redux';
+import { updateAboutMe} from './AboutMeSlice';
 
-const SkilDeleteWarning = ({ index, handleOnClose, isModalActive }) => {
+const SkilDeleteAllWarning = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
-	const data = useSelector(aboutmeData);
+	
 	const handleDelete = async (e) => {
-		const newSkilsArry = [...data.skills];
-
-		newSkilsArry.splice(index, 1);
-		dispatch(updateAboutMe({ skills: newSkilsArry }));
+		
+		dispatch(updateAboutMe({ skills: [] }));
 		handleOnClose();
 	};
 
@@ -21,7 +19,7 @@ const SkilDeleteWarning = ({ index, handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<div className='delete-box'>
-				<p className='delete-box__delete-msg'>Do wanna delete this item?</p>
+				<p className='delete-box__delete-msg'>Do wanna delete ALL items?</p>
 				<button className='delete-box__delete-btn' onClick={handleDelete}>
 					Yes
 				</button>
@@ -33,4 +31,4 @@ const SkilDeleteWarning = ({ index, handleOnClose, isModalActive }) => {
 	);
 };
 
-export default SkilDeleteWarning;
+export default SkilDeleteAllWarning;

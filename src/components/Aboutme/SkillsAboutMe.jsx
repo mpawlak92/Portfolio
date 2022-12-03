@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import SkilAddForm from './SkilAddForm';
+import SkilDeleteAllWarning from './SkilDeleteAllWarning';
 import SkilDeleteWarning from './SkilDeleteWarning';
 import SkilEditForm from './SkilEditForm';
 
@@ -10,6 +12,8 @@ const Skills = ({ data }) => {
 
 	const [isModalActive, setIsModalActive] = useState(false);
 	const [isDeleteModalActive, setIsDeleteModalActive] = useState(false);
+	const [isAddModalActive, setIsAddModalActive] = useState(false);
+	const [isDeleteAllModalActive, setIsDeleteAllModalActive] = useState(false);
 	const [indexElement, setIndexElement] = useState('');
 
 	const handleEditBtn = (e) => {
@@ -26,6 +30,18 @@ const Skills = ({ data }) => {
 	};
 	const handleOnDeleteModalClose = () => {
 		setIsDeleteModalActive(false);
+	};
+	const handleOnAddBtn = (e) => {
+		setIsAddModalActive(true);
+	};
+	const handleOnAddModalClose = () => {
+		setIsAddModalActive(false);
+	};
+	const handleOnDeleteAllBtn = (e) => {
+		setIsDeleteAllModalActive(true);
+	};
+	const handleOnDeleteAlldModalClose = () => {
+		setIsDeleteAllModalActive(false);
 	};
 	const skillList = (e) => {
 		return data.map((skil) => (
@@ -51,10 +67,16 @@ const Skills = ({ data }) => {
 			<h1>Stack</h1>
 			<ul className='skills-box__list'>{skillList()}</ul>
 			{isloged === true && (
-				<button className='skills-box__btn skills-box__add-btn'>Dodaj</button>
+				<button
+					className='skills-box__btn skills-box__add-btn'
+					onClick={handleOnAddBtn}>
+					Dodaj
+				</button>
 			)}
 			{isloged === true && (
-				<button className='skills-box__btn skills-box__delete-all-btn'>
+				<button
+					className='skills-box__btn skills-box__delete-all-btn'
+					onClick={handleOnDeleteAllBtn}>
 					Usuń wszystkie
 				</button>
 			)}
@@ -67,6 +89,14 @@ const Skills = ({ data }) => {
 				isModalActive={isDeleteModalActive}
 				handleOnClose={handleOnDeleteModalClose}
 				index={indexElement}
+			/>
+			<SkilAddForm
+				isModalActive={isAddModalActive}
+				handleOnClose={handleOnAddModalClose}
+			/>
+			<SkilDeleteAllWarning
+				isModalActive={isDeleteAllModalActive}
+				handleOnClose={handleOnDeleteAlldModalClose}
 			/>
 		</div>
 	);
