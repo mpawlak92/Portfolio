@@ -1,0 +1,53 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import request from '../../helpers/request';
+
+const initialState = {
+	contactData: {},
+	status: 'idle', // idle | loading | succesed | failed
+	error: null,
+};
+
+export const fetchContactData = createAsyncThunk(
+	'contact/fetchcontactData',
+	async () => {
+		const response = await request.get('/aboutme');
+
+		return response.data.contact;
+	}
+);
+export const updateContact = createAsyncThunk(
+	'contact/updateContact',
+	async (data) => {
+		const response = await request.patch('/aboutme', data);
+		return response.data.contact;
+	}
+);
+const ContactSlice = createSlice({
+	name: 'contact',
+	initialState,
+	reducers: {},
+	extraReducers(builder) {
+		builder
+			.addCase(fetchContactData.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(fetchContactData.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.contactData = action.payload;
+			})
+			.addCase(fetchContactData.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.error.message;
+			})
+			.addCase(updateContact.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.contactData = action.payload;
+			});
+	},
+});
+
+export const contactData = (state) => state.contact.contactData;
+export const contactDataFetchStatus = (state) => state.contact.status;
+export const contactDataFetchError = (state) => state.contact.error;
+export default ContactSlice.reducer;

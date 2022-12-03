@@ -13,11 +13,13 @@
       "GIT/GitHub",
       "TypeScript (In progress"
     ],
+    "contact": {
+      "linkedin_link": "https://www.linkedin.com/in/mpawlak92/",
+      "email": "mpawlak.it@gmail.com",
+      "phone": "726630790"
+    },
     "cv_link": "https://drive.google.com/file/d/1Mn99u5BkpHCvdJaI3LrLFVNVaoZBcbdr/view?usp=share_link",
-    "github_link": "https://github.com/mpawlak92?tab=repositories",
-    "linkedin_link": "https://www.linkedin.com/in/mpawlak92/",
-    "email": "mpawlak.it@gmail.com",
-    "phone": "726630790"
+    "github_link": "https://github.com/mpawlak92?tab=repositories"
   },
   "projects": [
     {
