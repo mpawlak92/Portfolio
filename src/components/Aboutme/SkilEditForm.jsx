@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
+import './SkilEditForm.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
-const SkilEditForm = ({ handleOnClose, isModalActive }) => {
+const SkilEditForm = ({ index, handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
-
-	const [skilInput, setSkilInput] = useState(null);
+	const data = useSelector(aboutmeData);
+	const [skilInput, setSkilInput] = useState(index);
 	const [editError, setEditError] = useState(false);
-
 	const canSave = Boolean(skilInput);
 
 	const handleSkilInput = (e) => {
 		setSkilInput(e.target.value);
 	};
-
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
 		if (canSave) {
-			dispatch(updateAboutMe({ skills[]: skilInput }));
+			const newSkilsArray = [...data.skills];
+
+			newSkilsArray[index] = skilInput;
+
+			dispatch(updateAboutMe({ skills: newSkilsArray }));
 			setEditError(false);
+			setSkilInput('');
 			handleOnClose(e);
 		} else {
 			setEditError(true);
@@ -32,8 +36,11 @@ const SkilEditForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='skil-edit-form' method='submit' onSubmit={handleOnsubmit}>
-				<label className='skil-edit-form__label'>Set your new description:</label>
+			<form
+				className='skil-edit-form'
+				method='submit'
+				onSubmit={handleOnsubmit}>
+				<label className='skil-edit-form__label'>Edit your skil:</label>
 				<input
 					className='skil-edit-form__input'
 					type='text'

@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '../Modal/Modal';
-import './CvForm.scss';
+import './SkilDeleteWarning.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
-const CvForm = ({ handleOnClose, isModalActive }) => {
+const SkilDeleteWarning = ({ index, handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
-
 	const data = useSelector(aboutmeData);
-	const [cvLinkInput, setCvLinkInput] = useState(data.cv_link);
-	const [editError, setEditError] = useState(false);
+	const handleDelete = async (e) => {
+		const newSkilsArry = [...data.skills];
 
-	const canSave = Boolean(cvLinkInput);
-
-	const handleDescriptionTextarea = (e) => {
-		setCvLinkInput(e.target.value);
-	};
-
-	const handleOnsubmit = async (e) => {
-		e.preventDefault();
-		if (canSave) {
-			dispatch(updateAboutMe({ cv_link: cvLinkInput }));
-			setEditError(false);
-			handleOnClose(e);
-		} else {
-			setEditError(true);
-		}
+		newSkilsArry.splice(index, 1);
+		console.log(newSkilsArry);
+		dispatch(updateAboutMe({ skills: newSkilsArry }));
+		handleOnClose();
 	};
 
 	return (
@@ -33,32 +21,17 @@ const CvForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='cv-edit-form' method='submit' onSubmit={handleOnsubmit}>
-				<label className='cv-edit-form__label'>Set your new description:</label>
-				<input
-					className='cv-edit-form__input'
-					type='text'
-					value={cvLinkInput}
-					onChange={handleDescriptionTextarea}
-				/>
-				{editError && (
-					<div className='cv-edit-form__error'>
-						<p>Pole nie moze być puste!</p>
-					</div>
-				)}
-				<div className='cv-edit-form__btns'>
-					<button className='cv-edit-form__btns__save-btn' type='submit'>
-						Save
-					</button>
-					<button
-						className='cv-edit-form__btns__cancel-btn'
-						onClick={handleOnClose}>
-						Cancel
-					</button>
-				</div>
-			</form>
+			<div className='delete-box'>
+				<p className='delete-box__delete-msg'>Do wanna delete this item?</p>
+				<button className='delete-box__delete-btn' onClick={handleDelete}>
+					Yes
+				</button>
+				<button className='delete-box__cancel-btn' onClick={handleOnClose}>
+					Cancel
+				</button>
+			</div>
 		</Modal>
 	);
 };
 
-export default CvForm;
+export default SkilDeleteWarning;

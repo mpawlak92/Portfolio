@@ -1,0 +1,32 @@
+@import '../../sass/Variables.scss';
+
+.delete-box {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+
+	&__delete-msg {
+		color: red;
+		margin-bottom: 1rem;
+		font-size: 2rem;
+	}
+
+	&__delete-btn,
+	&__cancel-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 6 / 1;
+		width: 20%;
+		margin: 1rem;
+		font-size: 1.8rem;
+		border-radius: 8px;
+	}
+}
