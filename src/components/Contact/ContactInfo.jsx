@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import { contactData } from './ContactSlice';
 import './ContactInfo.scss';
-const ContactInfo = ({ phone, mail, linkedin, isUserLogeed }) => {
+import ContactInfoEditForm from './ContactInfoEditForm';
+const ContactInfo = ({ isUserLogeed }) => {
+	const contactInfo = useSelector(contactData);
+
+	const [isModalActive, setIsModalActive] = useState(false);
+
+	const handleEditBtn = () => {
+		setIsModalActive(true);
+	};
+	const handleOnModalClose = () => {
+		setIsModalActive(false);
+	};
 	return (
 		<div className='contact-info'>
 			<h3 className='contact-info__head'>Contact info:</h3>
@@ -9,27 +22,36 @@ const ContactInfo = ({ phone, mail, linkedin, isUserLogeed }) => {
 				<li>
 					<div className='contact-info__tel-ico'></div>
 					<p>
-						{phone.slice(0, 3) +
+						{contactInfo.phone.slice(0, 3) +
 							'-' +
-							phone.slice(3, 6) +
+							contactInfo.phone.slice(3, 6) +
 							'-' +
-							phone.slice(6, 9)}
+							contactInfo.phone.slice(6, 9)}
 					</p>
 				</li>
 				<li>
 					<div className='contact-info__mail-ico'></div>
-					<p>{mail}</p>
+					<p>{contactInfo.email}</p>
 				</li>
 				<li>
-					<a href={linkedin} target='_blank' rel='noopener noreferrer'>
+					<a
+						href={contactInfo.linkedin}
+						target='_blank'
+						rel='noopener noreferrer'>
 						<div className='contact-info__linkedin-ico'></div>
 						<p>Linkedin</p>
 					</a>
 				</li>
 			</ul>
 			{isUserLogeed === true && (
-				<button className='contact-info__edit-btn'>Edytuj</button>
+				<button className='contact-info__edit-btn' onClick={handleEditBtn}>
+					Edytuj
+				</button>
 			)}
+			<ContactInfoEditForm
+				isModalActive={isModalActive}
+				handleOnClose={handleOnModalClose}
+			/>
 		</div>
 	);
 };
