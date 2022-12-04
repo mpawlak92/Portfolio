@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-
+import './ProjectEditForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProjects, projectsData } from './ProjectsSlice';
 
@@ -59,55 +59,55 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<form
-				className='skil-edit-form'
+				className='project-edit-form'
 				method='submit'
 				onSubmit={handleOnsubmit}>
-				<label className='skil-edit-form__label'>Title:</label>
+				<label className='project-edit-form__label'>Title:</label>
 				<input
-					className='skil-edit-form__input'
+					className='project-edit-form__input'
 					type='text'
 					value={titleInput}
 					onChange={handleTitleInput}
 				/>
 
-				<label className='skil-edit-form__label'>Git link:</label>
+				<label className='project-edit-form__label'>Git link:</label>
 				<input
-					className='skil-edit-form__input'
+					className='project-edit-form__input'
 					type='text'
 					value={gitLinkInput}
 					onChange={handleGitLinkInput}
 				/>
 
-				<label className='skil-edit-form__label'>Description:</label>
+				<label className='project-edit-form__label'>Description:</label>
 				<input
-					className='skil-edit-form__input'
+					className='project-edit-form__input'
 					type='text'
 					value={descriptionText}
 					onChange={handleDescriptionText}
 				/>
 
-				<label className='skil-edit-form__label'>
+				<label className='project-edit-form__label'>
 					Technologys(have to be separated b comma with spaces eg: HTML, CSS,
 					BEM):
 				</label>
 				<input
-					className='skil-edit-form__input'
+					className='project-edit-form__input'
 					type='text'
 					value={technologysInput}
 					onChange={handleTechnologysInput}
 				/>
 
 				{editError && (
-					<div className='skil-edit-form__error'>
+					<div className='project-edit-form__error'>
 						<p>Pole nie moze być puste!</p>
 					</div>
 				)}
-				<div className='skil-edit-form__btns'>
-					<button className='skil-edit-form__btns__save-btn' type='submit'>
+				<div className='project-edit-form__btns'>
+					<button className='project-edit-form__btns__save-btn' type='submit'>
 						Save
 					</button>
 					<button
-						className='skil-edit-form__btns__cancel-btn'
+						className='project-edit-form__btns__cancel-btn'
 						onClick={handleOnClose}>
 						Cancel
 					</button>
