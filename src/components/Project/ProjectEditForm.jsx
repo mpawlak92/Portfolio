@@ -12,7 +12,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 	const [titleInput, setTitleInput] = useState(data[index].name);
 	const [gitLinkInput, setGitLinkInput] = useState(data[index].git_link);
 	const [descriptionText, setDescriptionText] = useState(
-		...data[index].description
+		data[index].description
 	);
 	const [technologysInput, setTechnologysInput] = useState(
 		data[index].technologys
