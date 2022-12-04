@@ -29,7 +29,6 @@ const Projects = () => {
 	if (fetchStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus === 'succeeded') {
-		// console.log(fetchedData);
 		return (
 			<div className='projects'>
 				{fetchedData.map((project) => (
