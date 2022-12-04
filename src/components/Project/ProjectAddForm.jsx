@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import './ProjectAddForm.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProjects, projectsData } from './ProjectsSlice';
+import { useDispatch } from 'react-redux';
+import { addProjects } from './ProjectsSlice';
 
 const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
-	const data = useSelector(projectsData);
 	const [titleInput, setTitleInput] = useState('');
 	const [gitLinkInput, setGitLinkInput] = useState('');
 	const [descriptionText, setDescriptionText] = useState('');
@@ -26,6 +25,12 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const handleTechnologysInput = (e) => {
 		setTechnologysInput(e.target.value);
 	};
+	const clearForm = () => {
+		setTechnologysInput('');
+		setDescriptionText('');
+		setGitLinkInput('');
+		setTitleInput('');
+	};
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
 		if (canSave) {
@@ -40,6 +45,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 
 			dispatch(addProjects(editedObject));
 			setEditError(false);
+			clearForm();
 			handleOnClose(e);
 		} else {
 			setEditError(true);
