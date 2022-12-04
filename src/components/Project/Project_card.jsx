@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import './Project_card.scss';
 import '../../sass/Variables.scss';
 import ProjectEditForm from './ProjectEditForm';
-
+import ProjectDeleteWarning from './ProjectDeleteWarning';
 
 const ProjectCard = ({
 	id,
@@ -14,7 +14,8 @@ const ProjectCard = ({
 	isUserLogeed,
 }) => {
 	const [isEditModalActive, setIsEditModalActive] = useState(false);
-	
+	const [isDeleteModalActive, setIsDeleteModalActive] = useState(false);
+
 	const handleEditBtn = () => {
 		setIsEditModalActive(true);
 	};
@@ -22,7 +23,14 @@ const ProjectCard = ({
 		e.preventDefault();
 		setIsEditModalActive(false);
 	};
-	
+	const handleDeleteBtn = () => {
+		setIsDeleteModalActive(true);
+	};
+	const handleOnDeleteModalClose = (e) => {
+		e.preventDefault();
+		setIsDeleteModalActive(false);
+	};
+
 	const projectCardPhotoRef = useRef();
 
 	const handleGitBtn = () => {
@@ -83,7 +91,11 @@ const ProjectCard = ({
 					</button>
 				)}
 				{isUserLogeed === true && (
-					<button className='project-card__delete-btn'>Usuń</button>
+					<button
+						className='project-card__delete-btn'
+						onClick={handleDeleteBtn}>
+						Usuń
+					</button>
 				)}
 			</div>
 			<ProjectEditForm
@@ -91,7 +103,11 @@ const ProjectCard = ({
 				handleOnClose={handleOnEditModalClose}
 				id={id}
 			/>
-			
+			<ProjectDeleteWarning
+				isModalActive={isDeleteModalActive}
+				handleOnClose={handleOnDeleteModalClose}
+				id={id}
+			/>
 		</div>
 	);
 };

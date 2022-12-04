@@ -30,6 +30,14 @@ export const addProjects = createAsyncThunk(
 		return response.data;
 	}
 );
+export const deleteProjects = createAsyncThunk(
+	'projects/deleteProjects',
+	async (id) => {
+		const response = await request.delete(`/projects/${id}`);
+		console.log(response.data);
+		return response.data;
+	}
+);
 const ProjectsSlice = createSlice({
 	name: 'projects',
 	initialState,
@@ -58,6 +66,12 @@ const ProjectsSlice = createSlice({
 			})
 			.addCase(addProjects.fulfilled, (state, action) => {
 				state.projectsData.push(action.payload);
+			})
+			.addCase(deleteProjects.fulfilled, (state, action) => {
+				const index = state.projectsData
+					.map((object) => object.id)
+					.indexOf(action.payload.id);
+				state.projectsData.splice(index, 1);
 			});
 	},
 });
