@@ -4,6 +4,7 @@ import './Project_card.scss';
 import '../../sass/Variables.scss';
 import ProjectEditForm from './ProjectEditForm';
 
+
 const ProjectCard = ({
 	id,
 	name,
@@ -12,15 +13,16 @@ const ProjectCard = ({
 	git_link,
 	isUserLogeed,
 }) => {
-	const [isModalActive, setIsModalActive] = useState(false);
-
+	const [isEditModalActive, setIsEditModalActive] = useState(false);
+	
 	const handleEditBtn = () => {
-		setIsModalActive(true);
+		setIsEditModalActive(true);
 	};
-	const handleOnModalClose = (e) => {
+	const handleOnEditModalClose = (e) => {
 		e.preventDefault();
-		setIsModalActive(false);
+		setIsEditModalActive(false);
 	};
+	
 	const projectCardPhotoRef = useRef();
 
 	const handleGitBtn = () => {
@@ -85,10 +87,11 @@ const ProjectCard = ({
 				)}
 			</div>
 			<ProjectEditForm
-				isModalActive={isModalActive}
-				handleOnClose={handleOnModalClose}
+				isModalActive={isEditModalActive}
+				handleOnClose={handleOnEditModalClose}
 				id={id}
 			/>
+			
 		</div>
 	);
 };

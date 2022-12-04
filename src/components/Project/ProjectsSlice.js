@@ -23,6 +23,13 @@ export const updateProjects = createAsyncThunk(
 		return response.data;
 	}
 );
+export const addProjects = createAsyncThunk(
+	'projects/addProjects',
+	async (data) => {
+		const response = await request.post('/projects', data);
+		return response.data;
+	}
+);
 const ProjectsSlice = createSlice({
 	name: 'projects',
 	initialState,
@@ -48,6 +55,9 @@ const ProjectsSlice = createSlice({
 					.indexOf(action.payload.id);
 
 				state.projectsData[index] = action.payload;
+			})
+			.addCase(addProjects.fulfilled, (state, action) => {
+				state.projectsData.push(action.payload);
 			});
 	},
 });

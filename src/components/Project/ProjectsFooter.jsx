@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import request from '../../helpers/request';
+import ProjectAddForm from './ProjectAddForm';
 import './ProjectsFooter.scss';
 
-const ProjectsFooter = ({ isUserLogeed }) => {
+const ProjectsFooter = ({ data, isUserLogeed }) => {
 	const handleFooterBtn = () => {
-		window.open(githubLink);
+		window.open(data);
 	};
-	const [githubLink, setGithubLink] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
 
-	const fetchData = async () => {
-		const { data } = await request.get('/aboutme');
+	const [isAddModalActive, setIsAddModalActive] = useState(false);
 
-		if (data.github_link !== undefined && data.github_link !== null) {
-			setGithubLink(data.github_link);
-			setIsLoading(false);
-		}
+	const handleAddBtn = () => {
+		setIsAddModalActive(true);
 	};
-	useEffect(() => {
-		fetchData();
-	}, []);
+	const handleOnAddModalClose = (e) => {
+		e.preventDefault();
+		setIsAddModalActive(false);
+	};
 
 	return (
 		<div className='projects-footer'>
-			{!isLoading && (
-				<button className='projects-footer__git' onClick={handleFooterBtn}>
-					GitHub
+			<button className='projects-footer__git' onClick={handleFooterBtn}>
+				GitHub
+			</button>
+
+			{isUserLogeed === true && (
+				<button className='projects-footer__add-btn' onClick={handleAddBtn}>
+					Dodaj nowy projekt
 				</button>
 			)}
-			{isUserLogeed === true && (
-				<button className='projects-footer__add-btn'>Dodaj nowy projekt</button>
-			)}
+			<ProjectAddForm
+				isModalActive={isAddModalActive}
+				handleOnClose={handleOnAddModalClose}
+			/>
 		</div>
 	);
 };
