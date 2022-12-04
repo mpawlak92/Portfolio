@@ -37,26 +37,25 @@
     {
       "id": 2,
       "name": "Aga-Music",
-      "description": "2222222",
+      "description": "To jest drugi projekt z opisem zmienionym przez formularz, i poprawnym tytułem oraz linkiem do gita",
       "technologys": [
         "HTML",
         "CSS",
-        "JavaScript",
-        "React"
+        "JavaScript"
       ],
-      "git_link": "https://github.com/mpawlak92/Portfolio"
+      "git_link": "https://github.com/mpawlak92/AgNieszka-v0.9"
     },
     {
       "id": 3,
-      "name": "Shop",
-      "description": "444444444111111111",
+      "name": "Shopv0.0",
+      "description": "To jest trzeci projekt, który powstanie w przyszłości",
       "technologys": [
         "HTML",
         "CSS",
-        "JavaScript",
+        "TypeScript",
         "React"
       ],
-      "git_link": "https://github.com/mpawlak92/Portfolio"
+      "git_link": ""
     }
   ],
   "users": [

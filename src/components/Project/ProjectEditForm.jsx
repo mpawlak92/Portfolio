@@ -9,24 +9,40 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 	const data = useSelector(projectsData);
 	const index = data.findIndex((project) => project.id === id);
 
+	const [titleInput, setTitleInput] = useState(data[index].name);
+	const [gitLinkInput, setGitLinkInput] = useState(data[index].git_link);
 	const [descriptionText, setDescriptionText] = useState(
-		data[index].description
+		...data[index].description
+	);
+	const [technologysInput, setTechnologysInput] = useState(
+		data[index].technologys
 	);
 	const [editError, setEditError] = useState(false);
 	const canSave = Boolean(descriptionText);
 
+	const handleTitleInput = (e) => {
+		setTitleInput(e.target.value);
+	};
+	const handleGitLinkInput = (e) => {
+		setGitLinkInput(e.target.value);
+	};
 	const handleDescriptionText = (e) => {
 		setDescriptionText(e.target.value);
+	};
+	const handleTechnologysInput = (e) => {
+		setTechnologysInput(e.target.value);
 	};
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
 		if (canSave) {
+			const technologys = technologysInput.toString();
+
 			const editedObject = {
 				id,
-				name: 'Aga-Music',
+				name: titleInput,
 				description: descriptionText,
-				technologys: ['HTML', 'CSS', 'JavaScript', 'React'],
-				git_link: 'https://github.com/mpawlak92/Portfolio',
+				technologys: technologys.split(','),
+				git_link: gitLinkInput,
 			};
 
 			dispatch(updateProjects(editedObject));
@@ -50,16 +66,16 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				<input
 					className='skil-edit-form__input'
 					type='text'
-					value={descriptionText}
-					onChange={handleDescriptionText}
+					value={titleInput}
+					onChange={handleTitleInput}
 				/>
 
 				<label className='skil-edit-form__label'>Git link:</label>
 				<input
 					className='skil-edit-form__input'
 					type='text'
-					value={descriptionText}
-					onChange={handleDescriptionText}
+					value={gitLinkInput}
+					onChange={handleGitLinkInput}
 				/>
 
 				<label className='skil-edit-form__label'>Description:</label>
@@ -77,8 +93,8 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				<input
 					className='skil-edit-form__input'
 					type='text'
-					value={descriptionText}
-					onChange={handleDescriptionText}
+					value={technologysInput}
+					onChange={handleTechnologysInput}
 				/>
 
 				{editError && (
