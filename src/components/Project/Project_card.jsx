@@ -1,19 +1,32 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import './Project_card.scss';
 import '../../sass/Variables.scss';
+import ProjectEditForm from './ProjectEditForm';
 
 const ProjectCard = ({
+	id,
 	name,
 	description,
 	technologys,
 	git_link,
 	isUserLogeed,
 }) => {
+	const [isModalActive, setIsModalActive] = useState(false);
+
+	const handleEditBtn = () => {
+		setIsModalActive(true);
+	};
+	const handleOnModalClose = (e) => {
+		e.preventDefault();
+		setIsModalActive(false);
+	};
 	const projectCardPhotoRef = useRef();
+
 	const handleGitBtn = () => {
 		window.open(git_link);
 	};
+
 	const setProjectTitle = () => {
 		let firsfTitlePartLength = Math.floor(name.length / 2);
 		let firstTitlePart = name.slice(0, firsfTitlePartLength);
@@ -28,9 +41,11 @@ const ProjectCard = ({
 			`${secendTitlePart}`
 		);
 	};
+
 	useEffect(() => {
 		setProjectTitle();
 	});
+
 	return (
 		<div className='project-card'>
 			<div
@@ -61,12 +76,19 @@ const ProjectCard = ({
 			</div>
 			<div className='project-card__btns'>
 				{isUserLogeed === true && (
-					<button className='project-card__edit-btn'>Edutuj</button>
+					<button className='project-card__edit-btn' onClick={handleEditBtn}>
+						Edutuj
+					</button>
 				)}
 				{isUserLogeed === true && (
 					<button className='project-card__delete-btn'>Usuń</button>
 				)}
 			</div>
+			<ProjectEditForm
+				isModalActive={isModalActive}
+				handleOnClose={handleOnModalClose}
+				id={id}
+			/>
 		</div>
 	);
 };
