@@ -58,55 +58,55 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<form
-				className='project-edit-form'
+				className='project-add-form'
 				method='submit'
 				onSubmit={handleOnsubmit}>
-				<label className='project-edit-form__label'>Title:</label>
+				<label className='project-add-form__label'>Title:</label>
 				<input
-					className='project-edit-form__input'
+					className='project-add-form__input'
 					type='text'
 					value={titleInput}
 					onChange={handleTitleInput}
 				/>
 
-				<label className='project-edit-form__label'>Git link:</label>
+				<label className='project-add-form__label'>Git link:</label>
 				<input
-					className='project-edit-form__input'
+					className='project-add-form__input'
 					type='text'
 					value={gitLinkInput}
 					onChange={handleGitLinkInput}
 				/>
 
-				<label className='project-edit-form__label'>Description:</label>
+				<label className='project-add-form__label'>Description:</label>
 				<input
-					className='project-edit-form__input'
+					className='project-add-form__input'
 					type='text'
 					value={descriptionText}
 					onChange={handleDescriptionText}
 				/>
 
-				<label className='project-edit-form__label'>
+				<label className='project-add-form__label'>
 					Technologys(have to be separated b comma with spaces eg: HTML, CSS,
 					BEM):
 				</label>
 				<input
-					className='project-edit-form__input'
+					className='project-add-form__input'
 					type='text'
 					value={technologysInput}
 					onChange={handleTechnologysInput}
 				/>
 
 				{editError && (
-					<div className='project-edit-form__error'>
+					<div className='project-add-form__error'>
 						<p>Pole nie moze być puste!</p>
 					</div>
 				)}
-				<div className='project-edit-form__btns'>
-					<button className='project-edit-form__btns__save-btn' type='submit'>
+				<div className='project-add-form__btns'>
+					<button className='project-add-form__btns__save-btn' type='submit'>
 						Save
 					</button>
 					<button
-						className='project-edit-form__btns__cancel-btn'
+						className='project-add-form__btns__cancel-btn'
 						onClick={handleOnClose}>
 						Cancel
 					</button>
