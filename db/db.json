@@ -11,7 +11,7 @@
       "GULP (The basics)",
       "SEO (The basics)",
       "GIT/GitHub",
-      "TypeScript (In progress"
+      "TypeScript (In progress)"
     ],
     "contact": {
       "linkedin_link": "https://www.linkedin.com/in/mpawlak92/",
@@ -47,13 +47,14 @@
     },
     {
       "id": 3,
-      "name": "Shopv0.0",
-      "description": "To jest trzeci projekt, który powstanie w przyszłości",
+      "name": "Shopv0.01",
+      "description": "To jest trzeci projekt, który powstanie w przyszłości kornelka",
       "technologys": [
         "HTML",
         "CSS",
         "TypeScript",
-        "React"
+        "React",
+        " kornelka"
       ],
       "git_link": ""
     }
