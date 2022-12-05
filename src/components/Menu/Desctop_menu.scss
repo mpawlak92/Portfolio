@@ -1,0 +1,51 @@
+@import '../../sass/Variables.scss';
+
+.desctop_menu {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 60px;
+	padding-right: 2rem;
+	background-color: transparent;
+
+	&__link {
+		font-size: 3rem;
+		padding-left: 1rem;
+		text-decoration: none;
+		color: $secendary-color;
+
+		&:last-child:after {
+			content: '';
+			border: none;
+		}
+	}
+	&__link:hover {
+		border-bottom: 1px solid yellow;
+	}
+	&__link::after {
+		content: '';
+		margin-left: 1rem;
+		height: 15px;
+		width: 5px;
+		border-right: 1px solid rgb(115, 119, 130);
+	}
+	&__github-link {
+		display: flex;
+		width: 100%;
+		font-size: 4rem;
+		border: none;
+		background: none;
+	}
+}
+.git-ico {
+	display: inline-block;
+	width: 5rem;
+	height: 5rem;
+	margin: 0 -10px -10px -10px;
+	background-image: url(../../icons//icons-github.svg);
+}
