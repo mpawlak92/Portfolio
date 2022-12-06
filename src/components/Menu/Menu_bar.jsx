@@ -15,24 +15,32 @@ const MenuBar = ({ click, site }) => {
 	} else {
 		btnStyle = 'hamburger-close';
 	}
-	// const [windowSize, setWindowSize] = useState(getWindowSize());
+	const [windowSize, setWindowSize] = useState(getWindowSize());
 
-	// useEffect(() => {
-	//   function handleWindowResize() {
-	// 	setWindowSize(getWindowSize());
-	//   }
+	function getWindowSize() {
+		const { innerWidth } = window;
+		return { innerWidth };
+	}
 
-	//   window.addEventListener('resize', handleWindowResize);
+	useEffect(() => {
+		function handleWindowResize() {
+			setWindowSize(getWindowSize());
+		}
 
-	//   return () => {
-	// 	window.removeEventListener('resize', handleWindowResize);
-	//   };
-	// }, []);
+		window.addEventListener('resize', handleWindowResize);
+
+		return () => {
+			window.removeEventListener('resize', handleWindowResize);
+		};
+	}, []);
+
 	return (
 		<div style={style} className='menu-bar'>
 			{isloged ? <div className='menu-bar__avatar'></div> : null}
-			{site ? null : <button className={btnStyle} onClick={click}></button>}
-			{site ? <DesctopMenu /> : null}
+			{windowSize.innerWidth < 800 ? (
+				<button className={btnStyle} onClick={click}></button>
+			) : null}
+			{windowSize.innerWidth >= 800 ? <DesctopMenu /> : null}
 		</div>
 	);
 };
