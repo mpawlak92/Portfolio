@@ -8,14 +8,15 @@
 	bottom: 0;
 	width: 100%;
 	height: 5rem;
+	font-size: 1.4rem;
 	background-color: $primary-color;
+
 	z-index: 10;
 
 	&__git {
-		width: 20rem;
-		height: 4rem;
-		font-size: 3rem;
+		padding: 1rem 3rem;
 		background-color: $secendary-color;
+		font-size: 1em;
 		border: 1px solid black;
 		border-radius: 8px;
 		transition: scale 0.5s;
@@ -25,13 +26,29 @@
 		cursor: pointer;
 	}
 	&__add-btn {
-		aspect-ratio: 3 / 1;
-		margin: 0 1rem;
-		padding: 0.4rem 0.4rem;
+		margin-left: 1rem;
+		padding: 1rem 3rem;
+		font-size: 1em;
 		border-radius: 8px;
 		background-color: rgb(37, 134, 91);
 		color: black;
-		font-size: 1.4rem;
+
 		border: 1px solid black;
+	}
+}
+@media (min-width: 368px) {
+	.projects-footer {
+		&__git {
+			padding: 1rem 4rem;
+		}
+
+		&__add-btn {
+			padding: 1rem 4rem;
+		}
+	}
+}
+@media (min-width: 440px) {
+	.projects-footer {
+		font-size: 1.8rem;
 	}
 }
