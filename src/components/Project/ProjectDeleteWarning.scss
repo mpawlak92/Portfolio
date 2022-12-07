@@ -1,13 +1,13 @@
 @import '../../sass/Variables.scss';
 
-.delete-box {
+.delete-project-box {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	width: 100%;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 	font-size: 2.5rem;
 
@@ -19,12 +19,7 @@
 
 	&__delete-btn,
 	&__cancel-btn {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		aspect-ratio: 6 / 1;
-		width: 20%;
+		padding: 0.6rem 1.8rem;
 		margin: 1rem;
 		font-size: 1.8rem;
 		border-radius: 8px;

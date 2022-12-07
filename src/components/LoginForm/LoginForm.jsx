@@ -101,7 +101,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 					onChange={handlePasswordInput}
 				/>
 
-				<button className='login-form__btns' type='submit'>
+				<button className='login-form__btn' type='submit'>
 					Sign in
 				</button>
 			</form>

@@ -10,6 +10,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin: 2rem 0;
 	font-size: 2.5rem;
 
 	&__label {
@@ -37,8 +38,7 @@
 
 		&__cancel-btn,
 		&__save-btn {
-			aspect-ratio: 6 / 1;
-			width: 20%;
+			padding: 0.6rem 1.8rem;
 			margin: 1rem;
 			font-size: 1.8rem;
 			border-radius: 8px;

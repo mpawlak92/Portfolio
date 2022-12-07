@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
-import './ProjectEditForm.scss';
+import './ProjectDeleteWarning.scss';
 import { useDispatch } from 'react-redux';
 import { deleteProjects } from './ProjectsSlice';
 
@@ -19,12 +19,18 @@ const ProjectDeleteWarning = ({ id, handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<div className='delete-box'>
-				<p className='delete-box__delete-msg'>Do wanna delete ALL items?</p>
-				<button className='delete-box__delete-btn' onClick={handleDelete}>
+			<div className='delete-project-box'>
+				<p className='delete-project-box__delete-msg'>
+					Do wanna delete this project?
+				</p>
+				<button
+					className='delete-project-box__delete-btn'
+					onClick={handleDelete}>
 					Yes
 				</button>
-				<button className='delete-box__cancel-btn' onClick={handleOnClose}>
+				<button
+					className='delete-project-box__cancel-btn'
+					onClick={handleOnClose}>
 					Cancel
 				</button>
 			</div>

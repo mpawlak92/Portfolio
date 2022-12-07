@@ -17,7 +17,6 @@
 		color: $secendary-color;
 	}
 	&__label {
-
 		color: $secendary-color;
 		font-size: 1.2rem;
 	}
@@ -40,8 +39,7 @@
 
 		&__cancel-btn,
 		&__save-btn {
-			aspect-ratio: 6 / 1;
-			width: 20%;
+			padding: 0.6rem 1.8rem;
 			margin: 1rem;
 			font-size: 1.8rem;
 			border-radius: 8px;

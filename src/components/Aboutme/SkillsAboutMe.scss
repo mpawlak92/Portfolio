@@ -6,8 +6,7 @@
 	flex-direction: column;
 	width: 80vw;
 	max-width: 35rem;
-	padding: 2rem;
-	padding-top: 1rem;
+	padding: 1rem 2rem 2rem 2rem;
 	margin: 2rem 3rem;
 	font-size: 1em;
 	background-color: $secendary-color;
@@ -17,11 +16,10 @@
 
 	&__list {
 		list-style: none;
-		font-size: 3rem;
+		font-size: 0.8em;
 		&__btn {
-			aspect-ratio: 6 / 1;
 			margin: 0.5rem;
-			padding: 0.4rem;
+			padding: 0.4rem 0.6rem;
 			background-color: $primary-color;
 			color: $secendary-color;
 			border: none;
@@ -41,17 +39,10 @@
 	}
 
 	&__btn {
-		aspect-ratio: 6 / 1;
 		margin: 0.5rem;
-		padding: 0.3rem;
+		padding: 0.8rem;
 		background-color: $primary-color;
 		color: $secendary-color;
-		border: none;
-	}
-	&__btn {
-		aspect-ratio: 6 / 1;
-		margin: 0.5rem;
-		padding: 0.4rem;
 		border-radius: 8px;
 	}
 	&__add-btn {

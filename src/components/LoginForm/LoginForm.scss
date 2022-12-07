@@ -23,4 +23,12 @@
 		margin: 1rem;
 		text-align: center;
 	}
+	&__btn {
+		padding: 0.5rem 1rem;
+	}
+}
+@media (min-width: 768px) {
+	.login-form {
+		font-size: 3.5rem;
+	}
 }
