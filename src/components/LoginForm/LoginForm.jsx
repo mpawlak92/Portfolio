@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
-// import axios from 'axios';
 
 import { useDispatch } from 'react-redux';
 import { login } from './LoginSlice';
@@ -17,15 +16,6 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 	const [passwordInput, setPasswordInput] = useState('');
 	const [isLoginError, setIsLoginError] = useState(false);
 
-	const fetchData = async () => {
-		const { data } = await request.get('/users');
-		setUsersData(data);
-		setIsLoading(false);
-	};
-	useEffect(() => {
-		fetchData();
-	}, []);
-
 	const handleUserInput = (e) => {
 		setUserInput(e.target.value);
 	};
@@ -37,43 +27,50 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 		setPasswordInput('');
 	};
 
-	const userDataValidation = (e) => {
-		e.preventDefault();
-		const userCheck = UsersData.filter((user) => user.name === userInput);
-		if (userCheck.length > 0) {
-			if (userCheck[userCheck.length - 1].password === passwordInput) {
-				dispatch(login());
-				setIsLoginError(false);
-				handleOnClose();
-				inputsClear();
-			} else {
-				setIsLoginError(true);
-				inputsClear();
-			}
-		} else {
-			setIsLoginError(true);
-			inputsClear();
-		}
-	};
-
-	// prawidłowe zapytanie do serwera z autoryzacją np jsonserver auth
-	// const handleOnSubmit = async (e) => {
+	// const userDataValidation = (e) => {
 	// 	e.preventDefault();
-	// 	const userData = {
-	// 		name: userInput,
-	// 		password: passwordInput,
-	// 	};
-	// 	axios.post('http://localhost:8000/users', userData).then((response) => {
-	// 		console.log(response.status);
-	// 		console.log(response.data);
-	// 	});
+	// 	const userCheck = UsersData.filter((user) => user.name === userInput);
+	// 	if (userCheck.length > 0) {
+	// 		if (userCheck[userCheck.length - 1].password === passwordInput) {
+	// 			dispatch(login());
+	// 			setIsLoginError(false);
+	// 			handleOnClose();
+	// 			inputsClear();
+	// 		} else {
+	// 			setIsLoginError(true);
+	// 			inputsClear();
+	// 		}
+	// 	} else {
+	// 		setIsLoginError(true);
+	// 		inputsClear();
+	// 	}
 	// };
+
+	const handleOnSubmit = async (e) => {
+		e.preventDefault();
+
+		const userData = {
+			username: userInput,
+			password: passwordInput,
+		};
+
+		request
+			.post('/user', userData, {
+				headers: {
+					'content-type': 'application/json',
+					accept: 'application/json',
+				},
+			})
+			.then((response) => {
+				console.log(response);
+			});
+	};
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={true}>
-			<form className='login-form' onSubmit={userDataValidation}>
+			<form className='login-form' method='POST' onSubmit={handleOnSubmit}>
 				{isLoginError ? (
 					<div className='login-form__error'>Wrong password or username!</div>
 				) : null}
@@ -87,6 +84,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 					className='login-form__input'
 					type='text'
 					id='user'
+					name='username'
 					value={userInput}
 					onChange={handleUserInput}
 				/>
@@ -97,6 +95,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 					className='login-form__input'
 					type='password'
 					id='pass'
+					name='password'
 					value={passwordInput}
 					onChange={handlePasswordInput}
 				/>

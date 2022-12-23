@@ -12,14 +12,15 @@ export const fetchAboutMeData = createAsyncThunk(
 	'aboutme/fetchAboutMeData',
 	async () => {
 		const response = await request.get('/aboutme');
-		return response.data;
+
+		return response.data[0];
 	}
 );
 export const updateAboutMe = createAsyncThunk(
 	'aboutme/updateAboutMe',
 	async (data) => {
 		const response = await request.patch('/aboutme', data);
-		return response.data;
+		return response.data[0];
 	}
 );
 const AboutMeSlice = createSlice({

@@ -46,7 +46,7 @@ const Projects = () => {
 		return (
 			<div className='projects'>
 				{fetchedData.map((project) => (
-					<ProjectCard key={project.id} {...project} isUserLogeed={isLoged} />
+					<ProjectCard key={project._id} {...project} isUserLogeed={isLoged} />
 				))}
 				<ProjectsFooter
 					isUserLogeed={isLoged}

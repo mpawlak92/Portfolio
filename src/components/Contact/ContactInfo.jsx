@@ -22,11 +22,11 @@ const ContactInfo = ({ isUserLogeed }) => {
 				<li>
 					<div className='contact-info__tel-ico'></div>
 					<p>
-						{contactInfo.phone.slice(0, 3) +
+						{String(contactInfo.phone).slice(0, 3) +
 							'-' +
-							contactInfo.phone.slice(3, 6) +
+							String(contactInfo.phone).slice(3, 6) +
 							'-' +
-							contactInfo.phone.slice(6, 9)}
+							String(contactInfo.phone).slice(6, 9)}
 					</p>
 				</li>
 				<li>

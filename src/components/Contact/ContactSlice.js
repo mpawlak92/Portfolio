@@ -12,15 +12,15 @@ export const fetchContactData = createAsyncThunk(
 	'contact/fetchcontactData',
 	async () => {
 		const response = await request.get('/aboutme');
-
-		return response.data.contact;
+		// console.log(response.data[0].contact);
+		return response.data[0].contact;
 	}
 );
 export const updateContact = createAsyncThunk(
 	'contact/updateContact',
 	async (data) => {
 		const response = await request.patch('/aboutme', data);
-		return response.data.contact;
+		return response.data[0].contact;
 	}
 );
 const ContactSlice = createSlice({
