@@ -12,7 +12,6 @@ export const fetchProjects = createAsyncThunk(
 	'projects/fetchProjects',
 	async () => {
 		const response = await request.get('/projects');
-		console.log(response.data);
 		return response.data;
 	}
 );
