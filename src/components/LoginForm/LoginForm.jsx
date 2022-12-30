@@ -10,8 +10,6 @@ import './LoginForm.scss';
 const LoginForm = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
 
-	const [UsersData, setUsersData] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
 	const [userInput, setUserInput] = useState('');
 	const [passwordInput, setPasswordInput] = useState('');
 	const [isLoginError, setIsLoginError] = useState(false);
@@ -26,25 +24,6 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 		setUserInput('');
 		setPasswordInput('');
 	};
-
-	// const userDataValidation = (e) => {
-	// 	e.preventDefault();
-	// 	const userCheck = UsersData.filter((user) => user.name === userInput);
-	// 	if (userCheck.length > 0) {
-	// 		if (userCheck[userCheck.length - 1].password === passwordInput) {
-	// 			dispatch(login());
-	// 			setIsLoginError(false);
-	// 			handleOnClose();
-	// 			inputsClear();
-	// 		} else {
-	// 			setIsLoginError(true);
-	// 			inputsClear();
-	// 		}
-	// 	} else {
-	// 		setIsLoginError(true);
-	// 		inputsClear();
-	// 	}
-	// };
 
 	const handleOnSubmit = async (e) => {
 		e.preventDefault();
@@ -62,8 +41,15 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 				},
 			})
 			.then((response) => {
-				console.log(response);
+				if (response.data.status) {
+					dispatch(login());
+					setIsLoginError(false);
+					handleOnClose();
+				} else {
+					setIsLoginError(response.data.message);
+				}
 			});
+		inputsClear();
 	};
 	return (
 		<Modal
@@ -72,10 +58,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			shoulbBeCloseOnOutsideClick={true}>
 			<form className='login-form' method='POST' onSubmit={handleOnSubmit}>
 				{isLoginError ? (
-					<div className='login-form__error'>Wrong password or username!</div>
-				) : null}
-				{isLoading ? (
-					<div className='login-form__error'>Is Loading...</div>
+					<div className='login-form__error'>{isLoginError}</div>
 				) : null}
 				<label className='login-form__label' htmlFor='user'>
 					User:
