@@ -33,7 +33,6 @@ const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 				email: emailInput,
 				phone: phoneInput,
 			};
-
 			dispatch(updateContact({ contact: newContactInfo }));
 			setEditError(false);
 			handleOnClose(e);

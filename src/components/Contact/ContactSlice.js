@@ -20,6 +20,7 @@ export const updateContact = createAsyncThunk(
 	'contact/updateContact',
 	async (data) => {
 		const response = await request.patch('/aboutme', data);
+		// console.log(response.data);
 		return response.data[0].contact;
 	}
 );
@@ -40,9 +41,20 @@ const ContactSlice = createSlice({
 				state.status = 'failed';
 				state.error = action.error.message;
 			})
+
+			// update data
+
+			.addCase(updateContact.pending, (state, action) => {
+				state.status = 'loading';
+			})
 			.addCase(updateContact.fulfilled, (state, action) => {
 				state.status = 'succeeded';
 				state.contactData = action.payload;
+				console.log('tu jestem');
+			})
+			.addCase(updateContact.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.error.message;
 			});
 	},
 });
