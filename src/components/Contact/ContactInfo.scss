@@ -70,6 +70,11 @@
 		font-size: 1.8rem;
 		border: 1px solid black;
 	}
+	&__edit-message {
+		margin-top: 1rem;
+		font-size: 0.5em;
+		color: green;
+	}
 }
 @media (min-width: 390px) {
 	.contact-info {

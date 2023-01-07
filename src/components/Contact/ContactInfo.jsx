@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
-import { useSelector } from 'react-redux';
-import { contactData } from './ContactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactData, serverResponseMessage, reset } from './ContactSlice';
 import './ContactInfo.scss';
 import ContactInfoEditForm from './ContactInfoEditForm';
+
 const ContactInfo = ({ isUserLogeed }) => {
+	const dispatch = useDispatch();
 	const contactInfo = useSelector(contactData);
+	const contactInfoEditStatusMessage = useSelector(serverResponseMessage);
 
 	const [isModalActive, setIsModalActive] = useState(false);
 
@@ -15,6 +18,14 @@ const ContactInfo = ({ isUserLogeed }) => {
 	const handleOnModalClose = () => {
 		setIsModalActive(false);
 	};
+	const dishapiredMessage = () => {
+		if (contactInfoEditStatusMessage) {
+			setTimeout(() => {
+				dispatch(reset());
+			}, 3000);
+		}
+	};
+	dishapiredMessage();
 	return (
 		<div className='contact-info'>
 			<h3 className='contact-info__head'>Contact info:</h3>
@@ -48,6 +59,11 @@ const ContactInfo = ({ isUserLogeed }) => {
 					Edytuj
 				</button>
 			)}
+			{/* {contactInfoEditStatusMessage !== null && <div>'cos'</div>} */}
+			<div className='contact-info__edit-message'>
+				{contactInfoEditStatusMessage}
+			</div>
+
 			<ContactInfoEditForm
 				isModalActive={isModalActive}
 				handleOnClose={handleOnModalClose}
