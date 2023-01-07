@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal';
 
 import './ContactInfoEditForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactData, updateContact } from './ContactSlice';
+import { contactData, updateContact, } from './ContactSlice';
 
 const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();

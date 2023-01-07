@@ -6,6 +6,7 @@ const initialState = {
 	contactData: {},
 	status: 'idle', // idle | loading | succesed | failed
 	error: null,
+	serverResponseMessage: null,
 };
 
 export const fetchContactData = createAsyncThunk(
@@ -20,14 +21,24 @@ export const updateContact = createAsyncThunk(
 	'contact/updateContact',
 	async (data) => {
 		const response = await request.patch('/aboutme', data);
-		// console.log(response.data);
-		return response.data[0].contact;
+		if (response.status === 201) {
+			return {
+				message: response.data,
+				data: data.contact,
+			};
+		} else {
+			return response.data;
+		}
 	}
 );
 const ContactSlice = createSlice({
 	name: 'contact',
 	initialState,
-	reducers: {},
+	reducers: {
+		reset: (state) => {
+			state.serverResponseMessage = null;
+		},
+	},
 	extraReducers(builder) {
 		builder
 			.addCase(fetchContactData.pending, (state, action) => {
@@ -49,8 +60,9 @@ const ContactSlice = createSlice({
 			})
 			.addCase(updateContact.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				state.contactData = action.payload;
-				console.log('tu jestem');
+				// alert(action.payload.message);
+				state.serverResponseMessage = action.payload.message;
+				state.contactData = action.payload.data;
 			})
 			.addCase(updateContact.rejected, (state, action) => {
 				state.status = 'failed';
@@ -62,4 +74,8 @@ const ContactSlice = createSlice({
 export const contactData = (state) => state.contact.contactData;
 export const contactDataFetchStatus = (state) => state.contact.status;
 export const contactDataFetchError = (state) => state.contact.error;
+export const serverResponseMessage = (state) =>
+	state.contact.serverResponseMessage;
+
+export const { reset } = ContactSlice.actions;
 export default ContactSlice.reducer;
