@@ -14,7 +14,7 @@ export const fetchContactData = createAsyncThunk(
 	async () => {
 		const response = await request.get('/aboutme');
 		// console.log(response.data[0].contact);
-		return response.data[0].contact;
+		return response.data.contact;
 	}
 );
 export const updateContact = createAsyncThunk(
