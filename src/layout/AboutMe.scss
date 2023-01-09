@@ -8,4 +8,9 @@
 	justify-content: space-around;
 	align-items: center;
 	font-size: 4rem;
+	&__edit-message {
+		margin: 1rem auto;
+		font-size: 0.5em;
+		color: green;
+	}
 }

@@ -5,6 +5,8 @@ import {
 	projectsDataFetchStatus,
 	projectsDataFetchError,
 	fetchProjects,
+	serverResponseMessage,
+	resetServerResponseMessage,
 } from '../components/Project/ProjectsSlice';
 import {
 	aboutmeData,
@@ -31,6 +33,8 @@ const Projects = () => {
 	const fetchAboutmeStatus = useSelector(aboutmeDataFetchStatus);
 	const fetchAboutmeError = useSelector(aboutmeDataFetchError);
 
+	const projectsEditStatusMessage = useSelector(serverResponseMessage);
+
 	useEffect(() => {
 		if (fetchStatus === 'idle') {
 			dispatch(fetchProjects());
@@ -40,11 +44,24 @@ const Projects = () => {
 		}
 	}, [fetchStatus, fetchAboutmeStatus, dispatch]);
 
+	const dishapiredMessage = () => {
+		if (projectsEditStatusMessage) {
+			document.getElementById('serverResponseMessage').scrollIntoView();
+			setTimeout(() => {
+				dispatch(resetServerResponseMessage());
+			}, 3000);
+		}
+	};
+	dishapiredMessage();
 	if (fetchStatus && fetchAboutmeStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus && fetchAboutmeStatus === 'succeeded') {
 		return (
 			<div className='projects'>
+				<div id='serverResponseMessage' className='projects__edit-message'>
+					{projectsEditStatusMessage}
+				</div>
+
 				{fetchedData.map((project) => (
 					<ProjectCard key={project._id} {...project} isUserLogeed={isLoged} />
 				))}

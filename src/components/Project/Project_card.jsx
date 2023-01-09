@@ -6,7 +6,7 @@ import ProjectEditForm from './ProjectEditForm';
 import ProjectDeleteWarning from './ProjectDeleteWarning';
 
 const ProjectCard = ({
-	id,
+	_id,
 	name,
 	description,
 	technologys,
@@ -101,12 +101,12 @@ const ProjectCard = ({
 			<ProjectEditForm
 				isModalActive={isEditModalActive}
 				handleOnClose={handleOnEditModalClose}
-				id={id}
+				id={_id}
 			/>
 			<ProjectDeleteWarning
 				isModalActive={isDeleteModalActive}
 				handleOnClose={handleOnDeleteModalClose}
-				id={id}
+				id={_id}
 			/>
 		</div>
 	);

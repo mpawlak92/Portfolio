@@ -5,6 +5,8 @@ import {
 	aboutmeDataFetchStatus,
 	aboutmeDataFetchError,
 	fetchAboutMeData,
+	editAboutmeDataMessageReset,
+	serverResponseMessage,
 } from '../components/Aboutme/AboutMeSlice';
 
 import Cv from '../components/Aboutme/Cv';
@@ -21,18 +23,28 @@ const Home = () => {
 	const fetchedData = useSelector(aboutmeData);
 	const fetchStatus = useSelector(aboutmeDataFetchStatus);
 	const fetchError = useSelector(aboutmeDataFetchError);
+	const aboutMeEditMessage = useSelector(serverResponseMessage);
 
 	useEffect(() => {
 		if (fetchStatus === 'idle') {
 			dispatch(fetchAboutMeData());
 		}
 	}, [fetchStatus, dispatch]);
-	
+
+	const dishapiredMessage = () => {
+		if (aboutMeEditMessage) {
+			setTimeout(() => {
+				dispatch(editAboutmeDataMessageReset());
+			}, 3000);
+		}
+	};
+	dishapiredMessage();
 	if (fetchStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus === 'succeeded') {
 		return (
 			<div className='about-me'>
+				<div className='about-me__edit-message'>{aboutMeEditMessage}</div>
 				<DescriptionAboutMe
 					data={fetchedData.description}
 					isUserLogeed={isLoged}

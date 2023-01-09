@@ -21,7 +21,7 @@ const ProjectDeleteWarning = ({ id, handleOnClose, isModalActive }) => {
 			shoulbBeCloseOnOutsideClick={false}>
 			<div className='delete-project-box'>
 				<p className='delete-project-box__delete-msg'>
-					Do wanna delete this project?
+					Do wanna delete this project? {id}
 				</p>
 				<button
 					className='delete-project-box__delete-btn'

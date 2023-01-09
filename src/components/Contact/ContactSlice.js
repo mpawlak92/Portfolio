@@ -53,14 +53,13 @@ const ContactSlice = createSlice({
 				state.error = action.error.message;
 			})
 
-			// update data
+			//-----------------------------------------
 
 			.addCase(updateContact.pending, (state, action) => {
 				state.status = 'loading';
 			})
 			.addCase(updateContact.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				// alert(action.payload.message);
 				state.serverResponseMessage = action.payload.message;
 				state.contactData = action.payload.data;
 			})

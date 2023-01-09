@@ -7,7 +7,7 @@ import { updateProjects, projectsData } from './ProjectsSlice';
 const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
 	const data = useSelector(projectsData);
-	const index = data.findIndex((project) => project.id === id);
+	const index = data.findIndex((project) => project._id === id);
 
 	const [titleInput, setTitleInput] = useState(data[index].name);
 	const [gitLinkInput, setGitLinkInput] = useState(data[index].git_link);
@@ -38,7 +38,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 			const technologys = technologysInput.toString();
 
 			const editedObject = {
-				id,
+				_id: id,
 				name: titleInput,
 				description: descriptionText,
 				technologys: technologys.split(','),

@@ -59,7 +59,7 @@ const ContactInfo = ({ isUserLogeed }) => {
 					Edytuj
 				</button>
 			)}
-			{/* {contactInfoEditStatusMessage !== null && <div>'cos'</div>} */}
+
 			<div className='contact-info__edit-message'>
 				{contactInfoEditStatusMessage}
 			</div>

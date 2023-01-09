@@ -24,7 +24,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose(e);
 		} else {
 			setEditError(true);
-		}
+		} 
 	};
 
 	return (

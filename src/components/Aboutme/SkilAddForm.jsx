@@ -19,7 +19,7 @@ const SkilAddForm = ({ handleOnClose, isModalActive }) => {
 		e.preventDefault();
 
 		const isNoRepeat = data.skills.indexOf(skilInput);
-		console.log(isNoRepeat);
+
 		if (canSave && isNoRepeat === -1) {
 			const newSkilsArray = [...data.skills, skilInput];
 
