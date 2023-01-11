@@ -16,8 +16,7 @@
 	&__label {
 		align-self: flex-start;
 		color: $secendary-color;
-		margin-bottom: 1rem;
-		font-size: 2rem;
+		font-size: 0.6em;
 	}
 	&__input {
 		width: 100%;
@@ -40,8 +39,13 @@
 		&__save-btn {
 			padding: 0.6rem 1.8rem;
 			margin: 1rem;
-			font-size: 1.8rem;
+			font-size: 0.8em;
 			border-radius: 8px;
 		}
+	}
+}
+@media (min-width: 992px) {
+	.project-add-form {
+		font-size: 4rem;
 	}
 }

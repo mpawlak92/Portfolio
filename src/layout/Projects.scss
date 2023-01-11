@@ -7,7 +7,7 @@
 	height: calc(100vh - 100px);
 	margin-top: 4rem;
 	padding-bottom: 5rem;
-	font-size: 3rem;
+	font-size: 2rem;
 	overflow-x: hidden;
 	&__edit-message {
 		width: 100%;
@@ -15,5 +15,10 @@
 		font-size: 1em;
 		color: green;
 		text-align: center;
+	}
+}
+@media (min-width: 992px) {
+	.projects {
+		font-size: 3rem;
 	}
 }
