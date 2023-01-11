@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal';
 
 import './ContactInfoEditForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactData, updateContact, } from './ContactSlice';
+import { contactData, updateContact } from './ContactSlice';
 
 const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
@@ -40,12 +40,7 @@ const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 			setEditError(true);
 		}
 	};
-	const resetModalFielsdOnClose = () => {
-		setPhoneInput(data.phone);
-		setEmailInput(data.email);
-		setLinkedinInput(data.linkedin_link);
-		handleOnClose();
-	};
+
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
@@ -90,7 +85,7 @@ const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 					</button>
 					<button
 						className='contact-info-edit-form__btns__cancel-btn'
-						onClick={resetModalFielsdOnClose}>
+						onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

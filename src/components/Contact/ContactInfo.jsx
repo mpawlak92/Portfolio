@@ -15,7 +15,8 @@ const ContactInfo = ({ isUserLogeed }) => {
 	const handleEditBtn = () => {
 		setIsModalActive(true);
 	};
-	const handleOnModalClose = () => {
+	const handleOnModalClose = (e) => {
+		e.preventDefault();
 		setIsModalActive(false);
 	};
 	const dishapiredMessage = () => {
