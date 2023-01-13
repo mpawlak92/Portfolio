@@ -13,6 +13,8 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const [editError, setEditError] = useState(false);
 	const canSave = Boolean(descriptionText);
 
+	const [selectedFile, setSelectedFile] = React.useState(null);
+	
 	const handleTitleInput = (e) => {
 		setTitleInput(e.target.value);
 	};
@@ -41,6 +43,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 				description: descriptionText,
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
+				image:	selectedFile,
 			};
 
 			dispatch(addProjects(editedObject));
@@ -51,7 +54,9 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 			setEditError(true);
 		}
 	};
-
+	const handleFileSelect = (event) => {
+		setSelectedFile(event.target.files[0]);
+	};
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
@@ -60,6 +65,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 			<form
 				className='project-add-form'
 				method='submit'
+				encType='multipart/form-data'
 				onSubmit={handleOnsubmit}>
 				<label className='project-add-form__label'>Title:</label>
 				<input
@@ -67,6 +73,14 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 					type='text'
 					value={titleInput}
 					onChange={handleTitleInput}
+				/>
+
+				<label className='project-add-form__label'>Cover:</label>
+				<input
+					className='project-add-form__input'
+					type='file'
+					name='cover'
+					onChange={handleFileSelect}
 				/>
 
 				<label className='project-add-form__label'>Git link:</label>

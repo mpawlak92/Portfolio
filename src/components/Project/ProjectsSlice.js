@@ -13,7 +13,6 @@ export const fetchProjects = createAsyncThunk(
 	'projects/fetchProjects',
 	async () => {
 		const response = await request.get('/projects');
-
 		return response.data;
 	}
 );
@@ -34,12 +33,29 @@ export const updateProjects = createAsyncThunk(
 export const addProjects = createAsyncThunk(
 	'projects/addProjects',
 	async (data) => {
-		const response = await request.post('/projects', data);
+		let formData = new FormData(); //formdata object
 
+		formData.append('name', data.name); //append the values with key, value pair
+		formData.append('description', data.description);
+		formData.append('technologys', data.technologys);
+		formData.append('git_link', data.git_link);
+		formData.append('cover', data.image);
+
+		const config = {
+			headers: { 'content-type': 'multipart/form-data' },
+		};
+		const response = await request.post('/projects', formData, config);
+		const newData = {
+			name: data.name,
+			description: data.description,
+			technologys: data.technologys,
+			git_link: data.git_link,
+			projectCover: response.data.projectCover,
+		};
 		if (response.status === 201) {
 			return {
 				message: response.data.message,
-				data: { _id: response.data._id, ...data },
+				data: { _id: response.data._id, ...newData },
 			};
 		} else {
 			return response.data;

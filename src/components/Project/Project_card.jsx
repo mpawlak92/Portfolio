@@ -11,6 +11,7 @@ const ProjectCard = ({
 	description,
 	technologys,
 	git_link,
+	projectCover,
 	isUserLogeed,
 }) => {
 	const [isEditModalActive, setIsEditModalActive] = useState(false);
@@ -56,11 +57,17 @@ const ProjectCard = ({
 		setProjectTitle();
 	});
 
+	let photoUrl =
+		process.env.REACT_APP_API_URL + projectCover.replace(/\\/g, '/');
+
 	return (
 		<div className='project-card'>
 			<div
 				ref={projectCardPhotoRef}
 				className='project-card__photo'
+				style={{
+					backgroundImage: 'url(' + photoUrl + ')',
+				}}
 				data-title_1=''
 				data-title_2=''></div>
 

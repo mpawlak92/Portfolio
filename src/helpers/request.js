@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-	// baseURL: 'http://localhost:8000/',
-	baseURL: 'https://apiportfolio-lclh.onrender.com/',
+	baseURL: process.env.REACT_APP_API_URL,
 });
 
 export default request;
