@@ -4,7 +4,7 @@ import './ProjectDeleteWarning.scss';
 import { useDispatch } from 'react-redux';
 import { deleteProjects } from './ProjectsSlice';
 
-const ProjectDeleteWarning = ({ id, handleOnClose, isModalActive }) => {
+const ProjectDeleteWarning = ({ id, handleOnClose, isModalActive, name }) => {
 	const dispatch = useDispatch();
 
 	const handleDelete = async (e) => {
@@ -21,7 +21,7 @@ const ProjectDeleteWarning = ({ id, handleOnClose, isModalActive }) => {
 			shoulbBeCloseOnOutsideClick={false}>
 			<div className='delete-project-box'>
 				<p className='delete-project-box__delete-msg'>
-					Do wanna delete this project? {id}
+					Do wanna delete this project {name}?
 				</p>
 				<button
 					className='delete-project-box__delete-btn'

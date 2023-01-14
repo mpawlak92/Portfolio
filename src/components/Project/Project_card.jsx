@@ -114,6 +114,7 @@ const ProjectCard = ({
 				isModalActive={isDeleteModalActive}
 				handleOnClose={handleOnDeleteModalClose}
 				id={_id}
+				name={name}
 			/>
 		</div>
 	);
