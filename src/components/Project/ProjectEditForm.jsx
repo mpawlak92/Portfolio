@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
 import './ProjectEditForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 	const [editError, setEditError] = useState(false);
 
 	const [selectedFile, setSelectedFile] = useState(null);
+	const coverRef = useRef(null);
 	const canSave = Boolean(descriptionText);
 
 	const handleTitleInput = (e) => {
@@ -50,6 +51,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 
 			dispatch(updateProjects(editedObject));
 			setEditError(false);
+			coverRef.current.value = null;
 			handleOnClose(e);
 		} else {
 			setEditError(true);
@@ -74,6 +76,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				/>
 				<label className='project-add-form__label'>Cover:</label>
 				<input
+					ref={coverRef}
 					className='project-add-form__input'
 					type='file'
 					name='cover'

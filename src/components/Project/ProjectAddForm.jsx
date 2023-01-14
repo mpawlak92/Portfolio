@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
 import './ProjectAddForm.scss';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const canSave = Boolean(descriptionText);
 
 	const [selectedFile, setSelectedFile] = useState(null);
-
+	const coverRef = useRef(null);
 	const handleTitleInput = (e) => {
 		setTitleInput(e.target.value);
 	};
@@ -32,6 +32,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 		setDescriptionText('');
 		setGitLinkInput('');
 		setTitleInput('');
+		coverRef.current.value = null;
 	};
 	const handleOnsubmit = async (e) => {
 		e.preventDefault();
@@ -55,7 +56,11 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 		}
 	};
 	const handleFileSelect = (e) => {
+		const fileObj = e.target.files[0];
 		setSelectedFile(e.target.files[0]);
+		if (!fileObj) {
+			return;
+		}
 	};
 	return (
 		<Modal
@@ -77,6 +82,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 
 				<label className='project-add-form__label'>Cover:</label>
 				<input
+					ref={coverRef}
 					className='project-add-form__input'
 					type='file'
 					name='cover'
@@ -100,7 +106,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 				/>
 
 				<label className='project-add-form__label'>
-					Technologys(have to be separated b comma with spaces eg: HTML, CSS,
+					Technologys(have to be separated by comma with spaces eg: HTML, CSS,
 					BEM):
 				</label>
 				<input
