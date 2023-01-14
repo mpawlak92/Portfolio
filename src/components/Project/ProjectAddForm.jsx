@@ -13,8 +13,8 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const [editError, setEditError] = useState(false);
 	const canSave = Boolean(descriptionText);
 
-	const [selectedFile, setSelectedFile] = React.useState(null);
-	
+	const [selectedFile, setSelectedFile] = useState(null);
+
 	const handleTitleInput = (e) => {
 		setTitleInput(e.target.value);
 	};
@@ -43,7 +43,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 				description: descriptionText,
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
-				image:	selectedFile,
+				image: selectedFile,
 			};
 
 			dispatch(addProjects(editedObject));
@@ -54,8 +54,8 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 			setEditError(true);
 		}
 	};
-	const handleFileSelect = (event) => {
-		setSelectedFile(event.target.files[0]);
+	const handleFileSelect = (e) => {
+		setSelectedFile(e.target.files[0]);
 	};
 	return (
 		<Modal

@@ -18,6 +18,8 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 		data[index].technologys
 	);
 	const [editError, setEditError] = useState(false);
+
+	const [selectedFile, setSelectedFile] = useState(null);
 	const canSave = Boolean(descriptionText);
 
 	const handleTitleInput = (e) => {
@@ -43,6 +45,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				description: descriptionText,
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
+				image: selectedFile,
 			};
 
 			dispatch(updateProjects(editedObject));
@@ -69,7 +72,15 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 					value={titleInput}
 					onChange={handleTitleInput}
 				/>
-
+				<label className='project-add-form__label'>Cover:</label>
+				<input
+					className='project-add-form__input'
+					type='file'
+					name='cover'
+					onChange={(e) => {
+						setSelectedFile(e.target.files[0]);
+					}}
+				/>
 				<label className='project-edit-form__label'>Git link:</label>
 				<input
 					className='project-edit-form__input'
