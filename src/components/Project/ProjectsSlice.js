@@ -19,11 +19,34 @@ export const fetchProjects = createAsyncThunk(
 export const updateProjects = createAsyncThunk(
 	'projects/updateProjects',
 	async (data) => {
-		const response = await request.patch(`/projects/${data._id}`, data);
+		let formData = new FormData(); //formdata object
+
+		formData.append('name', data.name); //append the values with key, value pair
+		formData.append('description', data.description);
+		formData.append('technologys', data.technologys);
+		formData.append('git_link', data.git_link);
+		formData.append('cover', data.image);
+
+		const config = {
+			headers: { 'content-type': 'multipart/form-data' },
+		};
+		const response = await request.patch(
+			`/projects/${data._id}`,
+			formData,
+			config
+		);
+		const newData = {
+			_id: data._id,
+			name: data.name,
+			description: data.description,
+			technologys: data.technologys,
+			git_link: data.git_link,
+			projectCover: response.data.updatedProject.projectCover,
+		};
 		if (response.status === 201) {
 			return {
-				message: response.data,
-				data: data,
+				message: response.data.message,
+				data: newData,
 			};
 		} else {
 			return response.data;
@@ -104,8 +127,6 @@ const ProjectsSlice = createSlice({
 			})
 			.addCase(updateProjects.fulfilled, (state, action) => {
 				state.projectStatus = 'succeeded';
-				console.log(action.payload.data._id);
-
 				const index = state.projectsData
 					.map((object) => object._id)
 					.indexOf(action.payload.data._id);
