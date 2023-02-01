@@ -46,19 +46,28 @@ const Projects = () => {
 
 	const dishapiredMessage = () => {
 		if (projectsEditStatusMessage) {
-			document.getElementById('serverResponseMessage').scrollIntoView();
+			window.scroll({
+				top: 0,
+				behavior: 'smooth',
+			});
 			setTimeout(() => {
 				dispatch(resetServerResponseMessage());
 			}, 3000);
 		}
 	};
-	dishapiredMessage();
+	// dishapiredMessage();
 	if (fetchStatus && fetchAboutmeStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus && fetchAboutmeStatus === 'succeeded') {
 		return (
 			<div className='projects'>
-				<div id='serverResponseMessage' className='projects__edit-message'>
+				<div
+					id='serverResponseMessage'
+					className='projects__edit-message'
+					style={{
+						display: projectsEditStatusMessage != null ? 'block' : 'none',
+					}}>
+					{dishapiredMessage()}
 					{projectsEditStatusMessage}
 				</div>
 
