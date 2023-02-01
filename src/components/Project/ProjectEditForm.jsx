@@ -21,7 +21,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 
 	const [selectedFile, setSelectedFile] = useState(null);
 	const coverRef = useRef(null);
-	const canSave = Boolean(descriptionText);
+	const canSave = Boolean(titleInput);
 
 	const handleTitleInput = (e) => {
 		setTitleInput(e.target.value);
@@ -113,7 +113,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 
 				{editError && (
 					<div className='project-edit-form__error'>
-						<p>Pole nie moze być puste!</p>
+						<p>Title field can't be empty</p>
 					</div>
 				)}
 				<div className='project-edit-form__btns'>

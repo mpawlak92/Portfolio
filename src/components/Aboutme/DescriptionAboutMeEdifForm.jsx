@@ -10,7 +10,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 	const [descriptionText, setDescriptionText] = useState(data.description);
 	const [editError, setEditError] = useState(false);
 
-	const canSave = Boolean(descriptionText);
+	const canSave = Boolean(descriptionText); 
 
 	const handleDescriptionTextarea = (e) => {
 		setDescriptionText(e.target.value);

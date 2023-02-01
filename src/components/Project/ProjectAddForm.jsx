@@ -11,7 +11,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const [descriptionText, setDescriptionText] = useState('');
 	const [technologysInput, setTechnologysInput] = useState('');
 	const [editError, setEditError] = useState(false);
-	const canSave = Boolean(descriptionText);
+	const canSave = Boolean(titleInput);
 
 	const [selectedFile, setSelectedFile] = useState(null);
 	const coverRef = useRef(null);
@@ -118,7 +118,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 
 				{editError && (
 					<div className='project-add-form__error'>
-						<p>Pole nie moze być puste!</p>
+						<p>Title field can't be empty</p>
 					</div>
 				)}
 				<div className='project-add-form__btns'>
