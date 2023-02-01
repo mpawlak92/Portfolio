@@ -43,7 +43,7 @@ const CvForm = ({ handleOnClose, isModalActive }) => {
 				/>
 				{editError && (
 					<div className='cv-edit-form__error'>
-						<p>Pole nie moze być puste!</p>
+						<p>Field can't be empty</p>
 					</div>
 				)}
 				<div className='cv-edit-form__btns'>

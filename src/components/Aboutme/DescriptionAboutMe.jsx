@@ -20,7 +20,7 @@ const DescriptionAboutMe = ({ data, isUserLogeed }) => {
 				{data}
 				{isUserLogeed === true && (
 					<button className='my-descryption__edit-btn' onClick={handleEditBtn}>
-						Edytuj
+						Edit
 					</button>
 				)}
 			</div>

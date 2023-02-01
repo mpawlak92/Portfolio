@@ -50,12 +50,12 @@ const Skills = ({ data }) => {
 
 				{isloged === true && (
 					<button className='skills-box__list__btn' onClick={handleEditBtn}>
-						Edytuj
+						Edit
 					</button>
 				)}
 				{isloged === true && (
 					<button className='skills-box__list__btn' onClick={handleDeleteBtn}>
-						Usuń
+						Delete
 					</button>
 				)}
 			</li>
@@ -70,14 +70,14 @@ const Skills = ({ data }) => {
 				<button
 					className='skills-box__btn skills-box__add-btn'
 					onClick={handleOnAddBtn}>
-					Dodaj
+					Add new skill
 				</button>
 			)}
 			{isloged === true && (
 				<button
 					className='skills-box__btn skills-box__delete-all-btn'
 					onClick={handleOnDeleteAllBtn}>
-					Usuń wszystkie
+					Delete all skills
 				</button>
 			)}
 			<SkilEditForm

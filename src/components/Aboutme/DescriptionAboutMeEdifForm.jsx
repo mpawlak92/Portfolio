@@ -24,7 +24,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose(e);
 		} else {
 			setEditError(true);
-		} 
+		}
 	};
 
 	return (
@@ -47,7 +47,7 @@ const DescriptionAboutMeEdifForm = ({ handleOnClose, isModalActive }) => {
 				/>
 				{editError && (
 					<div className='description-edit-form__error'>
-						<p>Pole nie moze być puste!</p>
+						<p>Field can't be empty!</p>
 					</div>
 				)}
 				<div className='description-edit-form__btns'>

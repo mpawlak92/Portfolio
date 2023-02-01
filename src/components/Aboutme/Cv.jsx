@@ -25,7 +25,7 @@ const Cv = ({ data, isUserLogeed }) => {
 				</a>
 				{isUserLogeed === true && (
 					<button className='cv__edit-btn' onClick={handleEditBtn}>
-						Zmień
+						Edit
 					</button>
 				)}
 				<CvForm

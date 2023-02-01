@@ -47,7 +47,7 @@ const SkilAddForm = ({ handleOnClose, isModalActive }) => {
 				/>
 				{editError && (
 					<div className='skil-add-form__error'>
-						<p>Field can't be epmty or skil exist</p>
+						<p>Field can't be epmty</p>
 					</div>
 				)}
 				<div className='skil-add-form__btns'>
