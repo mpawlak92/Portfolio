@@ -16,6 +16,7 @@ const ProjectCard = ({
 }) => {
 	const [isEditModalActive, setIsEditModalActive] = useState(false);
 	const [isDeleteModalActive, setIsDeleteModalActive] = useState(false);
+	const [isaccordionActive, setIsaccordionActive] = useState(null);
 
 	const handleEditBtn = () => {
 		setIsEditModalActive(true);
@@ -53,6 +54,13 @@ const ProjectCard = ({
 		);
 	};
 
+	const handleAccordion = () => {
+		if (isaccordionActive != null) {
+			setIsaccordionActive(null);
+		} else {
+			setIsaccordionActive(true);
+		}
+	};
 	useEffect(() => {
 		setProjectTitle();
 	});
@@ -70,27 +78,10 @@ const ProjectCard = ({
 				}}
 				data-title_1=''
 				data-title_2=''></div>
-
-			<div className='project-card__btns'>
-				<button className='project-card__btn project-card__demo-btn'>
-					Demo
-				</button>
-				<button
-					className='project-card__btn project-card__git-btn'
-					onClick={handleGitBtn}>
-					Git
-				</button>
-			</div>
-			<div className='project-card__description'>
-				<h3>Description:</h3>
-				<p className='project-card__description--text'>{description}</p>
-				<h3>Technologys:</h3>
-				<p className='project-card__description--text'>
-					{technologys.map((tech) => {
-						return tech + ', ';
-					})}
-				</p>
-			</div>
+			<button className='project-card__btn'>Demo</button>
+			<button className='project-card__btn' onClick={handleGitBtn}>
+				Git
+			</button>
 			<div className='project-card__btns'>
 				{isUserLogeed === true && (
 					<button className='project-card__edit-btn' onClick={handleEditBtn}>
@@ -98,13 +89,38 @@ const ProjectCard = ({
 					</button>
 				)}
 				{isUserLogeed === true && (
-					<button
-						className='project-card__delete-btn'
-						onClick={handleDeleteBtn}>
+					<button className='project-card__del-btn' onClick={handleDeleteBtn}>
 						Usuń
 					</button>
 				)}
 			</div>
+
+			{/* //--------------------- */}
+			<div className='accordion'>
+				<button
+					className='accordion__btn'
+					style={{
+						transform: isaccordionActive != null ? 'rotateX(180deg)' : '',
+					}}
+					onClick={handleAccordion}></button>
+				<div
+					className='accordion__info'
+					style={{
+						display: isaccordionActive != null ? 'block' : 'none',
+					}}>
+					<div className='project-card__description'>
+						<h3>Description:</h3>
+						<p className='project-card__description--text'>{description}</p>
+						<h3>Technologys:</h3>
+						<p className='project-card__description--text'>
+							{technologys.map((tech) => {
+								return tech + ', ';
+							})}
+						</p>
+					</div>
+				</div>
+			</div>
+
 			<ProjectEditForm
 				isModalActive={isEditModalActive}
 				handleOnClose={handleOnEditModalClose}
