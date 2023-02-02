@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../LoginForm/LoginSlice';
 import { aboutmeData } from '../Aboutme/AboutMeSlice';
-
+import Cookies from 'universal-cookie';
 import LoginForm from '../LoginForm/LoginForm';
 import './Desctop_menu.scss';
 
 const DesctopMenu = ({ click }) => {
+	const cookies = new Cookies();
 	const isLogged = useSelector((state) => state.login.isUserLogeed);
 	const data = useSelector(aboutmeData);
 	const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const DesctopMenu = ({ click }) => {
 
 	const handleLoginBtn = () => {
 		if (isLogged) {
+			cookies.remove('isUserLogeed');
 			dispatch(logout());
 		} else {
 			setIsModalActive(true);

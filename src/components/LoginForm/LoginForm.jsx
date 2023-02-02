@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import { login } from './LoginSlice';
 
 import request from '../../helpers/request';
-
+import Cookies from 'universal-cookie';
 import './LoginForm.scss';
 const LoginForm = ({ handleOnClose, isModalActive }) => {
+	//initialize cookie
+	const cookies = new Cookies();
 	const dispatch = useDispatch();
 
 	const [userInput, setUserInput] = useState('');
@@ -43,6 +45,8 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			.then((response) => {
 				if (response.data.status) {
 					dispatch(login());
+					cookies.set('isUserLogeed', 'true', { maxAge: 120 });
+					// console.log(cookies.get('isUserLogeed'));
 					setIsLoginError(false);
 					handleOnClose();
 				} else {
@@ -50,6 +54,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 				}
 			});
 		inputsClear();
+		console.log(cookies.get('isUserLogeed'));
 	};
 	return (
 		<Modal

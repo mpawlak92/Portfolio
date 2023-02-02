@@ -3,12 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../LoginForm/LoginSlice';
-
+import Cookies from 'universal-cookie';
 import MenuBar from './Menu_bar';
 import LoginForm from '../LoginForm/LoginForm';
 import './Hamburger_menuPanel.scss';
 
 const HamburgerMenuPanel = ({ click, data, menuIsActive }) => {
+	const cookies = new Cookies();
 	const isLogged = useSelector((state) => state.login.isUserLogeed);
 	const dispatch = useDispatch();
 
@@ -16,6 +17,7 @@ const HamburgerMenuPanel = ({ click, data, menuIsActive }) => {
 
 	const handleLoginBtn = () => {
 		if (isLogged) {
+			cookies.remove('isUserLogeed');
 			dispatch(logout());
 			click();
 		} else {

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
 const SkilEditForm = ({ index, handleOnClose, isModalActive }) => {
+	
 	const dispatch = useDispatch();
 	const data = useSelector(aboutmeData);
 	// console.log(index);
