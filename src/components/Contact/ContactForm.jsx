@@ -54,6 +54,7 @@ const ContactForm = () => {
 		for (let fieldNumber = 1; fieldNumber <= 10; fieldNumber += 3) {
 			formFields[fieldNumber].style.backgroundColor = '#fff';
 		}
+		setIsError(true);
 	};
 	const handleInput = (e) => {
 		const fieldType = e.target.id;
