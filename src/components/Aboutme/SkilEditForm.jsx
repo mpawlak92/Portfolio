@@ -8,7 +8,10 @@ import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 const SkilEditForm = ({ index, handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
 	const data = useSelector(aboutmeData);
-	const [skilInput, setSkilInput] = useState(index);
+	// console.log(index);
+	// console.log(data.skills[index]);
+	// I have on idea why it doesn't work
+	const [skilInput, setSkilInput] = useState(data.skills[index]);
 	const [editError, setEditError] = useState(false);
 	const canSave = Boolean(skilInput);
 
