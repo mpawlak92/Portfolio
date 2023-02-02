@@ -15,10 +15,17 @@
 		width: 50%;
 		margin: 2rem 2rem 0.5rem 2rem;
 		padding: 0.6rem 1.8rem;
-		background-color: $primary-color;
-		color: $secendary-color;
+		color: $white;
+		background-color: $third-color;
 		font-size: 1.6rem;
-		border: none;
+		border: 1px solid $primary-color;
+		border-radius: 8px;
+		transition: background-color 0.3s;
+	}
+	&__edit-btn:hover {
+		cursor: pointer;
+		background-color: $primary-color;
+		border: 1px solid $third-color;
 	}
 }
 .my-descryption::first-letter {
@@ -33,8 +40,8 @@
 	width: 30%;
 	height: 30%;
 	margin: -15px -15px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-	border-right: 1px solid rgba(0, 0, 0, 0.6);
+	border-bottom: 1px solid $primary-color;
+	border-right: 1px solid $primary-color;
 	box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.3);
 }
 .my-descryption::before {
@@ -46,7 +53,7 @@
 	width: 30%;
 	height: 30%;
 	margin: -15px -15px;
-	border-top: 1px solid rgba(0, 0, 0, 0.6);
-	border-left: 1px solid rgba(0, 0, 0, 0.6);
+	border-top: 1px solid $primary-color;
+	border-left: 1px solid $primary-color;
 	box-shadow: -3px -3px 4px -2px rgba(0, 0, 0, 0.3);
 }

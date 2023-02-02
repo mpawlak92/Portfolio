@@ -14,26 +14,16 @@
 	background-color: transparent;
 
 	&__link {
-		font-size: 3rem;
-		padding-left: 1rem;
+		margin: 0 0.8rem;
+		font-size: 2.2rem;
+		padding: 0 1rem;
 		text-decoration: none;
-		color: $secendary-color;
-
-		&:last-child:after {
-			content: '';
-			border: none;
-		}
+		color: $third-color;
 	}
 	&__link:hover {
-		border-bottom: 1px solid yellow;
+		border-bottom: 1px solid $third-color;
 	}
-	&__link::after {
-		content: '';
-		margin-left: 1rem;
-		height: 15px;
-		width: 5px;
-		border-right: 1px solid rgb(115, 119, 130);
-	}
+
 	&__github-link {
 		display: flex;
 		width: 100%;

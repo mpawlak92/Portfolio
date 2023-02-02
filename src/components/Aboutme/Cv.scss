@@ -22,12 +22,18 @@
 	}
 
 	&__edit-btn {
-		margin: 0.2rem 1rem;
-		padding: 0.8rem 1.6rem;
-		background-color: $primary-color;
-		color: $secendary-color;
+		margin: 0.2rem 4rem;
+		padding: 0.7rem 3.6rem;
+		color: $white;
+		background-color: $third-color;
 		font-size: 1.6rem;
-		border: none;
+		border: 1px solid $primary-color;
 		border-radius: 8px;
+		transition: background-color 0.3s;
+	}
+	&__edit-btn:hover {
+		cursor: pointer;
+		background-color: $primary-color;
+		border: 1px solid $third-color;
 	}
 }

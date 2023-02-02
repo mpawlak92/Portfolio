@@ -9,7 +9,6 @@
 	padding: 10px;
 	min-height: 200px;
 	background-color: $white;
-	// border: 1px solid $primary-color;
 	border-radius: 10px;
 	box-shadow: 0px 0px 20px -10px;
 
@@ -81,7 +80,7 @@
 	}
 	&__btn {
 		width: 100%;
-		aspect-ratio: 7 / 1;
+		aspect-ratio: 8 / 1;
 		padding: 0.4rem 0.4rem;
 		margin: 0.5rem 0;
 		text-transform: uppercase;
@@ -121,6 +120,12 @@
 		font-size: 1.8rem;
 		border: 1px solid black;
 	}
+	&__edit-btn:hover,
+	&__del-btn:hover {
+		cursor: pointer;
+		background-color: $primary-color;
+		border: 1px solid $third-color;
+	}
 }
 .accordion {
 	&__btn {
@@ -136,7 +141,6 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
-		// transform: rotateX(180deg);
 	}
 	&__btn:hover {
 		cursor: pointer;

@@ -15,7 +15,7 @@
 
 	&__label {
 		align-self: flex-start;
-		color: $secendary-color;
+		color: $black;
 		font-size: 0.6em;
 	}
 	&__input {
@@ -40,12 +40,15 @@
 			padding: 0.6rem 1.8rem;
 			margin: 1rem;
 			font-size: 1em;
+			color: $black;
+			background-color: $white;
+			border: 1px solid $third-color;
 			border-radius: 8px;
 		}
 	}
 }
 @media (min-width: 992px) {
 	.project-edit-form {
-		font-size: 4rem;
+		font-size: 3.4rem;
 	}
 }

@@ -11,17 +11,25 @@
 	align-items: center;
 	font-size: 3rem;
 	text-align: center;
-	color: $secendary-color;
+	color: $black;
 }
 .msg-close {
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 10px;
+	top: 10px;
 	width: 4rem;
 	height: 4rem;
-	color: $secendary-color;
+	color: $black;
 	background-image: url(../../icons/icons-close-hamburger.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 0 0;
+	&:hover {
+		cursor: pointer;
+	}
+}
+@media (min-width: 992px) {
+	.msg {
+		font-size: 5rem;
+	}
 }

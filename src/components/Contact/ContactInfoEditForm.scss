@@ -15,12 +15,12 @@
 	h1 {
 		margin: 1rem;
 		font-size: 0.8em;
-		color: $secendary-color;
+		color: $black;
 		text-align: center;
 	}
 	&__label {
 		width: 80%;
-		color: $secendary-color;
+		color: $black;
 		font-size: 0.6em;
 		text-align: left;
 	}
@@ -46,12 +46,15 @@
 			padding: 0.6rem 1.8rem;
 			margin: 1rem;
 			font-size: 1em;
+			color: $black;
+			background-color: $white;
+			border: 1px solid $third-color;
 			border-radius: 8px;
 		}
 	}
 }
 @media (min-width: 992px) {
 	.contact-info-edit-form {
-		font-size: 4rem;
+		font-size: 3.4rem;
 	}
 }

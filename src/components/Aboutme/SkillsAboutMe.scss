@@ -9,21 +9,27 @@
 	padding: 1rem 2rem 2rem 2rem;
 	margin: 2rem 3rem;
 	font-size: 1em;
-	background-color: $secendary-color;
+	background-color: $white;
 	border: 1px solid $primary-color;
-	border-radius: 8px;
-	box-shadow: 0px 12px 20px -10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px -10px;
 
 	&__list {
 		list-style: none;
 		font-size: 0.8em;
 		&__btn {
 			margin: 0.5rem;
-			padding: 0.4rem 0.6rem;
+			padding: 0.5rem 1rem;
+			color: $white;
+			background-color: $third-color;
+			border: 1px solid $primary-color;
+			border-radius: 6px;
+			transition: background-color 0.3s;
+		}
+		&__btn:hover {
+			cursor: pointer;
 			background-color: $primary-color;
-			color: $secendary-color;
-			border: none;
-			border-radius: 10%;
+			border: 1px solid $third-color;
 		}
 	}
 	&__list li::before {
@@ -45,14 +51,18 @@
 		color: $secendary-color;
 		border-radius: 8px;
 	}
-	&__add-btn {
-		background-color: $primary-color;
-		color: $secendary-color;
-		border: 1px solid black;
-	}
+	&__add-btn,
 	&__delete-all-btn {
-		background-color: rgb(225, 53, 53);
-		color: black;
-		border: 1px solid rgb(202, 3, 3);
+		color: $white;
+		background-color: $third-color;
+		font-size: 1.6rem;
+		border: 1px solid $primary-color;
+		transition: background-color 0.3s;
+	}
+	&__add-btn:hover,
+	&__delete-all-btn:hover {
+		cursor: pointer;
+		background-color: $primary-color;
+		border: 1px solid $third-color;
 	}
 }
