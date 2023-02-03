@@ -46,7 +46,7 @@ const Skills = ({ data }) => {
 	const skillList = (e) => {
 		return data.map((skil) => (
 			<li key={skil} index={data.indexOf(skil)}>
-				{skil}
+				{skil},
 
 				{isloged === true && (
 					<button className='skills-box__list__btn' onClick={handleEditBtn}>
