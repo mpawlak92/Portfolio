@@ -71,6 +71,13 @@
 		}
 	}
 }
+.contact-form-heading {
+	font-size: 8rem;
+	font-weight: 700;
+	background-image: linear-gradient(315deg, #01baef 0%, $primary-color 74%);
+	background-clip: text;
+	color: transparent;
+}
 @media (min-width: 992px) {
 	.contact-form {
 		font-size: 5rem;

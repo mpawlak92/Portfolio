@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 
 import './ContactForm.scss';
 import ContactFormMsg from './ContactFormMessage';
-
+import Typewriter from 'typewriter-effect';
 //flags for form error
 let msgError = 0,
 	phoneError = 0,
@@ -162,6 +162,17 @@ const ContactForm = () => {
 	};
 	return (
 		<>
+			<div className='contact-form-heading'>
+				<Typewriter
+					options={{
+						strings: ['Do You have any questions?', 'Send me a message!'],
+						pauseFor: 2000,
+						autoStart: true,
+						loop: true,
+					}}
+				/>
+			</div>
+
 			<ContactFormMsg
 				msg={popUpMessage}
 				handleOnClose={handlePopUpClose}
