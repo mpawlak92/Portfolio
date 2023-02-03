@@ -27,6 +27,7 @@ const ContactInfo = ({ isUserLogeed }) => {
 		}
 	};
 	dishapiredMessage();
+	console.log();
 	return (
 		<div className='contact-info'>
 			<h3 className='contact-info__head'>Contact info:</h3>
@@ -47,7 +48,7 @@ const ContactInfo = ({ isUserLogeed }) => {
 				</li>
 				<li>
 					<a
-						href={contactInfo.linkedin}
+						href={contactInfo.linkedin_link}
 						target='_blank'
 						rel='noopener noreferrer'>
 						<div className='contact-info__linkedin-ico'></div>

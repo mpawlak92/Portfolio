@@ -36,6 +36,11 @@
 		font-size: 1em;
 		color: $primary-color;
 		text-decoration: none;
+		transition: margin-left 1s;
+		&:hover {
+			cursor: pointer;
+			margin-left: 25%;
+		}
 	}
 	&__linkedin-ico {
 		width: 50px;
