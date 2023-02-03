@@ -19,6 +19,15 @@
 		padding: 0 1rem;
 		text-decoration: none;
 		color: $third-color;
+
+		&--active {
+			margin: 0 0.8rem;
+			font-size: 2.2rem;
+			padding: 0 1rem;
+			text-decoration: none;
+			color: $third-color;
+			border-bottom: 1px solid $white;
+		}
 	}
 	&__link:hover {
 		border-bottom: 1px solid $third-color;

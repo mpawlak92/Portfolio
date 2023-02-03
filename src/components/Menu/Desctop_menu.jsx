@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../LoginForm/LoginSlice';
@@ -35,15 +35,30 @@ const DesctopMenu = ({ click }) => {
 	return (
 		<>
 			<div className='desctop_menu'>
-				<Link to='/' className='desctop_menu__link' onClick={click}>
+				<NavLink
+					to='/'
+					className={({ isActive }) =>
+						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
+					}
+					onClick={click}>
 					About me
-				</Link>
-				<Link to='/projects' className='desctop_menu__link' onClick={click}>
+				</NavLink>
+				<NavLink
+					to='/projects'
+					className={({ isActive }) =>
+						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
+					}
+					onClick={click}>
 					Portfolio
-				</Link>
-				<Link to='/contact' className='desctop_menu__link' onClick={click}>
+				</NavLink>
+				<NavLink
+					to='/contact'
+					className={({ isActive }) =>
+						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
+					}
+					onClick={click}>
 					Contact
-				</Link>
+				</NavLink>
 
 				{/* <Link
 					to={location.pathname}
@@ -52,12 +67,12 @@ const DesctopMenu = ({ click }) => {
 					<span className='git-ico'></span> GitHub
 				</Link> */}
 
-				<Link
+				<NavLink
 					to={location.pathname}
 					className='desctop_menu__link'
 					onClick={handleLoginBtn}>
 					{isLogged ? 'Logout' : 'Login'}
-				</Link>
+				</NavLink>
 				<LoginForm
 					isModalActive={isModalActive}
 					handleOnClose={handleLoginModalClose}
