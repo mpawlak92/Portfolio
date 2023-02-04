@@ -1,0 +1,22 @@
+@import '../../sass/Variables.scss';
+.my-photo {
+	display: none;
+}
+@media (min-width: 1600px) {
+	.my-photo {
+		display: grid;
+		grid-column: 2/3;
+		grid-row: 2/5;
+		justify-self: center;
+
+		align-self: center;
+		img {
+			max-width: 100%;
+			max-height: 60vh;
+			block-size: auto;
+			border: 2px solid $primary-color;
+			box-shadow: 0px 0px 20px -10px;
+			border-radius: 8px;
+		}
+	}
+}

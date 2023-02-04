@@ -11,8 +11,11 @@ import {
 
 import Cv from '../components/Aboutme/Cv';
 import DescriptionAboutMe from '../components/Aboutme/DescriptionAboutMe';
+import NameBoxAboutme from '../components/Aboutme/NameBoxAboutMe';
 import Loading from '../components/Loading/Loading';
 import Skills from '../components/Aboutme/SkillsAboutMe';
+import PhotoAboutme from '../components/Aboutme/PhotoAboutMe';
+import EditMsgAboutMe from '../components/Aboutme/EditMsgAboutMe';
 
 import './AboutMe.scss';
 
@@ -44,7 +47,9 @@ const Home = () => {
 	} else if (fetchStatus === 'succeeded') {
 		return (
 			<div className='about-me'>
-				<div className='about-me__edit-message'>{aboutMeEditMessage}</div>
+				<EditMsgAboutMe message={aboutMeEditMessage}></EditMsgAboutMe>
+				<PhotoAboutme />
+				<NameBoxAboutme />
 				<DescriptionAboutMe
 					data={fetchedData.description}
 					isUserLogeed={isLoged}

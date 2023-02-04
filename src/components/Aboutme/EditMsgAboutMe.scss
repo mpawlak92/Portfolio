@@ -1,0 +1,15 @@
+.edit-message {
+	margin: 1rem auto;
+	font-size: 0.5em;
+	color: green;
+}
+
+@media (min-width: 1600px) {
+	.edit-message {
+		display: grid;
+		justify-self: center;
+		align-self: center;
+		grid-column: 2/4;
+		grid-row: 1/2;
+	}
+}

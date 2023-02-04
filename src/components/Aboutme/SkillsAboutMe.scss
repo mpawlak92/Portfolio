@@ -71,3 +71,13 @@
 		max-width: 42rem;
 	}
 }
+@media (min-width: 1600px) {
+	.skills-box {
+		display: grid;
+
+		justify-self: center;
+		align-self: start;
+		grid-column: 3/4;
+		grid-row: 4/7;
+	}
+}
