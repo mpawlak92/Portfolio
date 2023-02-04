@@ -8,3 +8,12 @@
 	justify-content: space-around;
 	font-size: 3rem;
 }
+@media (min-width: 1600px) {
+	.contact {
+		display: grid;
+		grid-template-columns: [first] 10% [first] 40% [secound] 40% [end] 10%;
+		grid-template-rows: [row1] minmax(0px, max-content) [row1-end] auto [row2] auto [row2-end] auto [last-line];
+		column-gap: 2rem;
+		row-gap: 1.5rem;
+	}
+}

@@ -162,17 +162,6 @@ const ContactForm = () => {
 	};
 	return (
 		<>
-			<div className='contact-form-heading'>
-				<Typewriter
-					options={{
-						strings: ['Do You have any questions?', 'Send me a message!'],
-						pauseFor: 2000,
-						autoStart: true,
-						loop: true,
-					}}
-				/>
-			</div>
-
 			<ContactFormMsg
 				msg={popUpMessage}
 				handleOnClose={handlePopUpClose}
@@ -180,6 +169,16 @@ const ContactForm = () => {
 			/>
 
 			<div className='contact-form'>
+				<div className='contact-form-heading'>
+					<Typewriter
+						options={{
+							strings: ['Do You have any questions?', 'Send me a message!'],
+							pauseFor: 2000,
+							autoStart: true,
+							loop: true,
+						}}
+					/>
+				</div>
 				<form ref={form} onSubmit={handleSubmitForm}>
 					<label htmlFor='name'>
 						<span className='contact-form__label'>Name and Surname:</span>

@@ -1,0 +1,19 @@
+@import '../../sass/Variables.scss';
+
+.google-map {
+	display: none;
+}
+@media (min-width: 1600px) {
+	.google-map {
+		display: grid;
+		justify-self: center;
+		align-self: start;
+		grid-column: 2/3;
+		grid-row: 3/5;
+
+		padding: 3px;
+		border: 1px solid $primary-color;
+		border-radius: 10px;
+		box-shadow: 0px 0px 20px -10px;
+	}
+}

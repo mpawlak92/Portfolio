@@ -8,6 +8,7 @@ import {
 
 import ContactForm from '../components/Contact/ContactForm';
 import ContactInfo from '../components/Contact/ContactInfo';
+import GoogleMap from '../components/Contact/GoogleMap';
 import Loading from '../components/Loading/Loading';
 
 import './Contact.scss';
@@ -22,13 +23,13 @@ const Contact = () => {
 			dispatch(fetchContactData());
 		}
 	}, [fetchStatus, dispatch]);
-	
-	
+
 	if (fetchStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus === 'succeeded') {
 		return (
 			<div className='contact'>
+				<GoogleMap />
 				<ContactInfo isUserLogeed={isLoged} />
 				<ContactForm />
 			</div>

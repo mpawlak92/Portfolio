@@ -84,12 +84,21 @@
 	}
 	&__edit-message {
 		margin-top: 1rem;
-		font-size: 0.5em;
+		font-size: 1.5rem;
 		color: green;
 	}
 }
 @media (min-width: 390px) {
 	.contact-info {
 		font-size: 5rem;
+	}
+}
+@media (min-width: 1600px) {
+	.contact-info {
+		justify-self: center;
+		align-self: start;
+		grid-column: 2/3;
+		grid-row: 2/3;
+		margin: 4rem 0;
 	}
 }
