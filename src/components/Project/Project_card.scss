@@ -5,6 +5,7 @@
 	flex-flow: row wrap;
 	width: 80vw;
 	max-width: 350px;
+	flex: 1 1 350px;
 	margin: 0 2rem 3.5rem 2rem;
 	padding: 10px;
 	min-height: 200px;
@@ -144,5 +145,11 @@
 	}
 	&__btn:hover {
 		cursor: pointer;
+	}
+}
+@media (min-width: 2000px) {
+	.project-card {
+		max-width: 400px;
+		flex: 1 1 400px;
 	}
 }
