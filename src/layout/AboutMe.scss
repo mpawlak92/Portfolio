@@ -1,3 +1,4 @@
+@import '../sass/Variables.scss';
 .about-me {
 	display: flex;
 	flex-direction: column;
@@ -6,7 +7,7 @@
 	align-items: center;
 	width: 100%;
 	min-height: calc(100vh - 100px);
-	margin: 2rem 0;
+	padding: 2rem 0;
 	font-size: 4rem;
 	&__edit-message {
 		margin: 1rem auto;
@@ -14,6 +15,14 @@
 		color: green;
 	}
 }
+
+#light .about-me {
+	background-color: $white;
+}
+#dark .about-me {
+	background-color: $third-color;
+}
+
 @media (min-width: 1600px) {
 	.about-me {
 		display: grid;

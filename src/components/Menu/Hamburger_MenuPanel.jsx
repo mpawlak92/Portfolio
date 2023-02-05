@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../LoginForm/LoginSlice';
 import Cookies from 'universal-cookie';
-import MenuBar from './Menu_bar';
 import LoginForm from '../LoginForm/LoginForm';
+import { ThemeContext } from '../../App';
+import MenuBar from './Menu_bar';
+import ReactSwitch from 'react-switch';
 import './Hamburger_menuPanel.scss';
 
-const HamburgerMenuPanel = ({ click, data, menuIsActive }) => {
+const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 	const cookies = new Cookies();
 	const isLogged = useSelector((state) => state.login.isUserLogeed);
 	const dispatch = useDispatch();
-
+	const { theme, themeToogle } = useContext(ThemeContext);
 	const [isModalActive, setIsModalActive] = useState(false);
 
 	const handleLoginBtn = () => {
@@ -27,10 +29,6 @@ const HamburgerMenuPanel = ({ click, data, menuIsActive }) => {
 	};
 	const handleLoginModalClose = () => {
 		setIsModalActive(false);
-	};
-	const handleGitLink = () => {
-		click();
-		window.open(data.github_link);
 	};
 
 	let classToggle = menuIsActive
@@ -59,20 +57,17 @@ const HamburgerMenuPanel = ({ click, data, menuIsActive }) => {
 					<Link to='/contact' className='hamburger-panel__link' onClick={click}>
 						Contact
 					</Link>
-
-					<Link
-						to={location.pathname}
-						className='hamburger-panel__link'
-						onClick={handleGitLink}>
-						<span className='git-ico'></span> GitHub
-					</Link>
-
 					<Link
 						to={location.pathname}
 						className='hamburger-panel__link'
 						onClick={handleLoginBtn}>
 						{isLogged ? 'Logout' : 'Login'}
 					</Link>
+					<div className='brightnes-mode'>
+						<label>{theme === 'light' ? 'Light mode' : 'Dark mode'}</label>
+						<ReactSwitch onChange={themeToogle} checked={theme === 'light'} />
+					</div>
+
 					<LoginForm
 						isModalActive={isModalActive}
 						handleOnClose={handleLoginModalClose}
