@@ -54,7 +54,6 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 				}
 			});
 		inputsClear();
-		console.log(cookies.get('isUserLogeed'));
 	};
 	return (
 		<Modal
