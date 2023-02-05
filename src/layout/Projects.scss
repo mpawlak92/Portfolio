@@ -1,12 +1,13 @@
+@import '../sass/Variables.scss';
+
 .projects {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	// justify-content: center;
 	align-items: center;
 	max-width: 100vw;
 	min-height: 100vh;
-	// padding: 5rem 0;
+	margin: 0 1rem;
 	padding: 5rem calc((100% - (460px * 3)) / 3);
 	font-size: 2rem;
 	&__edit-message {
@@ -15,6 +16,18 @@
 		font-size: 1em;
 		color: green;
 		text-align: center;
+	}
+}
+
+#light .projects {
+	background-color: $white;
+}
+#dark .projects {
+	background-color: $third-color;
+}
+@media (min-width: 800px) {
+	.projects {
+		margin: 0 6rem;
 	}
 }
 @media (min-width: 992px) {
