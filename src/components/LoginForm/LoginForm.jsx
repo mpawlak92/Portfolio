@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { login } from './LoginSlice';
 
 import request from '../../helpers/request';
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'; 
 import './LoginForm.scss';
 const LoginForm = ({ handleOnClose, isModalActive }) => {
 	//initialize cookie

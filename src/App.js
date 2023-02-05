@@ -22,12 +22,30 @@ const App = () => {
 
 	const readCookies = () => {
 		const user = cookies.get('isUserLogeed');
+		const themeCookies = cookies.get('dark-light-mode');
 		if (user) {
 			dispatch(login());
+		}
+		if (themeCookies) {
+			setTheme(themeCookies);
 		}
 	};
 	const themeToogle = () => {
 		setTheme((prevState) => (prevState === 'light' ? 'dark' : 'light'));
+		const themeCookies = cookies.get('dark-light-mode');
+		let newTheme;
+		if (theme === 'light') {
+			newTheme = 'dark';
+		} else {
+			newTheme = 'light';
+		}
+
+		if (themeCookies) {
+			cookies.remove('dark-light-mode');
+			cookies.set('dark-light-mode', newTheme, { maxAge: 86400 });
+		} else {
+			cookies.set('dark-light-mode', newTheme, { maxAge: 86400 });
+		}
 	};
 	useEffect(() => {
 		readCookies();
