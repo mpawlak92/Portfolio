@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-
-import './ContactInfoEditForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactData, updateContact } from './ContactSlice';
 
@@ -47,45 +45,40 @@ const ContactInfoEditForm = ({ handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<form
-				className='contact-info-edit-form'
+				className='modal__wrapper'
 				method='submit'
 				onSubmit={handleOnsubmit}>
-				<h1>Edit your contact informations</h1>
-				<label className='contact-info-edit-form__label'>Phone:</label>
+				<label className='modal__label--left'>Phone:</label>
 				<input
-					className='contact-info-edit-form__input'
+					className='modal__input'
 					type='number'
 					value={phoneInput}
 					onChange={handlePhoneInput}
 				/>
-				<label className='contact-info-edit-form__label'>Email:</label>
+				<label className='modal__label--left'>Email:</label>
 				<input
-					className='contact-info-edit-form__input'
+					className='modal__input'
 					type='email'
 					value={emailInput}
 					onChange={handleEmailInput}
 				/>
-				<label className='contact-info-edit-form__label'>Linkedin:</label>
+				<label className='modal__label--left'>Linkedin:</label>
 				<input
-					className='contact-info-edit-form__input'
+					className='modal__input'
 					type='text'
 					value={linkedinInput}
 					onChange={handleLinkedinInput}
 				/>
 				{editError && (
-					<div className='contact-info-edit-form__error'>
+					<div className='modal__error'>
 						<p>No field can't be empty.</p>
 					</div>
 				)}
-				<div className='contact-info-edit-form__btns'>
-					<button
-						className='contact-info-edit-form__btns__save-btn'
-						type='submit'>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' type='submit'>
 						Save
 					</button>
-					<button
-						className='contact-info-edit-form__btns__cancel-btn'
-						onClick={handleOnClose}>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

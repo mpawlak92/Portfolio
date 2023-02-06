@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import './SkilEditForm.scss';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
 const SkilEditForm = ({ index, handleOnClose, isModalActive }) => {
-	
 	const dispatch = useDispatch();
 	const data = useSelector(aboutmeData);
 	// console.log(index);
@@ -41,28 +38,26 @@ const SkilEditForm = ({ index, handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<form
-				className='skil-edit-form'
+				className='modal__wrapper'
 				method='submit'
 				onSubmit={handleOnsubmit}>
-				<label className='skil-edit-form__label'>Edit your skil:</label>
+				<label className='modal__label'>Edit your skil:</label>
 				<input
-					className='skil-edit-form__input'
+					className='modal__input'
 					type='text'
 					value={skilInput}
 					onChange={handleSkilInput}
 				/>
 				{editError && (
-					<div className='skil-edit-form__error'>
+					<div className='modal__error'>
 						<p>Field can't be empty</p>
 					</div>
 				)}
-				<div className='skil-edit-form__btns'>
-					<button className='skil-edit-form__btns__save-btn' type='submit'>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' type='submit'>
 						Save
 					</button>
-					<button
-						className='skil-edit-form__btns__cancel-btn'
-						onClick={handleOnClose}>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

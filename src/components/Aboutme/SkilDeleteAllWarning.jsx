@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
-import './SkilDeleteAllWarning.scss';
 import { useDispatch } from 'react-redux';
 import { updateAboutMe } from './AboutMeSlice';
 
@@ -17,14 +16,16 @@ const SkilDeleteAllWarning = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<div className='delete-all-box'>
-				<p className='delete-all-box__delete-msg'>Do wanna delete ALL items?</p>
-				<button className='delete-all-box__delete-btn' onClick={handleDelete}>
-					Yes
-				</button>
-				<button className='delete-all-box__cancel-btn' onClick={handleOnClose}>
-					Cancel
-				</button>
+			<div className='modal__wrapper'>
+				<p className='modal__delete-warning'>Do wanna delete ALL items?</p>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' onClick={handleDelete}>
+						Yes
+					</button>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
+						Cancel
+					</button>
+				</div>
 			</div>
 		</Modal>
 	);

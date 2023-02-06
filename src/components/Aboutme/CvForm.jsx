@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import './CvForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
@@ -33,26 +32,27 @@ const CvForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='cv-edit-form' method='submit' onSubmit={handleOnsubmit}>
-				<label className='cv-edit-form__label'>Set your new description:</label>
+			<form
+				className='modal__wrapper'
+				method='submit'
+				onSubmit={handleOnsubmit}>
+				<label className='modal__label'>Set your new description:</label>
 				<input
-					className='cv-edit-form__input'
+					className='modal__input'
 					type='text'
 					value={cvLinkInput}
 					onChange={handleLinkInput}
 				/>
 				{editError && (
-					<div className='cv-edit-form__error'>
+					<div className='modal__error'>
 						<p>Field can't be empty</p>
 					</div>
 				)}
-				<div className='cv-edit-form__btns'>
-					<button className='cv-edit-form__btns__save-btn' type='submit'>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' type='submit'>
 						Save
 					</button>
-					<button
-						className='cv-edit-form__btns__cancel-btn'
-						onClick={handleOnClose}>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

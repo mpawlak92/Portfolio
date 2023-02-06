@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
-import './SkilDeleteWarning.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
 
@@ -20,14 +19,16 @@ const SkilDeleteWarning = ({ index, handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<div className='delete-box'>
-				<p className='delete-box__delete-msg'>Do wanna delete this item?</p>
-				<button className='delete-box__delete-btn' onClick={handleDelete}>
-					Yes
-				</button>
-				<button className='delete-box__cancel-btn' onClick={handleOnClose}>
-					Cancel
-				</button>
+			<div className='modal__wrapper'>
+				<p className='modal__delete-warning'>Do wanna delete this item?</p>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' onClick={handleDelete}>
+						Yes
+					</button>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
+						Cancel
+					</button>
+				</div>
 			</div>
 		</Modal>
 	);

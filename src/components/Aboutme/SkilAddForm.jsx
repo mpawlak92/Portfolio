@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import './SkilAddForm.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAboutMe, aboutmeData } from './AboutMeSlice';
@@ -37,26 +36,27 @@ const SkilAddForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
-			<form className='skil-add-form' method='submit' onSubmit={handleOnsubmit}>
-				<label className='skil-add-form__label'>Add your new skil:</label>
+			<form
+				className='modal__wrapper'
+				method='submit'
+				onSubmit={handleOnsubmit}>
+				<label className='modal__label'>Add your new skil:</label>
 				<input
-					className='skil-add-form__input'
+					className='modal__input'
 					type='text'
 					value={skilInput}
 					onChange={handleSkilInput}
 				/>
 				{editError && (
-					<div className='skil-add-form__error'>
+					<div className='modal__error'>
 						<p>Field can't be epmty</p>
 					</div>
 				)}
-				<div className='skil-add-form__btns'>
-					<button className='skil-add-form__btns__save-btn' type='submit'>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' type='submit'>
 						Save
 					</button>
-					<button
-						className='skil-add-form__btns__cancel-btn'
-						onClick={handleOnClose}>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

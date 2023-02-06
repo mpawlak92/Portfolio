@@ -7,17 +7,118 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 80vw;
+	min-height: 80vh;
 	height: auto;
-	max-height: auto;
+	padding: 1rem;
 	background-color: $primary-color;
 	border: 2px solid black;
 	border-radius: 10px;
 	animation: 1s 1 normal popup_move_down;
 	animation-fill-mode: forwards;
 	z-index: 100;
+	overflow-x: hidden;
 
 	&::backdrop {
 		backdrop-filter: blur(3px);
 		background: rgba(0, 0, 0, 0.8);
+	}
+	&__wrapper {
+		width: 100%;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.5rem;
+	}
+	&__label {
+		display: flex;
+		color: $black;
+		font-size: 2rem;
+
+		&--left {
+			width: 100%;
+			color: $black;
+			margin-left: 5%;
+			font-size: 2rem;
+			align-self: flex-start;
+		}
+	}
+
+	&__input {
+		width: 90%;
+		margin: 1rem 0;
+		resize: none;
+		&--login-form {
+			margin: 1rem 0;
+			resize: none;
+		}
+	}
+	&__textarea {
+		width: 90%;
+		min-height: 20rem;
+		height: fit-content;
+		margin: 1rem 0;
+		resize: none;
+	}
+	&__delete-warning {
+		width: 100%;
+		text-align: center;
+		color: red;
+		margin-bottom: 1rem;
+		font-size: 2rem;
+	}
+	&__error {
+		color: red;
+		margin: 1rem;
+		font-size: 2.5rem;
+		text-align: center;
+	}
+	&__btns {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__cancel-btn,
+	&__accept-btn {
+		padding: 0.6rem 1.8rem;
+		margin: 1rem;
+		font-size: 1.8rem;
+		color: $black;
+		background-color: $white;
+		border: 1px solid $third-color;
+		border-radius: 8px;
+		&:hover {
+			cursor: pointer;
+			background-color: $third-color;
+			color: $white;
+			border: 1px solid $third-color;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.modal {
+		&__error {
+			font-size: 3.5rem;
+		}
+		&__label {
+			font-size: 2.3rem;
+		}
+		&__delete-warning {
+			font-size: 2.3rem;
+		}
+		&__input {
+			&--login-form {
+				width: 30%;
+			}
+		}
+	}
+}
+@media (min-height: 600px) {
+	.modal {
+		min-height: auto;
+		height: auto;
 	}
 }

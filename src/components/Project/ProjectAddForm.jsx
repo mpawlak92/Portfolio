@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
-import './ProjectAddForm.scss';
 import { useDispatch } from 'react-redux';
 import { addProjects } from './ProjectsSlice';
 
@@ -68,66 +67,64 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={false}>
 			<form
-				className='project-add-form'
+				className='modal__wrapper'
 				method='submit'
 				encType='multipart/form-data'
 				onSubmit={handleOnsubmit}>
-				<label className='project-add-form__label'>Title:</label>
+				<label className='modal__label--left'>Title:</label>
 				<input
-					className='project-add-form__input'
+					className='modal__input'
 					type='text'
 					value={titleInput}
 					onChange={handleTitleInput}
 				/>
 
-				<label className='project-add-form__label'>Cover:</label>
+				<label className='modal__label--left'>Cover:</label>
 				<input
 					ref={coverRef}
-					className='project-add-form__input'
+					className='modal__input'
 					type='file'
 					name='cover'
 					onChange={handleFileSelect}
 				/>
 
-				<label className='project-add-form__label'>Git link:</label>
+				<label className='modal__label--left'>Git link:</label>
 				<input
-					className='project-add-form__input'
+					className='modal__input'
 					type='text'
 					value={gitLinkInput}
 					onChange={handleGitLinkInput}
 				/>
 
-				<label className='project-add-form__label'>Description:</label>
+				<label className='modal__label--left'>Description:</label>
 				<input
-					className='project-add-form__input'
+					className='modal__input'
 					type='text'
 					value={descriptionText}
 					onChange={handleDescriptionText}
 				/>
 
-				<label className='project-add-form__label'>
+				<label className='modal__label--left'>
 					Technologys(have to be separated by comma with spaces eg: HTML, CSS,
 					BEM):
 				</label>
 				<input
-					className='project-add-form__input'
+					className='modal__input'
 					type='text'
 					value={technologysInput}
 					onChange={handleTechnologysInput}
 				/>
 
 				{editError && (
-					<div className='project-add-form__error'>
+					<div className='modal__error'>
 						<p>Title field can't be empty</p>
 					</div>
 				)}
-				<div className='project-add-form__btns'>
-					<button className='project-add-form__btns__save-btn' type='submit'>
+				<div className='modal__btns'>
+					<button className='modal__accept-btn' type='submit'>
 						Save
 					</button>
-					<button
-						className='project-add-form__btns__cancel-btn'
-						onClick={handleOnClose}>
+					<button className='modal__cancel-btn' onClick={handleOnClose}>
 						Cancel
 					</button>
 				</div>

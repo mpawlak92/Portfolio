@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import { login } from './LoginSlice';
 
 import request from '../../helpers/request';
-import Cookies from 'universal-cookie'; 
-import './LoginForm.scss';
+import Cookies from 'universal-cookie';
 const LoginForm = ({ handleOnClose, isModalActive }) => {
 	//initialize cookie
 	const cookies = new Cookies();
@@ -60,26 +59,26 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			handleOnClose={handleOnClose}
 			isOpen={isModalActive}
 			shoulbBeCloseOnOutsideClick={true}>
-			<form className='login-form' method='POST' onSubmit={handleOnSubmit}>
+			<form className='modal__wrapper' method='POST' onSubmit={handleOnSubmit}>
 				{isLoginError ? (
-					<div className='login-form__error'>{isLoginError}</div>
+					<div className='modal__error'>{isLoginError}</div>
 				) : null}
-				<label className='login-form__label' htmlFor='user'>
+				<label className='modal__label' htmlFor='user'>
 					User:
 				</label>
 				<input
-					className='login-form__input'
+					className='modal__input--login-form'
 					type='text'
 					id='user'
 					name='username'
 					value={userInput}
 					onChange={handleUserInput}
 				/>
-				<label className='login-form__label' htmlFor='pass'>
+				<label className='modal__label' htmlFor='pass'>
 					Password:
 				</label>
 				<input
-					className='login-form__input'
+					className='modal__input--login-form'
 					type='password'
 					id='pass'
 					name='password'
@@ -87,7 +86,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 					onChange={handlePasswordInput}
 				/>
 
-				<button className='login-form__btn' type='submit'>
+				<button className='modal__accept-btn' type='submit'>
 					Sign in
 				</button>
 			</form>
