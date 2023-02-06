@@ -89,7 +89,9 @@
 	}
 }
 #light .modal {
-	background-color: $primary-color;
+	&__wrapper {
+		background-color: $primary-color;
+	}
 
 	&__label {
 		color: $black;
@@ -120,7 +122,9 @@
 	}
 }
 #dark .modal {
-	background-color: $third-color;
+	&__wrapper {
+		background-color: $third-color;
+	}
 	&__label {
 		color: $white;
 

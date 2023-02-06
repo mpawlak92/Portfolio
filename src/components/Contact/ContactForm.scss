@@ -79,6 +79,16 @@
 	background-clip: text;
 	color: transparent;
 }
+#light .contact-form {
+	&__label {
+		color: $black;
+	}
+}
+#dark .contact-form {
+	&__label {
+		color: $white;
+	}
+}
 @media (min-width: 992px) {
 	.contact-form {
 		font-size: 5rem;

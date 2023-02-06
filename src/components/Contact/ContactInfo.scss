@@ -9,10 +9,7 @@
 	margin: 1rem 0;
 	padding: 2rem;
 	font-size: 4rem;
-	background-color: $white;
-	border: 1px solid $primary-color;
 	border-radius: 10px;
-	box-shadow: 0px 0px 20px -10px;
 
 	&__head {
 		width: 100%;
@@ -34,7 +31,6 @@
 	a {
 		display: flex;
 		font-size: 1em;
-		color: $primary-color;
 		text-decoration: none;
 		transition: margin-left 1s;
 		&:hover {
@@ -45,21 +41,18 @@
 	&__linkedin-ico {
 		width: 50px;
 		height: 50px;
-		background-image: url(../../icons/icons-linkedin.svg);
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
 	&__tel-ico {
 		width: 50px;
 		height: 50px;
-		background-image: url(../../icons/icons-tel.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
 	&__mail-ico {
 		width: 50px;
 		height: 50px;
-		background-image: url(../../icons/icons-mail.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
@@ -69,23 +62,82 @@
 	&__edit-btn {
 		margin: 1rem 1rem 0 1rem;
 		padding: 0.8rem 4rem;
-		color: $white;
-		background-color: $third-color;
 		font-size: 1.6rem;
-		border: 1px solid $primary-color;
 		border-radius: 8px;
 		transition: background-color 0.3s;
 
 		&:hover {
 			cursor: pointer;
-			background-color: $primary-color;
-			border: 1px solid $third-color;
 		}
 	}
 	&__edit-message {
 		margin-top: 1rem;
 		font-size: 1.5rem;
 		color: green;
+	}
+}
+
+#light .contact-info {
+	color: $black;
+	background-color: $white;
+	border: 1px solid $primary-color;
+	box-shadow: 0px 0px 20px -10px $black;
+
+	a {
+		color: $primary-color;
+	}
+	&__linkedin-ico {
+		background-image: url(../../icons/icons-linkedin.svg);
+	}
+	&__tel-ico {
+		background-image: url(../../icons/icons-tel.png);
+	}
+	&__mail-ico {
+		background-image: url(../../icons/icons-mail.png);
+	}
+
+	&__edit-btn {
+		color: $white;
+		background-color: $third-color;
+
+		border: 1px solid $primary-color;
+
+		&:hover {
+			background-color: $primary-color;
+			border: 1px solid $third-color;
+		}
+	}
+}
+#dark .contact-info {
+	background-color: $primary-color;
+	border: 1px solid $white;
+	box-shadow: 0px 0px 20px -10px $primary-color;
+
+	a {
+		color: $white;
+	}
+	&__linkedin-ico {
+		background-image: url(../../icons/icons-linkedin-white.svg);
+	}
+	&__tel-ico {
+		background-image: url(../../icons/icons-tel-white.png);
+	}
+	&__mail-ico {
+		background-image: url(../../icons/icons-mail-white.png);
+	}
+
+	&__edit-btn {
+		color: $white;
+		background-color: $third-color;
+
+		border: 1px solid $primary-color;
+
+		&:hover {
+			color: $black;
+			font-weight: bold;
+			background-color: $white;
+			border: 1px solid $third-color;
+		}
 	}
 }
 @media (min-width: 390px) {
