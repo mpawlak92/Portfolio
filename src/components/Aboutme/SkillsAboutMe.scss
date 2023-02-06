@@ -9,10 +9,7 @@
 	padding: 1rem 2rem 2rem 2rem;
 	margin: 2rem 3rem;
 	font-size: 1em;
-	background-color: $white;
-	border: 1px solid $primary-color;
 	border-radius: 10px;
-	box-shadow: 0px 0px 20px -10px;
 
 	&__list {
 		list-style: none;
@@ -20,16 +17,11 @@
 		&__btn {
 			margin: 0.5rem;
 			padding: 0.5rem 1rem;
-			color: $white;
-			background-color: $third-color;
-			border: 1px solid $primary-color;
 			border-radius: 6px;
 			transition: background-color 0.3s;
 		}
 		&__btn:hover {
 			cursor: pointer;
-			background-color: $primary-color;
-			border: 1px solid $third-color;
 		}
 	}
 	&__list li::before {
@@ -47,22 +39,88 @@
 	&__btn {
 		margin: 0.5rem;
 		padding: 0.8rem;
-		background-color: $primary-color;
-		color: $secendary-color;
 		border-radius: 8px;
 	}
 	&__add-btn,
 	&__delete-all-btn {
-		color: $white;
-		background-color: $third-color;
 		font-size: 1.6rem;
-		border: 1px solid $primary-color;
 		transition: background-color 0.3s;
 	}
 	&__add-btn:hover,
 	&__delete-all-btn:hover {
 		cursor: pointer;
+	}
+}
+
+#light .skills-box {
+	color: $black;
+	background-color: $white;
+	border: 1px solid $primary-color;
+	box-shadow: 0px 0px 20px -10px $black;
+
+	&__list {
+		&__btn {
+			color: $white;
+			background-color: $third-color;
+			border: 1px solid $primary-color;
+		}
+		&__btn:hover {
+			background-color: $primary-color;
+			border: 1px solid $third-color;
+		}
+	}
+
+	&__btn {
 		background-color: $primary-color;
+		color: $secendary-color;
+	}
+	&__add-btn,
+	&__delete-all-btn {
+		color: $white;
+		background-color: $third-color;
+		border: 1px solid $primary-color;
+	}
+	&__add-btn:hover,
+	&__delete-all-btn:hover {
+		background-color: $primary-color;
+		border: 1px solid $third-color;
+	}
+}
+#dark .skills-box {
+	color: black;
+	background-color: $primary-color;
+	border: 1px solid $white;
+	box-shadow: 0px 0px 20px -10px $primary-color;
+
+	&__list {
+		&__btn {
+			color: $white;
+			background-color: $third-color;
+			border: 1px solid $primary-color;
+		}
+		&__btn:hover {
+			color: $black;
+			font-weight: bold;
+			background-color: $white;
+			border: 1px solid $third-color;
+		}
+	}
+
+	&__btn {
+		background-color: $primary-color;
+		color: $secendary-color;
+	}
+	&__add-btn,
+	&__delete-all-btn {
+		color: $white;
+		background-color: $third-color;
+		border: 1px solid $primary-color;
+	}
+	&__add-btn:hover,
+	&__delete-all-btn:hover {
+		color: $black;
+		font-weight: bold;
+		background-color: $white;
 		border: 1px solid $third-color;
 	}
 }

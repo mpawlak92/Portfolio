@@ -1,9 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import { useEffect, useContext, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeContext } from '../../App';
 import './Modal.scss';
-
 const Modal = ({
 	children,
 	handleOnClose,
@@ -12,6 +11,7 @@ const Modal = ({
 }) => {
 	const modalRef = useRef(null);
 	const previousActiveElement = useRef(null);
+	const { theme } = useContext(ThemeContext);
 	useEffect(() => {
 		if (!modalRef.current) {
 			return;
@@ -49,7 +49,11 @@ const Modal = ({
 		}
 	};
 	return ReactDOM.createPortal(
-		<dialog className='modal ' ref={modalRef} onClick={handleOutsideClick}>
+		<dialog
+			className='modal '
+			id={theme}
+			ref={modalRef}
+			onClick={handleOutsideClick}>
 			{children}
 		</dialog>,
 		document.body
