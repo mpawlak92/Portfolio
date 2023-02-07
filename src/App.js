@@ -42,9 +42,15 @@ const App = () => {
 
 		if (themeCookies) {
 			cookies.remove('dark-light-mode');
-			cookies.set('dark-light-mode', newTheme, { maxAge: 86400 });
+			cookies.set('dark-light-mode', newTheme, {
+				maxAge: 86400,
+				SameSite: 'Strict',
+			});
 		} else {
-			cookies.set('dark-light-mode', newTheme, { maxAge: 86400 });
+			cookies.set('dark-light-mode', newTheme, {
+				maxAge: 86400,
+				SameSite: 'Strict',
+			});
 		}
 	};
 	useEffect(() => {

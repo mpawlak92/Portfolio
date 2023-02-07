@@ -44,7 +44,10 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 			.then((response) => {
 				if (response.data.status) {
 					dispatch(login());
-					cookies.set('isUserLogeed', 'true', { maxAge: 120 });
+					cookies.set('isUserLogeed', 'true', {
+						maxAge: 120,
+						SameSite: 'Strict',
+					});
 					// console.log(cookies.get('isUserLogeed'));
 					setIsLoginError(false);
 					handleOnClose();
