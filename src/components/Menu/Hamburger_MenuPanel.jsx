@@ -9,6 +9,7 @@ import { ThemeContext } from '../../App';
 import MenuBar from './Menu_bar';
 import ReactSwitch from 'react-switch';
 import './Hamburger_menuPanel.scss';
+import FixedIcons from '../FixedIcons/FixedIcons';
 
 const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 	const cookies = new Cookies();
@@ -67,6 +68,7 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 						<label>{theme === 'light' ? 'Light mode' : 'Dark mode'}</label>
 						<ReactSwitch onChange={themeToogle} checked={theme === 'light'} />
 					</div>
+					<FixedIcons />
 
 					<LoginForm
 						isModalActive={isModalActive}

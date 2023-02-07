@@ -1,15 +1,15 @@
+@import '../../sass/Variables.scss';
 .hamburger-panel {
 	position: fixed;
 	display: flex;
 	flex-direction: row-reverse;
-	top: 0;
+	top: 0px;
 	left: -100vw;
 	width: 100vw;
 	height: 100%;
-	background-color: #fff;
 	transition: left 0.3s;
 	overflow: auto;
-	z-index: 6;
+	z-index: 11;
 
 	&__isactive {
 		left: 0vw;
@@ -18,19 +18,17 @@
 		display: flex;
 		flex-direction: column;
 		width: 100vw;
-		height: calc(100% - 70px);
-		margin-top: 70px;
+		height: calc(100% - 60px);
+		margin-top: 60px;
 		padding: 20px;
 		font-size: 8rem;
-		color: rgb(45, 45, 45);
+		z-index: 12;
 	}
 	&__link {
 		margin: 1rem;
 		padding: 5px;
 		font-size: 3.5rem;
-		color: black;
 		text-decoration: none;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	}
 }
 .brightnes-mode {
@@ -39,7 +37,38 @@
 	align-items: center;
 	width: 100%;
 	font-size: 2rem;
+	margin: 1rem 0;
 	label {
 		margin: 0 1rem;
+	}
+}
+#light .hamburger-panel {
+	background-color: $white;
+	&__menu {
+		color: rgb(45, 45, 45);
+		border: 10px solid $primary-color;
+	}
+	&__link {
+		color: $black;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+	.brightnes-mode {
+		font-weight: bold;
+		color: $black;
+	}
+}
+#dark .hamburger-panel {
+	background-color: $third-color;
+
+	&__menu {
+		color: rgb(45, 45, 45);
+		border: 10px solid $white;
+	}
+	&__link {
+		color: $white;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.brightnes-mode {
+		color: $white;
 	}
 }

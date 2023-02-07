@@ -13,7 +13,22 @@
 	border-radius: 0 10px 10px 0;
 	box-shadow: 0px 0px 20px -10px;
 	transition: left 0.3s;
-
+	&--mobile {
+		position: relative;
+		left: -3.5rem;
+		bottom: 50px;
+		width: 15rem;
+		height: 6rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 0.5rem 0 1.5rem;
+		font-size: 4rem;
+		font-weight: bold;
+		border-radius: 0 10px 10px 0;
+		box-shadow: 0px 0px 20px -10px;
+		transition: left 0.3s;
+	}
 	&:hover {
 		left: 0%;
 		cursor: pointer;
@@ -23,6 +38,24 @@
 	}
 	&__github {
 		top: 34rem;
+		background-color: $primary-color;
+
+		a {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			text-decoration: none;
+			color: $white;
+		}
+		.github-icon {
+			width: 5rem;
+			height: 5rem;
+			background-image: url(../../icons/icons-github.svg);
+		}
+	}
+	&__github--mobile {
+		top: 4rem;
 		background-color: $primary-color;
 
 		a {
@@ -71,10 +104,16 @@
 	}
 	&__github {
 		border: 2px solid $white;
+		&--mobile {
+			border: 2px solid $white;
+		}
 	}
 }
 @media (min-width: 800px) {
 	.fixed-icons {
 		display: flex;
+		&--mobile {
+			display: none;
+		}
 	}
 }
