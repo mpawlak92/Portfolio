@@ -160,12 +160,6 @@
 		border: 1px solid $third-color;
 	}
 }
-.accordion {
-	&__btn {
-		border: 1px solid $black;
-		background-image: url(../../icons/drop-down.png);
-	}
-}
 #dark .project-card {
 	background-color: $primary-color;
 	box-shadow: 0px 0px 20px -10px $primary-color;
@@ -193,7 +187,13 @@
 		border: 2px solid $third-color;
 	}
 }
-.accordion {
+#light .accordion {
+	&__btn {
+		border: 1px solid $black;
+		background-image: url(../../icons/drop-down.png);
+	}
+}
+#dark .accordion {
 	&__btn {
 		border: 1px solid $white;
 		background-image: url(../../icons/drop-down-white.png);
