@@ -9,9 +9,7 @@
 	margin: 0 2rem 3.5rem 2rem;
 	padding: 10px;
 	min-height: 200px;
-	background-color: $white;
 	border-radius: 10px;
-	box-shadow: 0px 0px 20px -10px;
 
 	&__photo {
 		position: relative;
@@ -25,9 +23,8 @@
 		background-position: 0 0;
 		background-repeat: no-repeat;
 		font-size: 3rem;
-		text-transform: uppercase;
 		color: $white;
-		border: 1px solid $primary-color;
+		text-transform: uppercase;
 		border-radius: 10px;
 		z-index: 1;
 	}
@@ -64,6 +61,7 @@
 	}
 	&__photo:hover::before,
 	&__photo:hover::after {
+		cursor: pointer;
 		width: 0%;
 		animation: 0.8s 1 normal hidden_project_title;
 		animation-fill-mode: forwards;
@@ -86,9 +84,6 @@
 		margin: 0.5rem 0;
 		text-transform: uppercase;
 		font-size: 1.8rem;
-		color: $white;
-		background-color: $primary-color;
-		border: 1px solid black;
 		border-radius: 8px;
 		transition: scale 0.5s;
 	}
@@ -116,16 +111,11 @@
 		margin: 0 1rem;
 		padding: 0.4rem 0.4rem;
 		border-radius: 8px;
-		color: $white;
-		background-color: $third-color;
 		font-size: 1.8rem;
-		border: 1px solid black;
 	}
 	&__edit-btn:hover,
 	&__del-btn:hover {
 		cursor: pointer;
-		background-color: $primary-color;
-		border: 1px solid $third-color;
 	}
 }
 .accordion {
@@ -135,16 +125,78 @@
 		aspect-ratio: 10 / 1;
 		padding: 0.4rem 0.4rem;
 		margin: 0.5rem auto;
-		border: 1px solid black;
 		border-radius: 8px;
 		transition: scale 0.5s;
-		background-image: url(../../icons/drop-down.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
 	}
 	&__btn:hover {
 		cursor: pointer;
+	}
+}
+#light .project-card {
+	background-color: $white;
+	box-shadow: 0px 0px 20px -10px;
+
+	&__photo {
+		border: 1px solid $primary-color;
+	}
+	&__btn {
+		color: $white;
+		background-color: $primary-color;
+		border: 1px solid $black;
+	}
+
+	&__edit-btn,
+	&__del-btn {
+		color: $white;
+		background-color: $third-color;
+		border: 1px solid $black;
+	}
+	&__edit-btn:hover,
+	&__del-btn:hover {
+		background-color: $primary-color;
+		border: 1px solid $third-color;
+	}
+}
+.accordion {
+	&__btn {
+		border: 1px solid $black;
+		background-image: url(../../icons/drop-down.png);
+	}
+}
+#dark .project-card {
+	background-color: $primary-color;
+	box-shadow: 0px 0px 20px -10px $primary-color;
+
+	&__photo {
+		border: 1px solid $white;
+	}
+	&__btn {
+		color: $white;
+		background-color: $third-color;
+		border: 1px solid $white;
+	}
+
+	&__edit-btn,
+	&__del-btn {
+		color: $white;
+		background-color: $third-color;
+		border: 1px solid black;
+	}
+	&__edit-btn:hover,
+	&__del-btn:hover {
+		color: $black;
+		background-color: $white;
+		font-weight: bold;
+		border: 2px solid $third-color;
+	}
+}
+.accordion {
+	&__btn {
+		border: 1px solid $white;
+		background-image: url(../../icons/drop-down-white.png);
 	}
 }
 @media (min-width: 2000px) {

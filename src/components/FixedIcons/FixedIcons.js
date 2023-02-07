@@ -22,12 +22,6 @@ const FixedIcons = () => {
 					<div className='github-icon'></div>
 				</a>
 			</div>
-			<div className=' fixed-icons--mobile fixed-icons__github--mobile'>
-				<a href={fetchedata.github_link} target='_blank' rel='noreferrer'>
-					<p>Github</p>
-					<div className='github-icon'></div>
-				</a>
-			</div>
 		</>
 	);
 };

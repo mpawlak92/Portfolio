@@ -9,7 +9,8 @@ import { ThemeContext } from '../../App';
 import MenuBar from './Menu_bar';
 import ReactSwitch from 'react-switch';
 import './Hamburger_menuPanel.scss';
-import FixedIcons from '../FixedIcons/FixedIcons';
+
+import { aboutmeData } from '../Aboutme/AboutMeSlice';
 
 const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 	const cookies = new Cookies();
@@ -17,6 +18,7 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 	const dispatch = useDispatch();
 	const { theme, themeToogle } = useContext(ThemeContext);
 	const [isModalActive, setIsModalActive] = useState(false);
+	const fetchedata = useSelector(aboutmeData);
 
 	const handleLoginBtn = () => {
 		if (isLogged) {
@@ -68,7 +70,12 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 						<label>{theme === 'light' ? 'Light mode' : 'Dark mode'}</label>
 						<ReactSwitch onChange={themeToogle} checked={theme === 'light'} />
 					</div>
-					<FixedIcons />
+					<div className=' fixed-icons--mobile fixed-icons__github--mobile'>
+						<a href={fetchedata.github_link} target='_blank' rel='noreferrer'>
+							<p>Github</p>
+							<div className='github-icon'></div>
+						</a>
+					</div>
 
 					<LoginForm
 						isModalActive={isModalActive}
