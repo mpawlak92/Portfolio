@@ -97,12 +97,12 @@ const ProjectCard = ({
 
 			{/* //--------------------- */}
 			<div className='accordion'>
-				<button
+				<div
 					className='accordion__btn'
 					style={{
 						transform: isaccordionActive != null ? 'rotateX(180deg)' : '',
 					}}
-					onClick={handleAccordion}></button>
+					onClick={handleAccordion}></div>
 				<div
 					className='accordion__info'
 					style={{
