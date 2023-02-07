@@ -38,7 +38,7 @@ const MenuBar = ({ click, site }) => {
 		<div style={style} className='menu-bar'>
 			{isloged ? <div className='menu-bar__avatar'></div> : null}
 			{windowSize.innerWidth < 800 ? (
-				<button className={btnStyle} onClick={click}></button>
+				<div className={btnStyle} onClick={click}></div>
 			) : null}
 			{windowSize.innerWidth >= 800 ? <DesctopMenu /> : null}
 		</div>
