@@ -50,8 +50,8 @@ const Modal = ({
 	};
 	return ReactDOM.createPortal(
 		<dialog
-			className='modal '
-			id={theme}
+			className={'modal ' + theme}
+			// id={theme}
 			ref={modalRef}
 			onClick={handleOutsideClick}>
 			{children}

@@ -88,7 +88,7 @@
 		}
 	}
 }
-#light .modal {
+.light .modal {
 	&__wrapper {
 		background-color: $primary-color;
 	}
@@ -121,7 +121,7 @@
 		}
 	}
 }
-#dark .modal {
+.dark .modal {
 	&__wrapper {
 		background-color: $third-color;
 	}
