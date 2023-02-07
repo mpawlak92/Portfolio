@@ -72,7 +72,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 				<input
 					className='modal__input--login-form'
 					type='text'
-					id='user'
+					// id='user'
 					name='username'
 					value={userInput}
 					onChange={handleUserInput}
@@ -83,7 +83,7 @@ const LoginForm = ({ handleOnClose, isModalActive }) => {
 				<input
 					className='modal__input--login-form'
 					type='password'
-					id='pass'
+					// id='pass'
 					name='password'
 					value={passwordInput}
 					onChange={handlePasswordInput}
