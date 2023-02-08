@@ -50,7 +50,7 @@ const AboutMeSlice = createSlice({
 			})
 			.addCase(fetchAboutMeData.rejected, (state, action) => {
 				state.status = 'failed';
-				console.log(action.error.message);
+				// console.log(action.error.message);
 				state.error = action.error.message;
 			})
 			//--------------------------------------------

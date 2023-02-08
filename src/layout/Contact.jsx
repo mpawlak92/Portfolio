@@ -12,6 +12,7 @@ import GoogleMap from '../components/Contact/GoogleMap';
 import Loading from '../components/Loading/Loading';
 
 import './Contact.scss';
+import ApiConnectionErrorPage from '../components/ApiConnectionErrorPage/ApiConnectionErrorPage';
 const Contact = () => {
 	const dispatch = useDispatch();
 	const isLoged = useSelector((state) => state.login.isUserLogeed);
@@ -35,7 +36,7 @@ const Contact = () => {
 			</div>
 		);
 	} else if (fetchStatus === 'failed') {
-		return <p>{fetchError}</p>;
+		return <ApiConnectionErrorPage message={fetchError} />;
 	}
 };
 

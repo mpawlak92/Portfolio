@@ -17,7 +17,10 @@ const FixedIcons = () => {
 				<div className='theme-icon'></div>
 			</div>
 			<div className='fixed-icons fixed-icons__github'>
-				<a href={fetchedata.github_link} target='_blank' rel='noreferrer'>
+				<a
+					href={fetchedata.github_link || 'https://github.com/mpawlak92'}
+					target='_blank'
+					rel='noreferrer'>
 					<p>Github</p>
 					<div className='github-icon'></div>
 				</a>

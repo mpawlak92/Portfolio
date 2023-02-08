@@ -6,6 +6,7 @@ import {
 	aboutmeDataFetchError,
 	fetchAboutMeData,
 } from '../components/Aboutme/AboutMeSlice';
+import ApiConnectionErrorPage from '../components/ApiConnectionErrorPage/ApiConnectionErrorPage';
 
 import Loading from '../components/Loading/Loading';
 import HamburgerMenuPanel from '../components/Menu/Hamburger_MenuPanel';
@@ -48,7 +49,7 @@ const Menu = () => {
 			</>
 		);
 	} else if (fetchStatus === 'failed') {
-		return <p>{fetchError}</p>;
+		return <ApiConnectionErrorPage message={fetchError} />;
 	}
 };
 

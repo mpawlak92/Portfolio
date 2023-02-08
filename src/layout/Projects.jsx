@@ -20,6 +20,7 @@ import ProjectsFooter from '../components/Project/ProjectsFooter';
 import ProjectCard from '../components/Project/Project_card';
 
 import './Projects.scss';
+import ApiConnectionErrorPage from '../components/ApiConnectionErrorPage/ApiConnectionErrorPage';
 
 const Projects = () => {
 	const dispatch = useDispatch();
@@ -81,9 +82,9 @@ const Projects = () => {
 			</div>
 		);
 	} else if (fetchStatus === 'failed') {
-		return <p>{fetchError}</p>;
+		return <ApiConnectionErrorPage message={fetchError} />;
 	} else if (fetchAboutmeStatus === 'failed') {
-		return <p>{fetchAboutmeError}</p>;
+		return <ApiConnectionErrorPage message={fetchAboutmeError} />;
 	}
 };
 

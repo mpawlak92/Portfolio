@@ -18,6 +18,7 @@ import PhotoAboutme from '../components/Aboutme/PhotoAboutMe';
 import EditMsgAboutMe from '../components/Aboutme/EditMsgAboutMe';
 
 import './AboutMe.scss';
+import ApiConnectionErrorPage from '../components/ApiConnectionErrorPage/ApiConnectionErrorPage';
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const Home = () => {
 			</div>
 		);
 	} else if (fetchStatus === 'failed') {
-		return <p>{fetchError}</p>;
+		return <ApiConnectionErrorPage message={fetchError} />;
 	}
 };
 
