@@ -100,7 +100,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				/>
 
 				<label className='modal__label--left'>
-					Technologys(have to be separated b comma with spaces eg: HTML, CSS,
+					Technologys(have to be separated by comma with spaces eg: HTML, CSS,
 					BEM):
 				</label>
 				<input

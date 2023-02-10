@@ -85,12 +85,12 @@ const ProjectCard = ({
 			<div className='project-card__btns'>
 				{isUserLogeed === true && (
 					<button className='project-card__edit-btn' onClick={handleEditBtn}>
-						Edutuj
+						Edit
 					</button>
 				)}
 				{isUserLogeed === true && (
 					<button className='project-card__del-btn' onClick={handleDeleteBtn}>
-						Usuń
+						Delete
 					</button>
 				)}
 			</div>

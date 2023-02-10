@@ -26,7 +26,7 @@ const ProjectsFooter = ({ data, isUserLogeed }) => {
 
 			{isUserLogeed === true && (
 				<button className='projects-footer__add-btn' onClick={handleAddBtn}>
-					Dodaj nowy projekt
+					Add new project
 				</button>
 			)}
 			<ProjectAddForm

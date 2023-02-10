@@ -58,7 +58,7 @@ const ContactInfo = ({ isUserLogeed }) => {
 			</ul>
 			{isUserLogeed === true && (
 				<button className='contact-info__edit-btn' onClick={handleEditBtn}>
-					Edytuj
+					Edit
 				</button>
 			)}
 
