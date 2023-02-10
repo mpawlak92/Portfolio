@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 import './ContactForm.scss';
@@ -24,6 +24,16 @@ const ContactForm = () => {
 	const form = useRef();
 	const captchaRef = useRef(null);
 
+	useEffect(() => {
+		if (isError) {
+			disableBtn();
+		} else {
+			console.log(isRechaptcha);
+			if ((isRechaptcha === true) & (isError === false)) {
+				enableBtn();
+			}
+		}
+	}, [isError, isRechaptcha]);
 	function onChange(e) {
 		const token = captchaRef.current.getValue();
 
@@ -171,16 +181,19 @@ const ContactForm = () => {
 			messageInputValue !== '' &&
 			mailInputValue !== ''
 		) {
-			console.log(isRechaptcha);
-			if (isRechaptcha === true) {
-				setIsError(false);
-			}
+			setIsError(false);
 		} else {
 			setIsError(true);
 		}
 	};
 	const handlePopUpClose = () => {
 		setIsPopUpActive(false);
+	};
+	const enableBtn = () => {
+		document.querySelector('.contact-form__submit-btn').disabled = false;
+	};
+	const disableBtn = () => {
+		document.querySelector('.contact-form__submit-btn').disabled = true;
 	};
 	return (
 		<>
@@ -257,10 +270,7 @@ const ContactForm = () => {
 						hl='en'
 						onChange={onChange}
 					/>
-					<button
-						className='contact-form__submit-btn'
-						type='submit'
-						disabled={isError}>
+					<button className='contact-form__submit-btn' type='submit'>
 						Submit
 					</button>
 				</form>
