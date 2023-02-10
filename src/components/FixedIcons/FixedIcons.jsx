@@ -13,7 +13,11 @@ const FixedIcons = () => {
 	return (
 		<>
 			<div className='fixed-icons fixed-icons__theme'>
-				<ReactSwitch onChange={themeToogle} checked={theme === 'light'} />
+				<ReactSwitch
+					aria-label='pongo'
+					onChange={themeToogle}
+					checked={theme === 'light'}
+				/>
 				<div className='theme-icon'></div>
 			</div>
 			<div className='fixed-icons fixed-icons__github'>
