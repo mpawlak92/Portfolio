@@ -4,6 +4,8 @@ import emailjs from '@emailjs/browser';
 import './ContactForm.scss';
 import ContactFormMsg from './ContactFormMessage';
 import Typewriter from 'typewriter-effect';
+import ReCAPTCHA from 'react-google-recaptcha';
+import request from '../../helpers/request';
 //flags for form error
 let msgError = 0,
 	phoneError = 0,
@@ -17,11 +19,25 @@ const ContactForm = () => {
 	const [messageInputValue, setMessageInputValue] = useState('');
 	const [isError, setIsError] = useState(true);
 	const [isPopUpActive, setIsPopUpActive] = useState(false);
+	const [isRechaptcha, setIsRechaptcha] = useState(false);
 
 	const form = useRef();
+	const captchaRef = useRef(null);
+
+	function onChange(e) {
+		const token = captchaRef.current.getValue();
+
+		request.post('/recaptcha', token).then((response) => {
+			console.log(response.status);
+			if (response.status === 200) {
+				setIsRechaptcha(true);
+			} else {
+				setIsRechaptcha(false);
+			}
+		});
+	}
 	const handleSubmitForm = (e) => {
 		e.preventDefault();
-
 		//sending email with emailjs.com
 		emailjs
 			.sendForm(
@@ -45,6 +61,9 @@ const ContactForm = () => {
 				}
 			);
 
+		//reseting recaptcha
+		captchaRef.current.reset();
+		setIsRechaptcha(false);
 		//clear all formwields - set white bgc in input and textarea
 		setNameInputValue('');
 		setPhoneInputValue('');
@@ -152,7 +171,10 @@ const ContactForm = () => {
 			messageInputValue !== '' &&
 			mailInputValue !== ''
 		) {
-			setIsError(false);
+			console.log(isRechaptcha);
+			if (isRechaptcha === true) {
+				setIsError(false);
+			}
 		} else {
 			setIsError(true);
 		}
@@ -227,8 +249,14 @@ const ContactForm = () => {
 						maxLength='500'
 						value={messageInputValue}
 						onChange={handleInput}></textarea>
-
 					<div className='contact-form__error-info'></div>
+					<ReCAPTCHA
+						ref={captchaRef}
+						className='contact-form__recaptcha'
+						sitekey={process.env.REACT_APP_RECAPTHA_SITE_KEY}
+						hl='en'
+						onChange={onChange}
+					/>
 					<button
 						className='contact-form__submit-btn'
 						type='submit'

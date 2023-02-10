@@ -70,6 +70,10 @@
 			transform: scale(1);
 		}
 	}
+	&__recaptcha {
+		align-self: flex-end;
+		margin-bottom: 2rem;
+	}
 }
 .contact-form-heading {
 	margin: 1rem 0;

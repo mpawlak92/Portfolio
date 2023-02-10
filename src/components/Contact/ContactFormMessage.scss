@@ -10,6 +10,7 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 3rem;
+	color: $black;
 	text-align: center;
 }
 .msg-close {
@@ -21,24 +22,13 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 0 0;
+	color: $black;
+	background-image: url(../../icons/icons-close-hamburger.svg);
 	&:hover {
 		cursor: pointer;
 	}
 }
-#light .msg {
-	color: $black;
-}
-#dark .msg {
-	color: $white;
-}
-#light .msg-close {
-	color: $black;
-	background-image: url(../../icons/icons-close-hamburger.svg);
-}
-#dark .msg-close {
-	color: $white;
-	background-image: url(../../icons/icons-close-hamburger-white.svg);
-}
+
 @media (min-width: 992px) {
 	.msg {
 		font-size: 5rem;
