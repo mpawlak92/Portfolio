@@ -31,7 +31,8 @@ const Menu = () => {
 	};
 
 	if (fetchStatus === 'loading') {
-		return <Loading />;
+		//dont render error because <Loading /> component is rendeing on each page what causes double rendering <Loading /> component
+		return;
 	} else if (fetchStatus === 'succeeded') {
 		return (
 			<>
@@ -48,7 +49,7 @@ const Menu = () => {
 			</>
 		);
 	} else if (fetchStatus === 'failed') {
-		//dont render error becouse this same error is rendeing on each page
+		//dont render error because this same error is rendeing on each page
 		return;
 	}
 };
