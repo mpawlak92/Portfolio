@@ -44,7 +44,7 @@ const DesctopMenu = ({ click }) => {
 					About me
 				</NavLink>
 				<NavLink
-					to='/projects'
+					to='/Portfolio/projects'
 					className={({ isActive }) =>
 						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
 					}
@@ -52,7 +52,7 @@ const DesctopMenu = ({ click }) => {
 					Portfolio
 				</NavLink>
 				<NavLink
-					to='/contact'
+					to='/Portfolio/contact'
 					className={({ isActive }) =>
 						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
 					}

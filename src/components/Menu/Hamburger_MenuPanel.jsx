@@ -52,12 +52,12 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 						About me
 					</Link>
 					<Link
-						to='/projects'
+						to='/Portfolio/projects'
 						className='hamburger-panel__link'
 						onClick={click}>
 						Portfolio
 					</Link>
-					<Link to='/contact' className='hamburger-panel__link' onClick={click}>
+					<Link to='/Portfolio/contact' className='hamburger-panel__link' onClick={click}>
 						Contact
 					</Link>
 					<Link
