@@ -1,0 +1,38 @@
+@import '../../sass/Variables.scss';
+.Not-found-page {
+	max-width: 100vw;
+	min-height: 100vh;
+	margin-top: -60px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	font-size: 4rem;
+	overflow: hidden;
+	&__img {
+		width: 100%;
+	}
+	&__message {
+		width: 100%;
+		text-align: center;
+	}
+}
+#light .Not-found-page {
+	color: $black;
+}
+#dark .Not-found-page {
+	color: $white;
+}
+
+@media (min-width: 992px) {
+	.Not-found-page {
+		&__img {
+			width: 30%;
+		}
+		&__message {
+			width: 20%;
+		}
+	}
+}

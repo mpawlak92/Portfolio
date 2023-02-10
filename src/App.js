@@ -13,6 +13,7 @@ import Cookies from 'universal-cookie';
 import { useEffect } from 'react';
 import { createContext } from 'react';
 import FixedIcons from './components/FixedIcons/FixedIcons';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 export const ThemeContext = createContext(null);
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
 			<div id={theme}>
 				<Menu />
 				<Routes>
+					<Route path='*' element={<NotFoundPage />} />
 					<Route path='/' element={<AboutMe />}></Route>
 					<Route path='/projects' element={<Projects />}></Route>
 					<Route path='/contact' element={<Contact />}></Route>
