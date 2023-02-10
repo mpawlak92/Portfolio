@@ -64,8 +64,8 @@ const App = () => {
 				<Routes>
 					<Route path='*' element={<NotFoundPage />} />
 					<Route path='/Portfolio' element={<AboutMe />}></Route>
-					<Route path='/projects' element={<Projects />}></Route>
-					<Route path='/contact' element={<Contact />}></Route>
+					<Route path='/Portfolio/projects' element={<Projects />}></Route>
+					<Route path='/Portfolio/contact' element={<Contact />}></Route>
 				</Routes>
 				<FixedIcons />
 			</div>
