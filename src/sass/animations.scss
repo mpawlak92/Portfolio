@@ -35,3 +35,11 @@
 		opacity: 0;
 	}
 }
+@keyframes project_card_move_in {
+	from {
+		transform: translateX(-120vw);
+	}
+	to {
+		transform: translateX(0);
+	}
+}

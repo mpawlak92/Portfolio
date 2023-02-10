@@ -56,7 +56,9 @@ const Projects = () => {
 			}, 3000);
 		}
 	};
+
 	// dishapiredMessage();
+
 	if (fetchStatus && fetchAboutmeStatus === 'loading') {
 		return <Loading />;
 	} else if (fetchStatus && fetchAboutmeStatus === 'succeeded') {
@@ -72,6 +74,9 @@ const Projects = () => {
 					{projectsEditStatusMessage}
 				</div>
 
+				{/* {fetchedData.map((project) => (
+					<ProjectCard key={project._id} {...project} isUserLogeed={isLoged} />
+				))} */}
 				{fetchedData.map((project) => (
 					<ProjectCard key={project._id} {...project} isUserLogeed={isLoged} />
 				))}

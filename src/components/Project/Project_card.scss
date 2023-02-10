@@ -10,7 +10,8 @@
 	padding: 10px;
 	min-height: 200px;
 	border-radius: 10px;
-
+	animation: 0.8s 1 normal project_card_move_in;
+	animation-fill-mode: forwards;
 	&__photo {
 		position: relative;
 		display: flex;
