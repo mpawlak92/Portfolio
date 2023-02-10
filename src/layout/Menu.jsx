@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
 	aboutmeData,
 	aboutmeDataFetchStatus,
-	aboutmeDataFetchError,
+	// aboutmeDataFetchError,
 	fetchAboutMeData,
 } from '../components/Aboutme/AboutMeSlice';
-import ApiConnectionErrorPage from '../components/ApiConnectionErrorPage/ApiConnectionErrorPage';
 
 import Loading from '../components/Loading/Loading';
 import HamburgerMenuPanel from '../components/Menu/Hamburger_MenuPanel';
@@ -19,7 +18,7 @@ const Menu = () => {
 
 	const fetchedData = useSelector(aboutmeData);
 	const fetchStatus = useSelector(aboutmeDataFetchStatus);
-	const fetchError = useSelector(aboutmeDataFetchError);
+	// const fetchError = useSelector(aboutmeDataFetchError);
 
 	useEffect(() => {
 		if (fetchStatus === 'idle') {
@@ -49,7 +48,8 @@ const Menu = () => {
 			</>
 		);
 	} else if (fetchStatus === 'failed') {
-		return <ApiConnectionErrorPage message={fetchError} />;
+		//dont render error becouse this same error is rendeing on each page
+		return;
 	}
 };
 
