@@ -118,7 +118,6 @@ const ProjectsSlice = createSlice({
 			})
 			.addCase(fetchProjects.rejected, (state, action) => {
 				state.projectStatus = 'failed';
-				alert(action.error.message);
 				state.error = action.error.message;
 			})
 			//----------------------------------------------
