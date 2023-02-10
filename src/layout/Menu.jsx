@@ -7,7 +7,7 @@ import {
 	fetchAboutMeData,
 } from '../components/Aboutme/AboutMeSlice';
 
-import Loading from '../components/Loading/Loading';
+// import Loading from '../components/Loading/Loading';
 import HamburgerMenuPanel from '../components/Menu/Hamburger_MenuPanel';
 import MenuBar from '../components/Menu/Menu_bar';
 
