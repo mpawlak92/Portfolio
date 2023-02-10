@@ -7,7 +7,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 80vw;
-	min-height: 80vh;
+	min-height: auto;
 	height: auto;
 	padding: 1rem;
 	border: 2px solid black;
@@ -32,12 +32,12 @@
 	}
 	&__label {
 		display: flex;
-		font-size: 2rem;
+		font-size: 1.5rem;
 
 		&--left {
-			width: 100%;
+			width: 90%;
 			margin-left: 5%;
-			font-size: 2rem;
+			font-size: 1.5rem;
 			align-self: flex-start;
 		}
 	}
@@ -171,9 +171,8 @@
 		}
 	}
 }
-@media (min-height: 900px) {
+@media (max-height: 900px) and (min-width: 800px) {
 	.modal {
-		min-height: auto;
-		height: auto;
+		min-height: 80vh;
 	}
 }
