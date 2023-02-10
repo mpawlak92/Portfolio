@@ -48,7 +48,7 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 					site={'menu_panel'}
 				/>
 				<div className='hamburger-panel__menu'>
-					<Link to='/' className='hamburger-panel__link' onClick={click}>
+					<Link to='/Portfolio' className='hamburger-panel__link' onClick={click}>
 						About me
 					</Link>
 					<Link

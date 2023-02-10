@@ -36,7 +36,7 @@ const DesctopMenu = ({ click }) => {
 		<>
 			<div className='desctop_menu'>
 				<NavLink
-					to='/'
+					to='/Portfolio'
 					className={({ isActive }) =>
 						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
 					}
