@@ -40,7 +40,8 @@ const DesctopMenu = ({ click }) => {
 					className={({ isActive }) =>
 						isActive ? 'desctop_menu__link--active' : 'desctop_menu__link'
 					}
-					onClick={click}>
+					onClick={click}
+					end>
 					About me
 				</NavLink>
 				<NavLink
