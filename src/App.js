@@ -61,11 +61,11 @@ const App = () => {
 		<ThemeContext.Provider value={{ theme, setTheme, themeToogle }}>
 			<div id={theme}>
 				<Menu />
-				<Routes basename='/portfolio'>
+				<Routes basename='/Portfolio'>
 					<Route path='*' element={<NotFoundPage />} />
-					<Route path='/portfolio' element={<AboutMe />}></Route>
-					<Route path='/portfolio/projects' element={<Projects />}></Route>
-					<Route path='/portfolio/contact' element={<Contact />}></Route>
+					<Route path='/Portfolio' element={<AboutMe />}></Route>
+					<Route path='/Portfolio/projects' element={<Projects />}></Route>
+					<Route path='/Portfolio/contact' element={<Contact />}></Route>
 				</Routes>
 				<FixedIcons />
 			</div>
