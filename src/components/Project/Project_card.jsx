@@ -11,6 +11,7 @@ const ProjectCard = ({
 	description,
 	technologys,
 	git_link,
+	demo_link,
 	projectCover,
 	isUserLogeed,
 }) => {
@@ -37,6 +38,9 @@ const ProjectCard = ({
 
 	const handleGitBtn = () => {
 		window.open(git_link);
+	};
+	const handleDemoBtn = () => {
+		window.open(demo_link);
 	};
 
 	const setProjectTitle = () => {
@@ -78,7 +82,9 @@ const ProjectCard = ({
 				}}
 				data-title_1=''
 				data-title_2=''></div>
-			<button className='project-card__btn'>Demo</button>
+			<button className='project-card__btn' onClick={handleDemoBtn}>
+				Demo
+			</button>
 			<button className='project-card__btn' onClick={handleGitBtn}>
 				Git
 			</button>

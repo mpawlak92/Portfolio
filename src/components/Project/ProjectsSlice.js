@@ -25,6 +25,7 @@ export const updateProjects = createAsyncThunk(
 		formData.append('description', data.description);
 		formData.append('technologys', data.technologys);
 		formData.append('git_link', data.git_link);
+		formData.append('demo_link', data.demo_link);
 		formData.append('cover', data.image);
 
 		const config = {
@@ -41,6 +42,7 @@ export const updateProjects = createAsyncThunk(
 			description: data.description,
 			technologys: data.technologys,
 			git_link: data.git_link,
+			demo_link: data.demo_link,
 			projectCover: response.data.updatedProject.projectCover,
 		};
 		if (response.status === 201) {
@@ -62,6 +64,7 @@ export const addProjects = createAsyncThunk(
 		formData.append('description', data.description);
 		formData.append('technologys', data.technologys);
 		formData.append('git_link', data.git_link);
+		formData.append('demo_link', data.demo_link);
 		formData.append('cover', data.image);
 
 		const config = {
@@ -73,6 +76,7 @@ export const addProjects = createAsyncThunk(
 			description: data.description,
 			technologys: data.technologys,
 			git_link: data.git_link,
+			demo_link: data.demo_link,
 			projectCover: response.data.projectCover,
 		};
 		if (response.status === 201) {

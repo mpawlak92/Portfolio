@@ -10,6 +10,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 
 	const [titleInput, setTitleInput] = useState(data[index].name);
 	const [gitLinkInput, setGitLinkInput] = useState(data[index].git_link);
+	const [demoLinkInput, setDemoLinkInput] = useState(data[index].demo_link);
 	const [descriptionText, setDescriptionText] = useState(
 		data[index].description
 	);
@@ -28,6 +29,9 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 	const handleGitLinkInput = (e) => {
 		setGitLinkInput(e.target.value);
 	};
+	const handleDemoLinkInput = (e) => {
+		setDemoLinkInput(e.target.value);
+	};
 	const handleDescriptionText = (e) => {
 		setDescriptionText(e.target.value);
 	};
@@ -45,6 +49,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				description: descriptionText,
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
+				demo_link: demoLinkInput,
 				image: selectedFile,
 			};
 
@@ -90,7 +95,13 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 					value={gitLinkInput}
 					onChange={handleGitLinkInput}
 				/>
-
+				<label className='modal__label--left'>Demo link:</label>
+				<input
+					className='modal__input'
+					type='text'
+					value={demoLinkInput}
+					onChange={handleDemoLinkInput}
+				/>
 				<label className='modal__label--left'>Description:</label>
 				<input
 					className='modal__input'

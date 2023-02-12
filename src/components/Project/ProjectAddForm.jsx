@@ -7,6 +7,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const dispatch = useDispatch();
 	const [titleInput, setTitleInput] = useState('');
 	const [gitLinkInput, setGitLinkInput] = useState('');
+	const [demoLinkInput, setDemoLinkInput] = useState('');
 	const [descriptionText, setDescriptionText] = useState('');
 	const [technologysInput, setTechnologysInput] = useState('');
 	const [editError, setEditError] = useState(false);
@@ -20,6 +21,9 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	const handleGitLinkInput = (e) => {
 		setGitLinkInput(e.target.value);
 	};
+	const handleDemoLinkInput = (e) => {
+		setDemoLinkInput(e.target.value);
+	};
 	const handleDescriptionText = (e) => {
 		setDescriptionText(e.target.value);
 	};
@@ -30,6 +34,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 		setTechnologysInput('');
 		setDescriptionText('');
 		setGitLinkInput('');
+		setDemoLinkInput('');
 		setTitleInput('');
 		coverRef.current.value = null;
 	};
@@ -43,6 +48,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 				description: descriptionText,
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
+				demo_link: demoLinkInput,
 				image: selectedFile,
 			};
 
@@ -94,6 +100,13 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 					type='text'
 					value={gitLinkInput}
 					onChange={handleGitLinkInput}
+				/>
+				<label className='modal__label--left'>Demo link:</label>
+				<input
+					className='modal__input'
+					type='text'
+					value={demoLinkInput}
+					onChange={handleDemoLinkInput}
 				/>
 
 				<label className='modal__label--left'>Description:</label>
