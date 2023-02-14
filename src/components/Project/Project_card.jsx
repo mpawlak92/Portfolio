@@ -69,8 +69,8 @@ const ProjectCard = ({
 		setProjectTitle();
 	});
 
-	let photoUrl =
-		process.env.REACT_APP_API_URL + projectCover.replace(/\\/g, '/');
+	// let photoBase64 =
+	// 	process.env.REACT_APP_API_URL + projectCover.replace(/\\/g, '/');
 
 	return (
 		<div className='project-card'>
@@ -78,7 +78,7 @@ const ProjectCard = ({
 				ref={projectCardPhotoRef}
 				className='project-card__photo'
 				style={{
-					backgroundImage: 'url(' + photoUrl + ')',
+					backgroundImage: 'url(data:image/jpeg;base64,' + projectCover + ')',
 				}}
 				data-title_1=''
 				data-title_2=''></div>
