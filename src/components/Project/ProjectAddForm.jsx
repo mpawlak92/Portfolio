@@ -49,7 +49,7 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
 				demo_link: demoLinkInput,
-				image: selectedFile,
+				projectCover: selectedFile,
 			};
 
 			dispatch(addProjects(editedObject));
@@ -62,9 +62,24 @@ const ProjectAddForm = ({ handleOnClose, isModalActive }) => {
 	};
 	const handleFileSelect = (e) => {
 		const fileObj = e.target.files[0];
-		setSelectedFile(e.target.files[0]);
 		if (!fileObj) {
 			return;
+		} else {
+			//covert file to base64
+
+			// Encode the file using the FileReader API
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				// Use a regex to remove data url part
+				const base64String = reader.result
+					.replace('data:', '')
+					.replace(/^.+,/, '');
+
+				// console.log(base64String);
+				// Logs wL2dvYWwgbW9yZ...
+				setSelectedFile(base64String);
+			};
+			reader.readAsDataURL(fileObj);
 		}
 	};
 	return (

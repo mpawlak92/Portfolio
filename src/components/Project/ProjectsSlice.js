@@ -16,73 +16,29 @@ export const fetchProjects = createAsyncThunk(
 		return response.data;
 	}
 );
-export const updateProjects = createAsyncThunk(
-	'projects/updateProjects',
+export const addProjects = createAsyncThunk(
+	'projects/addProjects',
 	async (data) => {
-		let formData = new FormData(); //formdata object
-
-		formData.append('name', data.name); //append the values with key, value pair
-		formData.append('description', data.description);
-		formData.append('technologys', data.technologys);
-		formData.append('git_link', data.git_link);
-		formData.append('demo_link', data.demo_link);
-		formData.append('cover', data.image);
-
-		const config = {
-			headers: { 'content-type': 'multipart/form-data' },
-		};
-		const response = await request.patch(
-			`/projects/${data._id}`,
-			formData,
-			config
-		);
-		const newData = {
-			_id: data._id,
-			name: data.name,
-			description: data.description,
-			technologys: data.technologys,
-			git_link: data.git_link,
-			demo_link: data.demo_link,
-			projectCover: response.data.updatedProject.projectCover,
-		};
+		const response = await request.post('/projects', data);
 		if (response.status === 201) {
 			return {
 				message: response.data.message,
-				data: newData,
+				data: response.data,
 			};
 		} else {
 			return response.data;
 		}
 	}
 );
-export const addProjects = createAsyncThunk(
-	'projects/addProjects',
+export const updateProjects = createAsyncThunk(
+	'projects/updateProjects',
 	async (data) => {
-		let formData = new FormData(); //formdata object
+		const response = await request.patch(`/projects/${data._id}`, data);
 
-		formData.append('name', data.name); //append the values with key, value pair
-		formData.append('description', data.description);
-		formData.append('technologys', data.technologys);
-		formData.append('git_link', data.git_link);
-		formData.append('demo_link', data.demo_link);
-		formData.append('cover', data.image);
-
-		const config = {
-			headers: { 'content-type': 'multipart/form-data' },
-		};
-		const response = await request.post('/projects', formData, config);
-		const newData = {
-			name: data.name,
-			description: data.description,
-			technologys: data.technologys,
-			git_link: data.git_link,
-			demo_link: data.demo_link,
-			projectCover: response.data.projectCover,
-		};
 		if (response.status === 201) {
 			return {
 				message: response.data.message,
-				data: { _id: response.data._id, ...newData },
+				data: response.data,
 			};
 		} else {
 			return response.data;

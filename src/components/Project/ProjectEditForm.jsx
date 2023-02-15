@@ -50,7 +50,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 				technologys: technologys.split(','),
 				git_link: gitLinkInput,
 				demo_link: demoLinkInput,
-				image: selectedFile,
+				projectCover: selectedFile,
 			};
 
 			dispatch(updateProjects(editedObject));
@@ -61,7 +61,28 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 			setEditError(true);
 		}
 	};
+	const handleFileSelect = (e) => {
+		const fileObj = e.target.files[0];
+		if (!fileObj) {
+			return;
+		} else {
+			//covert file to base64
 
+			// Encode the file using the FileReader API
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				// Use a regex to remove data url part
+				const base64String = reader.result
+					.replace('data:', '')
+					.replace(/^.+,/, '');
+
+				// console.log(base64String);
+				// Logs wL2dvYWwgbW9yZ...
+				setSelectedFile(base64String);
+			};
+			reader.readAsDataURL(fileObj);
+		}
+	};
 	return (
 		<Modal
 			handleOnClose={handleOnClose}
@@ -84,9 +105,7 @@ const ProjectEditForm = ({ id, handleOnClose, isModalActive }) => {
 					className='modal__input'
 					type='file'
 					name='cover'
-					onChange={(e) => {
-						setSelectedFile(e.target.files[0]);
-					}}
+					onChange={handleFileSelect}
 				/>
 				<label className='modal__label--left'>Git link:</label>
 				<input
