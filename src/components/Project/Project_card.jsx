@@ -69,8 +69,6 @@ const ProjectCard = ({
 		setProjectTitle();
 	});
 
-	// let photoBase64 =
-	// 	process.env.REACT_APP_API_URL + projectCover.replace(/\\/g, '/');
 
 	return (
 		<div className='project-card'>

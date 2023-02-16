@@ -57,7 +57,7 @@ const Projects = () => {
 		}
 	};
 
-	// dishapiredMessage();
+	
 
 	if (fetchStatus && fetchAboutmeStatus === 'loading') {
 		return <Loading />;
