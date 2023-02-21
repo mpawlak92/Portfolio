@@ -14,7 +14,7 @@ const FixedIcons = () => {
 		<>
 			<div className='fixed-icons fixed-icons__theme'>
 				<ReactSwitch
-					aria-label='pongo'
+					aria-label='It is brightnes-mode switcher'
 					onChange={themeToogle}
 					checked={theme === 'light'}
 				/>

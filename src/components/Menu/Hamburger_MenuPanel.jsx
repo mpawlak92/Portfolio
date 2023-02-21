@@ -48,7 +48,10 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 					site={'menu_panel'}
 				/>
 				<div className='hamburger-panel__menu'>
-					<Link to='/Portfolio' className='hamburger-panel__link' onClick={click}>
+					<Link
+						to='/Portfolio'
+						className='hamburger-panel__link'
+						onClick={click}>
 						About me
 					</Link>
 					<Link
@@ -57,7 +60,10 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 						onClick={click}>
 						Portfolio
 					</Link>
-					<Link to='/Portfolio/contact' className='hamburger-panel__link' onClick={click}>
+					<Link
+						to='/Portfolio/contact'
+						className='hamburger-panel__link'
+						onClick={click}>
 						Contact
 					</Link>
 					<Link
@@ -68,7 +74,11 @@ const HamburgerMenuPanel = ({ click, menuIsActive }) => {
 					</Link>
 					<div className='brightnes-mode'>
 						<label>{theme === 'light' ? 'Light mode' : 'Dark mode'}</label>
-						<ReactSwitch onChange={themeToogle} checked={theme === 'light'} />
+						<ReactSwitch
+							aria-label='It is brightnes-mode switcher'
+							onChange={themeToogle}
+							checked={theme === 'light'}
+						/>
 					</div>
 					<div className=' fixed-icons--mobile fixed-icons__github--mobile'>
 						<a href={fetchedata.github_link} target='_blank' rel='noreferrer'>
