@@ -1,155 +1,155 @@
 @import '../../sass/Variables.scss';
 .hamburger-panel {
-	position: fixed;
-	display: flex;
-	flex-direction: row-reverse;
-	top: 0px;
-	left: -100vw;
-	width: 100vw;
-	height: 100%;
-	transition: left 0.3s;
-	overflow: auto;
-	z-index: 15;
+  position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 0px;
+  transform: translateX(-101%);
+  width: 100vw;
+  height: 100%;
+  transition: transform 0.5s;
+  overflow: auto;
+  z-index: 15;
 
-	&__isactive {
-		left: 0vw;
-	}
-	&__menu {
-		display: flex;
-		flex-direction: column;
-		width: 100vw;
-		height: calc(100% - 60px);
-		margin-top: 60px;
-		padding: 20px;
-		font-size: 8rem;
-		z-index: 12;
-	}
-	&__link {
-		margin: 1rem;
-		padding: 5px;
-		font-size: 3.5rem;
-		text-decoration: none;
-	}
+  &__isactive {
+    transform: translateX(0);
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100% - 60px);
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 8rem;
+    z-index: 12;
+  }
+  &__link {
+    margin: 1rem;
+    padding: 5px;
+    font-size: 3.5rem;
+    text-decoration: none;
+  }
 }
 .brightnes-mode {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	font-size: 2rem;
-	margin: 1rem 0;
-	label {
-		margin: 0 1rem;
-	}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+  margin: 1rem 0;
+  label {
+    margin: 0 1rem;
+  }
 }
 
 .fixed-icons {
-	&--mobile {
-		position: relative;
-		left: -3.5rem;
-		bottom: 50px;
-		width: 15rem;
-		height: 6rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 0.5rem 0 1.5rem;
-		font-size: 4rem;
-		font-weight: bold;
-		border-radius: 0 10px 10px 0;
-		box-shadow: 0px 0px 20px -10px;
-		transition: left 0.3s;
-		&:hover {
-			left: 0%;
-			cursor: pointer;
-		}
-		&__theme {
-			top: 28rem;
-		}
-		&__github {
-			top: 34rem;
-			background-color: $primary-color;
+  &--mobile {
+    position: relative;
+    left: -3.5rem;
+    bottom: 50px;
+    width: 15rem;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem 0 1.5rem;
+    font-size: 4rem;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0px 0px 20px -10px;
+    transition: left 0.3s;
+    &:hover {
+      left: 0%;
+      cursor: pointer;
+    }
+    &__theme {
+      top: 28rem;
+    }
+    &__github {
+      top: 34rem;
+      background-color: $primary-color;
 
-			a {
-				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				text-decoration: none;
-				color: $white;
-			}
-			.github-icon {
-				width: 5rem;
-				height: 5rem;
-				background-image: url(../../icons/icons-github.svg);
-			}
-		}
-	}
-	&__github--mobile {
-		top: 4rem;
-		background-color: $primary-color;
+      a {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: $white;
+      }
+      .github-icon {
+        width: 5rem;
+        height: 5rem;
+        background-image: url(../../icons/icons-github.svg);
+      }
+    }
+  }
+  &__github--mobile {
+    top: 4rem;
+    background-color: $primary-color;
 
-		a {
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			text-decoration: none;
-			color: $white;
-		}
-		.github-icon {
-			width: 5rem;
-			height: 5rem;
-			background-image: url(../../icons/icons-github.svg);
-		}
-	}
+    a {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: $white;
+    }
+    .github-icon {
+      width: 5rem;
+      height: 5rem;
+      background-image: url(../../icons/icons-github.svg);
+    }
+  }
 }
 #light .fixed-icons--mobile {
-	box-shadow: 0px 0px 20px -10px;
+  box-shadow: 0px 0px 20px -10px;
 }
 #dark .fixed-icons--mobile {
-	&__github {
-		border: 2px solid $white;
-		&--mobile {
-			border: 2px solid $white;
-		}
-	}
+  &__github {
+    border: 2px solid $white;
+    &--mobile {
+      border: 2px solid $white;
+    }
+  }
 }
 @media (min-width: 800px) {
-	.fixed-icons {
-		&--mobile {
-			display: none;
-		}
-	}
+  .fixed-icons {
+    &--mobile {
+      display: none;
+    }
+  }
 }
 
 #light .hamburger-panel {
-	background-color: $white;
-	&__menu {
-		color: rgb(45, 45, 45);
-		border: 10px solid $primary-color;
-	}
-	&__link {
-		color: $black;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	}
-	.brightnes-mode {
-		font-weight: bold;
-		color: $black;
-	}
+  background-color: $white;
+  &__menu {
+    color: rgb(45, 45, 45);
+    border: 10px solid $primary-color;
+  }
+  &__link {
+    color: $black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .brightnes-mode {
+    font-weight: bold;
+    color: $black;
+  }
 }
 #dark .hamburger-panel {
-	background-color: $third-color;
+  background-color: $third-color;
 
-	&__menu {
-		color: rgb(45, 45, 45);
-		border: 10px solid $white;
-	}
-	&__link {
-		color: $white;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-	}
-	.brightnes-mode {
-		color: $white;
-	}
+  &__menu {
+    color: rgb(45, 45, 45);
+    border: 10px solid $white;
+  }
+  &__link {
+    color: $white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .brightnes-mode {
+    color: $white;
+  }
 }
