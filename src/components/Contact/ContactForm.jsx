@@ -200,7 +200,7 @@ const ContactForm = () => {
 			<ContactFormMsg
 				msg={popUpMessage}
 				handleOnClose={handlePopUpClose}
-				isModalActive={isPopUpActive}
+				isModalActive={isPopUpActive} 
 			/>
 
 			<div className='contact-form'>

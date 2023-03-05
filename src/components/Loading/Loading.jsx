@@ -6,7 +6,7 @@ const Loading = () => {
 		<div className='loading'>
 			<img src={spinner} alt='' />
 			<h1>Loading...</h1>
-			<h2>Thanks for be patient :)</h2>
+			<h2>Thanks for being patient :)</h2>
 		</div>
 	);
 };
