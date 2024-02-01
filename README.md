@@ -1,6 +1,6 @@
 # Getting Started
 
-Demo: https://mpawlak92.github.io/Portfolio/
+Deploy: https://mpawlak92.github.io/Portfolio/
 
 Dane do zalogowania:
 
