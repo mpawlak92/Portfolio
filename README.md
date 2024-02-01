@@ -4,7 +4,7 @@ Deploy: https://mpawlak92.github.io/Portfolio/
 
 Dane do zalogowania:
 
-login: admiin
+login: admin
 
 hasło: 123456
 
